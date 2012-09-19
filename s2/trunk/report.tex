@@ -76,7 +76,7 @@ for each particle and for each configuration.
 To study multi-body correlations we use the local bond-order analysis introduced by
 \citet{steinhardt}, first applied to study crystal nucleation by
 Frenkel and co-workers~\cite{auer}. 
-The $\ell$-fold symmetry of a neighbourhood around each particle $i$ is characterised by a $(2\ell+1)$ dimensional complex vector $q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mathbf{\hat{r}_{ij}})$, where
+The $\ell$-fold symmetry of a neighbourhood around each particle $i$ is characterised by a $(2\ell+1)$ dimensional complex vector ($\mathbf{q}_l$) as $q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mathbf{\hat{r}_{ij}})$, where
 $\ell$ is a free integer parameter, and $m$ is an integer
 that runs from $m=-\ell$ to $m=\ell$. The functions $Y_{\ell m}$ are the spherical harmonics
 and $\mathbf{\hat{r}_{ij}}$ is the vector from particle $i$ to particle $j$.
@@ -85,18 +85,33 @@ $N_b(i)$ is defined by all particles within a cutoff distance, but in an inhomog
 the cutoff distance would have to change according to the local density. Instead we 
 fix $N_b(i)=12$ which is the number of nearest neighbours in icosahedra and close packed crystals (like \textsc{hcp} and \textsc{fcc})
 which are known to be the only relevant structures for hard spheres.
-If the scalar product $(\mathbf{q}_6(i)/|\mathbf{q}_6(i)|)\cdot(\mathbf{q}_6(j)/|\mathbf{q}_6(j)|)$ between
-two neighbours exceeds $0.7$ then the two particles are deemed \emph{connected}. We then identify particle $i$ as crystalline
-if it is connected with at least $7$ neighbours.
 
-A useful order parameter which is built from the previous bond-order analysis is
+In the analysis, one uses the rotational invariants defined as:
+\begin{align}
+	q_\ell =& \sqrt{\frac{4\pi}{2l+1} \sum_{m=-\ell}^{\ell} |q_{\ell m}|^2 }, \label{eq:ql}\\
+	w_\ell =& \sum_{m_1+m_2+m_3=0} 
+			\left( \begin{array}{ccc}
+				\ell & \ell & \ell \\
+				m_1 & m_2 & m_3 
+			\end{array} \right)
+			q_{\ell m_1} q_{\ell m_2} q_{\ell m_3}. \label{eq:wl}
+\end{align}
+In particular both crystalline and icosahedral neighbourhood have high $q_6$ (strong 6-fold symmetry), with the highest values for the later. To detect specifically icosahedra one prefers $w_6$, whose minimum value is obtained only by a perfect icosahedron. To detect specifically crystal-like particles, one should use their extendability: two neighbouring crystal-like neighbourhood should have similar orientation, thus similar vectorial $\mathbf{q}_6$.
+
+If the scalar product $(\mathbf{q}_6(i)/|\mathbf{q}_6(i)|)\cdot(\mathbf{q}_6(j)/|\mathbf{q}_6(j)|)$ between
+two neighbours exceeds $0.7$ then the two particles are deemed \emph{connected}. We then identify particle $i$ as crystalline if it is connected with at least $7$ neighbours. In a more continuous way, summing the contribution of all the bonds of a given particle, we define the ``crystallinity''~\cite{russo_hs}
 \begin{equation}\label{eqn:crystallinity}
  \text{C}_i=\sum_{j=0}^{N_b(i)}\frac{\mathbf{q}_6(i)\cdot\mathbf{q}_6(j)}{|\mathbf{q}_6(i)|\,|\mathbf{q}_6(j)|}.
 \end{equation}
-It measures the coarse-grained bond orientational order of particle $i$, which is a very effective order parameter to
-measure the coherence of crystal-like bond orientational order. Hereafter we call this ``crystallinity''~\cite{russo_hs}. 
-However, we note that it is not a direct indicator for the presence of crystals, but rather a measure 
-for a tendency to promote crystallization.  
+
+Alternatively, one can coarse-grain $\mathbf{q}_\ell$ over the neighbours~\cite{Lechner2008}
+\begin{equation}
+	Q_{\ell m}(i) = \frac{1}{N_i+1}\left( q_{\ell m}(i) +  \sum_{j=0}^{N_i} q_{\ell m}(j)\right), 
+	\label{eq:Qlm}
+\end{equation}
+and use the resulting invariant $Q_6$ as an indication of crystallinity.
+
+We note that both $\text{C}$ and $Q_6$ are no direct indicator for the presence of crystals, but rather measures for a tendency to promote crystallization.
 
 \section{Results}
 
