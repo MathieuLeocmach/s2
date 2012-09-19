@@ -58,16 +58,16 @@ s_2(i) = -\frac{\rho}{2}\sum_j \left[g(r_{ij})\log(g(r_{ij}))-g(r_{ij})+1\right]
 This quantity is in very good agreement with the short time average procedure when the averaging time is comparable to the $\beta$ relaxation ; however the results can be very different if the averaging time becomes comparable or longer than the $\alpha$ relaxation, like in Ref.~\cite{tanaka}.
 
 Alternatively, one can compute directly the free-energy of each configuration by
-considering the free volume, defined as the volume ($v_i$) in which each sphere can freely
+considering the free volume, defined as the volume ($v(i)$) in which each sphere can freely
 move while holding all the other spheres fixed. It has been shown~\cite{Aste2004} that this free
 volume is simply related to the pair free-energy ($f_2$) by the following relation
 \begin{equation}
-f_2=\sum_i f_2(i)=-k_BT\sum_i \log(v_i/\lambda)
+f_2=\sum_i f_2(i)=-k_BT\sum_i \log(v(i)/\lambda)
 \end{equation}
 where $\lambda$ is the thermal wavelength. To compute the free volume we follow previous
 studies: first the Voronoi-diagram for each configuration is computed, and the Polyhedron
 surrounding each particle is determined. The free volume of particle $i$ is then
-computed by shifting normally all the faces of the corresponding polyhedron by $\sigma_i/2$
+computed by shifting normally all the faces of the corresponding polyhedron by $\sigma(i)/2$
 towards particle $i$, and computing the new volume. This procedure is conducted indipendentely
 for each particle and for each configuration.
 
@@ -96,22 +96,23 @@ In the analysis, one uses the rotational invariants defined as:
 			\end{array} \right)
 			q_{\ell m_1} q_{\ell m_2} q_{\ell m_3}. \label{eq:wl}
 \end{align}
-In particular both crystalline and icosahedral neighbourhood have high $q_6$ (strong 6-fold symmetry), with the highest values for the later. To detect specifically icosahedra one prefers $w_6$, whose minimum value is obtained only by a perfect icosahedron. To detect specifically crystal-like particles, one should use their extendability: two neighbouring crystal-like neighbourhood should have similar orientation, thus similar vectorial $\mathbf{q}_6$.
+where the term in brackets in Eq.~(\ref{eq:wl}) is the Wigner 3-j symbol.
+In particular both crystalline and icosahedral neighbourhood have high $q_6$ (strong 6-fold symmetry), with the highest values for the later. To detect specifically icosahedral order one prefers $w_6$, whose minimum value is obtained only by a perfect icosahedron. To detect specifically crystal-like order, one should use their extendability: two neighbouring crystal-like neighbourhood should have similar orientation, thus similar vectorial $\mathbf{q}_6$.
 
-If the scalar product $(\mathbf{q}_6(i)/|\mathbf{q}_6(i)|)\cdot(\mathbf{q}_6(j)/|\mathbf{q}_6(j)|)$ between
-two neighbours exceeds $0.7$ then the two particles are deemed \emph{connected}. We then identify particle $i$ as crystalline if it is connected with at least $7$ neighbours. In a more continuous way, summing the contribution of all the bonds of a given particle, we define the ``crystallinity''~\cite{russo_hs}
+The scalar product $(\mathbf{q}_6(i)/|\mathbf{q}_6(i)|)\cdot(\mathbf{q}_6(j)/|\mathbf{q}_6(j)|)$ quantifies this similarity. If it exceeds $0.7$ between
+two neighbours, they are deemed \emph{connected}. We then identify a particle as crystalline if it is connected with at least $7$ neighbours~\cite{auer}. In a more continuous way, summing the contribution of all the bonds of a given particle, we define the ``crystallinity''~\cite{russo_hs}
 \begin{equation}\label{eqn:crystallinity}
- \text{C}_i=\sum_{j=0}^{N_b(i)}\frac{\mathbf{q}_6(i)\cdot\mathbf{q}_6(j)}{|\mathbf{q}_6(i)|\,|\mathbf{q}_6(j)|}.
+ \text{C}(i)=\sum_{j=0}^{N_b(i)}\frac{\mathbf{q}_6(i)\cdot\mathbf{q}_6(j)}{|\mathbf{q}_6(i)|\,|\mathbf{q}_6(j)|}.
 \end{equation}
 
-Alternatively, one can coarse-grain $\mathbf{q}_\ell$ over the neighbours~\cite{Lechner2008}
+Alternatively, one can coarse-grain $\mathbf{q}_\ell$ over the neighbours~\cite{lechner}
 \begin{equation}
-	Q_{\ell m}(i) = \frac{1}{N_i+1}\left( q_{\ell m}(i) +  \sum_{j=0}^{N_i} q_{\ell m}(j)\right), 
+	Q_{\ell m}(i) = \frac{1}{N(i)+1}\left( q_{\ell m}(i) +  \sum_{j=0}^{N(i)} q_{\ell m}(j)\right), 
 	\label{eq:Qlm}
 \end{equation}
 and use the resulting invariant $Q_6$ as an indication of crystallinity.
 
-We note that both $\text{C}$ and $Q_6$ are no direct indicator for the presence of crystals, but rather measures for a tendency to promote crystallization.
+We note that both $\text{C}$ and $Q_6$ are no direct indicator for the presence of crystals, but rather measures for a tendency to promote crystallisation.
 
 \section{Results}
 
