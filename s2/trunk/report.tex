@@ -49,9 +49,9 @@ increasing pressure.
 Due to the hard-sphere interaction, entropy is the only contribution to the system free energy.
 All two-pair correlation quantities are thus derived from the two-body excess entropy,
 defined as
-$$
+\begin{equation}
 s_2=-\frac{\rho}{2}\int dr\left[g(r)\log(g(r))-g(r)+1\right]
-$$
+\end{equation}
 In principle, $s_2$ can be calculated separately for each particle in the system,
 with fluctuations decaying over a typical lengthscale $\xi_{s_2}$. In practice, this
 requires short time averages (on timescales comparable to the $\beta$ relaxation processes)
@@ -60,9 +60,9 @@ Alternatively, one can compute directly the free-energy of each configuration by
 considering the free volume, defined as the volume ($v_i$) in which each sphere can freely
 move while holding all the other spheres fixed. It has been shown that this free
 volume is simply related to the pair free-energy ($f_2$) by the following relation
-$$
+\begin{equation}
 f_2=\sum_i f_2(i)=-k_BT\sum_i \log(v_i/\lambda)
-$$
+\end{equation}
 where $\lambda$ is the thermal wavelength. To compute the free volume we follow previous
 studies: first the Voronoi-diagram for each configuration is computed, and the Polyhedron
 surrounding each particle is determined. The free volume of particle $i$ is then
@@ -140,21 +140,21 @@ We extract lengthscale from all relevant two-body and multi-body correlation fun
 We concentrate here on the following quantities.
 The lengthscale of the fluctuations of $f_2$
 is computed through the following correlator
-$$
+\begin{equation}
 \frac{<f_2(0)f_2(r)>}{g(r)}=\frac{\sum_{j\neq k}\delta(r-r_{jk})f_2^jf_2^k}{g(r)}
-$$
+\end{equation}
 where $g(r)$ is the pair correlation function.
 
 Our multi-body correlator has instead a tensorial character, and is defined as
-$$
+\begin{equation}
 \frac{<q_6(0)q_6^*(r)>}{g(r)}=\frac{\sum_{j\neq k}\sum_{m=-6,6}\delta(r-r_{jk})q_{6m}^jq_{6m}^k*}{g(r)}
-$$
+\end{equation}
 
 Both correlation functions are reported in Fig.~\ref{fig:corr}. Correlation functions are then
 fitted with the Ornstein-Zernicke expression to extract the correlation length
-$$
+\begin{equation}
 C(r)/g(r)\cong r^{-1}\exp{-r/\xi}
-$$
+\end{equation}
 
 The relevant correlation lengths are reported in Fig.~\ref{fig:lengths}. While both
 $\xi_{q_6}$ and $\xi_{Q_6}$ grow with increasing pressure, the lengthscale associated
