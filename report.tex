@@ -1,4 +1,4 @@
-\documentclass[twocolumn,superscriptaddress]{revtex4}
+\documentclass[twocolumn,superscriptaddress]{revtex4-1}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \usepackage{amsmath}
@@ -44,10 +44,9 @@ We run isothermal-isobaric NpT Monte Carlo simulations of $N=4000$ polydisperse 
 The diameters ($\sigma$) follow a Gaussian distribution $P(\sigma)=\exp{\left[-(\sigma-\sigma_0)^2/2\,s^2\right]}/\sqrt{2\pi} s$,
 with polydispersity index $\delta=s/\sigma_0$. In the following we fix the unit of length as $\sigma_0=1$.
 
-Our aim is to compare the behaviour of both two-point quantities and multi-body quantities with
-increasing pressure.
+Our aim is to compare the behaviour of both two-point quantities and multi-body quantities with increasing pressure.
 Due to the hard-sphere interaction, entropy is the only contribution to the system free energy.
-All two-pair correlation quantities are thus derived from the two-body excess entropy,
+All two-pair correlation quantities are thus derived from the two-body excess entropy~\cite{Nettleton1958,Mountain1971},
 defined as
 \begin{equation}
 s_2=-\frac{\rho}{2}\int dr\left[g(r)\log(g(r))-g(r)+1\right]
@@ -58,7 +57,7 @@ requires short time averages (on timescales comparable to the $\beta$ relaxation
 to compute the pair correlation function of each particle, $g_i(r)$.
 Alternatively, one can compute directly the free-energy of each configuration by
 considering the free volume, defined as the volume ($v_i$) in which each sphere can freely
-move while holding all the other spheres fixed. It has been shown that this free
+move while holding all the other spheres fixed. It has been shown~\cite{Aste2004} that this free
 volume is simply related to the pair free-energy ($f_2$) by the following relation
 \begin{equation}
 f_2=\sum_i f_2(i)=-k_BT\sum_i \log(v_i/\lambda)
@@ -285,7 +284,7 @@ instead solid particles (this curve is less sensitive to polydispersity and it i
 \end{figure}
 
 
-\bibliographystyle{apsrev}
+\bibliographystyle{apsrev4-1}
 \bibliography{biblio}
 
 \end{document}
