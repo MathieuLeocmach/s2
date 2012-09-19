@@ -74,21 +74,21 @@ for each particle and for each configuration.
 
 
 To study multi-body correlations we use the local bond-order analysis introduced by
-Steinhardt et al.~\cite{steinhardt}, first applied to study crystal nucleation by
+\citet{steinhardt}, first applied to study crystal nucleation by
 Frenkel and co-workers~\cite{auer}. 
-A $(2l+1)$ dimensional complex vector ($\mathbf{q}_l$)
-is defined for each particle $i$ as $q_{lm}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{lm}(\mathbf{\hat{r}_{ij}})$, where
-$l$ is a free integer parameter, and $m$ is an integer
-that runs from $m=-l$ to $m=l$. The functions $Y_{lm}$ are the spherical harmonics
+The $\ell$-fold symmetry of a neighbourhood around each particle $i$ is characterised by a $(2\ell+1)$ dimensional complex vector $q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mathbf{\hat{r}_{ij}})$, where
+$\ell$ is a free integer parameter, and $m$ is an integer
+that runs from $m=-\ell$ to $m=\ell$. The functions $Y_{\ell m}$ are the spherical harmonics
 and $\mathbf{\hat{r}_{ij}}$ is the vector from particle $i$ to particle $j$.
 The sum goes over all neighbouring particles $N_b(i)$ of particle $i$. Usually 
 $N_b(i)$ is defined by all particles within a cutoff distance, but in an inhomogeneous system
 the cutoff distance would have to change according to the local density. Instead we 
-fix $N_b(i)=12$ which is the number of nearest neighbours in close packed crystals (like hcp and fcc)
+fix $N_b(i)=12$ which is the number of nearest neighbours in icosahedra and close packed crystals (like \textsc{hcp} and \textsc{fcc})
 which are known to be the only relevant structures for hard spheres.
 If the scalar product $(\mathbf{q}_6(i)/|\mathbf{q}_6(i)|)\cdot(\mathbf{q}_6(j)/|\mathbf{q}_6(j)|)$ between
 two neighbours exceeds $0.7$ then the two particles are deemed \emph{connected}. We then identify particle $i$ as crystalline
 if it is connected with at least $7$ neighbours.
+
 A useful order parameter which is built from the previous bond-order analysis is
 \begin{equation}\label{eqn:crystallinity}
  \text{C}_i=\sum_{j=0}^{N_b(i)}\frac{\mathbf{q}_6(i)\cdot\mathbf{q}_6(j)}{|\mathbf{q}_6(i)|\,|\mathbf{q}_6(j)|}.
@@ -148,7 +148,7 @@ where $g(r)$ is the pair correlation function.
 
 Our multi-body correlator has instead a tensorial character, and is defined as
 \begin{equation}
-\frac{<q_6(0)q_6^*(r)>}{g(r)}=\frac{\sum_{j\neq k}\sum_{m=-6,6}\delta(r-r_{jk})q_{6m}^jq_{6m}^k*}{g(r)}
+\frac{<\mathbf{q}_6(0)\mathbf{q}_6*(r)>}{g(r)}=\frac{\sum_{j\neq k}\sum_{m=-6,6}\delta(r-r_{jk})q_{6m}^jq_{6m}^k*}{g(r)}
 \end{equation}
 
 Both correlation functions are reported in Fig.~\ref{fig:corr}. Correlation functions are then
