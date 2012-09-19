@@ -51,10 +51,12 @@ defined as
 \begin{equation}
 s_2=-\frac{\rho}{2}\int dr\left[g(r)\log(g(r))-g(r)+1\right]
 \end{equation}
-In principle, $s_2$ can be calculated separately for each particle in the system,
-with fluctuations decaying over a typical lengthscale $\xi_{s_2}$. In practice, this
-requires short time averages (on timescales comparable to the $\beta$ relaxation processes)
-to compute the pair correlation function of each particle, $g_i(r)$.
+In principle, $s_2$ can be calculated separately for each particle $i$ in the system. In practice, this requires short time averages to compute the pair correlation function of each particle, $g_i(r)$\cite{tanaka}. We instead construct an approximate but instantaneous $s_2(i)$ using the global $g(r)$
+\begin{equation}
+s_2(i) = -\frac{\rho}{2}\sum_j \left[g(r_{ij})\log(g(r_{ij}))-g(r_{ij})+1\right].
+\end{equation}
+This quantity is in very good agreement with the short time average procedure when the averaging time is comparable to the $\beta$ relaxation ; however the results can be very different if the averaging time becomes comparable or longer than the $\alpha$ relaxation, like in Ref.~\cite{tanaka}.
+
 Alternatively, one can compute directly the free-energy of each configuration by
 considering the free volume, defined as the volume ($v_i$) in which each sphere can freely
 move while holding all the other spheres fixed. It has been shown~\cite{Aste2004} that this free
