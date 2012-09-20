@@ -164,6 +164,19 @@ shown in Fig.~\ref{fig:distrib} for a time difference corresponding to the $\alp
 Both fast and sow particles are a priori important to describe dynamic heterogeneities, thus we cannot discard the relevance of either two-body or multi-body parameters based on this analysis.
 
 \subsection{Length-scales}
+\begin{figure}
+	\centering
+	\includegraphics{fig_structurefactor}
+	\caption{\textbf{Structure factors} collapse on the Ornstein-Zernike form for (top) $f_2$ and (bottom) $C$. Note how the former are almost similar across pressures.}
+	\label{fig:structurefactor}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics{fig_lengths}
+	\caption{\textbf{Correlation length} extracted for two-body and multi-body scalar order parameters, function of the pressure. Only multi-body correlation lengths are increasing (only slightly for $\xi_{w_6}$), while the lenghscale associated with the two-body quantities is constant.}
+	\label{fig:Fourierlengths}
+\end{figure}
 
 We have shown previously~\cite{tanaka,kawasaki,mathieu_icosahedra,russo_gcm,russo_hs} how to compute the correlation length of the crystal-like order in real space using its tensorial nature. However, to allow the comparison with the scalar two-body parameters, we use here a single method for all parameters in Fourier space.
 
@@ -181,7 +194,7 @@ where $\Omega(\mathbf{q})$ is the Fourier transform of $\omega(i)$:
 \begin{equation}
 	\Omega(\mathbf{q}) = \sum_i \omega(i)\exp(-\imath \mathbf{q}\cdot\mathbf{r}_i).  
 \end{equation}
-The case of order parameters decreasing toward ordering (e.g. $s_2$, $w_6$) is trivially obtained by changing the sign.
+The case of order parameters decreasing toward ordering (i.e. $s_2$, $w_6$) is trivially obtained by changing the sign.
 
 As shown in Fig.~\ref{fig:structurefactor}, the small wave-vector behaviour of $S_x(q)$ is well described by the asymptotic Ornstein-Zernike function in Fourier space:
 \begin{equation}
@@ -190,58 +203,10 @@ As shown in Fig.~\ref{fig:structurefactor}, the small wave-vector behaviour of $
 \end{equation}
 where $\xi_x$ is the correlation length and $\chi_x$ the susceptibility. In general, an independent determination of $\chi_x$ is crucial for the fit~\cite{Flenner2011}. However here we deal with correlation lengths much smaller than the simulation box and both $\xi_x$ and $\chi_x$ can be reliably estimated from a two parameter fit of $S_x(q)$.
 
-
-\begin{figure}
- \centering
- \includegraphics[width=9cm]{./figures/f2_corr.eps}
- \includegraphics[width=9cm]{./figures/q6_vectorcorr.eps}
- % f2_corr.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=(atend)
- \caption{(top)Correlation function for $f_2$ at different pressures. Correlation functions are shifted
-to facilitate reading. The continuous curves (with symbols) are fits to the Ornstein-Zernicke expression.
-No apparent change in the correlation length is evident from the slopes of the fitting curves.
-(bottom)Correlation function for $q_6$ at different pressures. The continuous curves (with symbols) are fits to the Orstein-Zernicke expression,
-showing a progressive increase of the correlation length with pressure.}
- \label{fig:corr}
-\end{figure}
-
-We extract lengthscale from all relevant two-body and multi-body correlation functions.
-We concentrate here on the following quantities.
-The lengthscale of the fluctuations of $f_2$
-is computed through the following correlator
-\begin{equation}
-\frac{<f_2(0)f_2(r)>}{g(r)}=\frac{\sum_{j\neq k}\delta(r-r_{jk})f_2^jf_2^k}{g(r)}
-\end{equation}
-where $g(r)$ is the pair correlation function.
-
-Our multi-body correlator has instead a tensorial character, and is defined as
-\begin{equation}
-\frac{<\mathbf{q}_6(0)\mathbf{q}_6*(r)>}{g(r)}=\frac{\sum_{j\neq k}\sum_{m=-6,6}\delta(r-r_{jk})q_{6m}^jq_{6m}^k*}{g(r)}
-\end{equation}
-
-Both correlation functions are reported in Fig.~\ref{fig:corr}. Correlation functions are then
-fitted with the Ornstein-Zernicke expression to extract the correlation length
-\begin{equation}
-C(r)/g(r)\cong r^{-1}\exp{-r/\xi}
-\end{equation}
-
-The relevant correlation lengths are reported in Fig.~\ref{fig:lengths}. While both
-$\xi_{q_6}$ and $\xi_{Q_6}$ grow with increasing pressure, the lengthscale associated
-with the two-body correlator, $\xi_{f_2}$ remains unperturbed across all pressures.
-
-
-\begin{figure}
- \centering
- \includegraphics[width=8cm]{./figures/lenghts.eps}
- % lenghts.eps: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=(atend)
- \caption{Correlation lengths for the order parameters $q_6$ (black circles),
-$Q_6$ (red squares) and $f_2$ (green diamonds). Only multi-body correlation lengths
-are increasing, while the lenghscale associated with the pair free energy does not
-evolve sensibly with pressure.}
- \label{fig:lengths}
-\end{figure}
+The dependence on the pressure of the resulting correlation lengths is shown on Fig.~\ref{fig:Fourierlengths}. Most of the order parameters produce constant lengthscales, including the two-body quantities and $q_6$, $w_6$ that are sensible to icosahedral order. The only growing lengths are extracted from measures of local crystal-like order, i.e. $Q_6$ and $C$. We checked that similar results are obtained in real space for scalar two-body and tensorial multi-body (sensible only to crystal-like structures) order parameters.
 
 The study of correlation lengths have shown that by increasing pressure, the range of
-bond-orientational order increases, and as shown in Ref.~\cite{tanaka,mathieu_icosahedra}
+crystal-like bond-orientational order increases, and as shown in Ref.~\cite{tanaka,mathieu_icosahedra}
 driving the slowing down of the system. Bond-orientational order corresponds to
 orientationally ordered regions which spontaneously form in the metastable phase.
 $f_2$ is instead decoupled from the relevant structures involved in the transition, as
