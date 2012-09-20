@@ -30,45 +30,60 @@
 	\begin{groupplot}[%
 		group style={
 			group size=2 by 3,
-			horizontal sep=0.1\textwidth,
+			horizontal sep=0.01\textwidth,
+			y descriptions at=edge left,
 			},%
-		width=0.45\columnwidth,%
-		height=0.45\columnwidth,%
-		axis y line*=left,
+		width=0.325\columnwidth,%
+		height=0.325\columnwidth,%
+		axis y line=left,
+		axis x line*=bottom,
+		xlabel near ticks,
+		ylabel near ticks,
+		scale only axis,
+		axis on top,
 		ymode=log,%
 		no markers,%
 		every axis plot post/.append style={black, dashed},
 		]
 		\nextgroupplot[xlabel=$s_2$, xmin=-70,xmax=0]
+		\fill[gray!20] (axis cs:-70,1e-7) rectangle (axis cs:-31,1);
 		\addplot file{s2_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$f_2$, xmin=0,xmax=25]
+		\fill[gray!20] (axis cs:16,1e-7) rectangle (axis cs:25,1);
 		\addplot file{f2_distrib_mobility};
 		
-		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8]
+		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8, ylabel={Probability}]
+		\fill[gray!20] (axis cs:0.478,1e-7) rectangle (axis cs:0.8,1);
 		\addplot file{q6_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$w_6$, xmin=-0.052,xmax=0.01]
+		\fill[gray!20] (axis cs:-0.052,1e-7) rectangle (axis cs:-0.014,1);
 		\addplot file{w6_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.6]
+		\fill[gray!20] (axis cs:0.22,1e-7) rectangle (axis cs:0.6,1);
 		\addplot file{Q6_distrib_mobility};
 		
+		
 		\nextgroupplot[xlabel=$C$, xmin=-6,xmax=12]
+		\fill[gray!20] (axis cs:4.45,1e-7) rectangle (axis cs:12,1);
 		\addplot file{C_distrib_mobility};
 	\end{groupplot}
 	\begin{groupplot}[%
 		group style={
 			group size=2 by 3,
-			horizontal sep=0.1\textwidth,
-			%y descriptions at=edge right,
+			horizontal sep=0.01\textwidth,
+			y descriptions at=edge right,
 			},%
-		width=0.45\columnwidth,%
-		height=0.45\columnwidth,%
+		width=0.325\columnwidth,%
+		height=0.325\columnwidth,%
 		ymin=0,ymax=2,%
 		no markers,
-		axis y line*=right,
+		axis y line=right,
 		axis x line=none,
+		ylabel near ticks,
+		scale only axis,
 		extra y ticks={1}, extra y tick labels={}, extra tick style={grid=major},%
 		]
 		\nextgroupplot[xlabel=$s_2$, xmin=-70,xmax=0]
@@ -80,7 +95,7 @@
 		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8]
 		\addplot table[x index=0, y index=2]{q6_distrib_mobility};
 		
-		\nextgroupplot[xlabel=$w_6$, xmin=-0.052,xmax=0.01]
+		\nextgroupplot[xlabel=$w_6$, xmin=-0.052,xmax=0.01, ylabel={Mobility}]
 		\addplot table[x index=0, y index=2]{w6_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.6]
@@ -90,7 +105,7 @@
 		\addplot table[x index=0, y index=2]{C_distrib_mobility};
 	\end{groupplot}
 	\end{tikzpicture}
-	\caption{\textbf{Probability distribution and mobility} function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation}
+	\caption{\textbf{Probability distribution and mobility} function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation. The limit of the shaded area is at one standard deviation from the mean value of the order parameter in the direction of ordering.}
 	\label{fig:distrib}
 \end{figure}
 
