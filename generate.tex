@@ -43,14 +43,14 @@
 		axis on top,
 		ymode=log,%
 		no markers,%
-		every axis plot post/.append style={black, dashed},
+		every axis plot post/.append style={red, dashed},
 		]
 		\nextgroupplot[xlabel=$s_2$, xmin=-70,xmax=0]
 		\fill[gray!20] (axis cs:-70,1e-7) rectangle (axis cs:-31,1);
 		\addplot file{s2_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$f_2$, xmin=0,xmax=25]
-		\fill[gray!20] (axis cs:16,1e-7) rectangle (axis cs:25,1);
+		\fill[gray!20] (axis cs:11.6,1e-7) rectangle (axis cs:25,1);
 		\addplot file{f2_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8, ylabel={Probability}]
@@ -105,7 +105,7 @@
 		\addplot table[x index=0, y index=2]{C_distrib_mobility};
 	\end{groupplot}
 	\end{tikzpicture}
-	\caption{\textbf{Probability distribution and mobility} function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation. The limit of the shaded area is at one standard deviation from the mean value of the order parameter in the direction of ordering.}
+	\caption{\textbf{Probability distribution} (red dash) \textbf{and mobility} (blue continuous) function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation. Mobility is in unit of mean-square displacement. The limit of the shaded area is at one standard deviation from the mean value of the order parameter in the direction of ordering.}
 	\label{fig:distrib}
 \end{figure}
 
