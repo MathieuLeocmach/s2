@@ -38,6 +38,7 @@
 		axis y line=left,
 		axis x line*=bottom,
 		xlabel near ticks,
+		xlabel shift=-0.5em,
 		ylabel near ticks,
 		scale only axis,
 		axis on top,
@@ -57,9 +58,9 @@
 		\fill[gray!20] (axis cs:0.478,1e-7) rectangle (axis cs:0.8,1);
 		\addplot file{q6_distrib_mobility};
 		
-		\nextgroupplot[xlabel=$w_6$, xmin=-0.052,xmax=0.01]
-		\fill[gray!20] (axis cs:-0.052,1e-7) rectangle (axis cs:-0.014,1);
-		\addplot file{w6_distrib_mobility};
+		\nextgroupplot[xlabel=$100w_6$, xmin=-5.2,xmax=1]
+		\fill[gray!20] (axis cs:-5.2,1e-7) rectangle (axis cs:-1.4,1);
+		\addplot table[x expr=\thisrowno{0}*100]{w6_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.6]
 		\fill[gray!20] (axis cs:0.22,1e-7) rectangle (axis cs:0.6,1);
@@ -95,8 +96,8 @@
 		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8]
 		\addplot table[x index=0, y index=2]{q6_distrib_mobility};
 		
-		\nextgroupplot[xlabel=$w_6$, xmin=-0.052,xmax=0.01, ylabel={Mobility}]
-		\addplot table[x index=0, y index=2]{w6_distrib_mobility};
+		\nextgroupplot[xlabel=$w_6$, xmin=-5.2,xmax=1, ylabel={Mobility}]
+		\addplot table[x expr=\thisrowno{0}*100, y index=2]{w6_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.6]
 		\addplot table[x index=0, y index=2]{Q6_distrib_mobility};
