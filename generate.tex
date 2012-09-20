@@ -20,9 +20,17 @@
 \tikzset{every mark/.append style={scale=0.8}}
 \pgfplotsset{every axis/.append style={small}}
 
+\pgfplotscreateplotcyclelist{grade5}{%
+blue, every mark/.append style={fill=blue},mark=*\\%
+blue!30!gray,every mark/.append style={fill=blue!30!gray},mark=square*\\%
+gray!50!black,mark=star\\%
+red!30!gray, every mark/.append style={fill=red!30!gray}, mark=triangle*\\%
+red, every mark/.append style={fill=red},mark=diamond*\\%
+}
+
 \begin{document}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{distrib}
 \begin{figure}
 	\centering
@@ -108,6 +116,91 @@
 	\end{tikzpicture}
 	\caption{\textbf{Probability distribution} (red dash) \textbf{and mobility} (blue continuous) function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation. Mobility is in unit of mean-square displacement. The limit of the shaded area is at one standard deviation from the mean value of the order parameter in the direction of ordering.}
 	\label{fig:distrib}
+\end{figure}
+
+\tikzset{external/force remake}
+\tikzsetnextfilename{structurefactor}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\pgfplotsset{fitc/.style={solid, no markers, forget plot, domain=0.05:5}}
+	\begin{groupplot}[%
+		group style={
+			group size=1 by 2,
+			horizontal sep=0.1\textwidth,
+			},%
+		width=0.9\columnwidth,
+		height=0.4\columnwidth,%
+		xlabel near ticks,
+		xlabel shift=-0.5em,
+		ylabel near ticks,
+		xmode=log,
+		ymode=log,%
+		cycle list name=grade5,%
+		legend style={at={(0.5,1.03)}, anchor=south},
+		legend columns=10,
+		]
+		\nextgroupplot[%
+			xlabel={$q\xi_{f_2}$}, ylabel={$S_{f_2}(q)/\chi_{f_2}$},
+			xmin=0.05,xmax=2,%
+			ymin=0.5, ymax=1.5, ytick={0.1,1,10},
+			]
+			\addlegendimage{empty legend}
+			%\addlegendimage{legend image code/.code={\node[right] {$P=$};}};
+			%\addlegendentry{};
+			\addplot+[only marks] table[x expr={0.076*\coordindex}, y expr={\thisrowno{0}/0.186}] {Sf2-std_P17};
+			\addplot+[only marks] table[x expr={0.0764*\coordindex}, y expr={\thisrowno{0}/0.176}] {Sf2-std_P19};
+			\addplot+[only marks] table[x expr={0.0742*\coordindex}, y expr={\thisrowno{0}/0.178}] {Sf2-std_P21};
+			\addplot+[only marks] table[x expr={0.0751*\coordindex}, y expr={\thisrowno{0}/0.178}] {Sf2-std_P23};
+			\addplot+[only marks] table[x expr={0.0731*\coordindex}, y expr={\thisrowno{0}/0.173}] {Sf2-std_P25};
+			\addplot+[black, fitc] {1/(1+x^2)};
+			\legend{Pressures, $17$, $19$, $21$, $23$, $25$};
+		
+		\nextgroupplot[
+			xlabel={$q\xi_{Q_6}$}, ylabel={$S_{Q_6}(q)/\chi_{Q_6}$},%
+			xmin=0.1,xmax=10,%
+			ymin=0.02, ymax=2,%
+			]
+			\addplot+[only marks] table[x expr={0.338*\coordindex}, y expr={\thisrowno{0}/0.937}] {SC-std_P17};
+			\addplot+[only marks] table[x expr={0.373*\coordindex}, y expr={\thisrowno{0}/1.22}] {SC-std_P19};
+			\addplot+[only marks] table[x expr={0.412*\coordindex}, y expr={\thisrowno{0}/1.32}] {SC-std_P21};
+			\addplot+[only marks] table[x expr={0.471*\coordindex}, y expr={\thisrowno{0}/1.61}] {SC-std_P23};
+			\addplot+[only marks] table[x expr={0.533*\coordindex}, y expr={\thisrowno{0}/2.23}] {SC-std_P25};
+			\addplot+[black, fitc] {1/(1+x^2)};
+			
+	\end{groupplot}
+	\end{tikzpicture}
+	\caption{\textbf{Structure factors} collapse on the Ornstein-Zernike form for (top) $f_2$ and (bottom) $C$. Note how the former are almost similar across pressures.}
+	\label{fig:structurefactor}
+\end{figure}
+
+\tikzset{external/force remake}
+\tikzsetnextfilename{lengths}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[%
+		cycle list name=exotic,
+		xlabel={Pressure},
+		ylabel={Correlation length},
+		xmin=16,
+		xtick={17,19,...,25},
+		legend style={
+			legend pos=outer north east,
+			}
+		]
+	\pgfplotstableread{lengths}\lengths
+	 \foreach \y in {1, 2, ..., 6} {
+          \addplot table[x index=0, y index=\y]{\lengths};
+          \pgfplotstablegetcolumnnamebyindex{\y}\of{\lengths}\to{\colname}
+          \addlegendentryexpanded{$\colname$}
+          }
+          %\addplot file{figures/fig3/q6.dat};
+          %\addlegendentry{$\mathbf{q}_6$}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{\textbf{Correlation length} extracted for two-body and multi-body scalar order parameters, function of the pressure.}
+	\label{fig:lengths}
 \end{figure}
 
 \end{document}
