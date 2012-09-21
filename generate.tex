@@ -10,6 +10,7 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{external}
 \usepgfplotslibrary{groupplots}
+\usepackage{pgfplotstable}
 \usetikzlibrary{positioning}
 \usetikzlibrary{plotmarks}
 \usetikzlibrary{patterns}
@@ -118,7 +119,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:distrib}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{structurefactor}
 \begin{figure}
 	\centering
@@ -174,7 +175,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:structurefactor}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{lengths}
 \begin{figure}
 	\centering
@@ -201,6 +202,68 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\end{tikzpicture}
 	\caption{\textbf{Correlation length} extracted for two-body and multi-body scalar order parameters, function of the pressure.}
 	\label{fig:lengths}
+\end{figure}
+
+\tikzset{external/force remake}
+\tikzsetnextfilename{polydistrib}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\pgfplotstableread{w6_poly.hist}\wtable
+	\pgfplotstableread{Q6_poly.hist}\Qtable
+	\begin{groupplot}[%
+		group style={
+			group name=di,
+			group size=1 by 2,
+			horizontal sep=0.1\textwidth,
+			},%
+		width=0.95\columnwidth,
+		height=0.6\columnwidth,%
+		xlabel near ticks,
+		xlabel shift=-0.5em,
+		ylabel near ticks,
+		ymode=log,%
+		cycle list name=grade5,%
+		no marks,
+		legend style={at={(0.5,1.05)}, anchor=south},
+		legend columns=10,
+		]
+		\nextgroupplot[xlabel=$100w_6$, xlabel=$100w_6$, xmin=-5.2,xmax=-2,		ymin= 1e-6,ymax=1e-2, ylabel=$P(w_6)$]
+		\addlegendimage{empty legend}
+		\foreach \y in {1, 2, ..., 5} {
+          \addplot table[x expr=\thisrowno{0}*100, y index=\y]{\wtable};
+          }
+        \node at (axis cs:-2.25,8e-6) (a) {};
+        \legend{$\delta$, $0.07$, $0.09$, $0.11$, $0.13$, $0.15$};
+        \draw (axis cs:-4.4,7e-5) node[right] {$\delta$} [->]  -- (axis cs:-4.75,2e-4);
+        
+		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.5, xtick={0,0.1,...,0.5}, ylabel=$P(Q_6)$]
+		\addlegendimage{empty legend}
+		\foreach \y in {1, 2, ..., 5} {
+          \addplot table[y index=\y]{\Qtable};
+          }
+        \draw (axis cs:0.4,1e-4) node[right] {$\delta$} [->]  -- (axis cs:0.3,1e-5);
+	\end{groupplot}
+	\begin{axis}[%
+		at={(a)},
+		anchor=south east,
+		width=0.425\columnwidth,
+		xlabel=$100w_6$, xmin=-5.2,xmax=1,
+		xlabel near ticks,
+		xlabel shift=-0.5em,
+		ylabel=$P(w_6)$,
+		ylabel near ticks,
+		ymode=log,%
+		cycle list name=grade5,%
+		no marks,
+		]
+		\foreach \y in {1, 2, ..., 5} {
+          \addplot table[x expr=\thisrowno{0}*100, y index=\y]{\wtable};
+          }
+	\end{axis}
+	\end{tikzpicture}
+	\caption{\textbf{Effect of polydispersity} on local structures at constant pressure ($\beta p\sigma^3=23$). \textbf{top} detail of the distribution of $w_6$ (full distribution in inset) showing a small increase in the icosahedra population saturating around $10\%$. \textbf{bottom} distribution of $Q_6$ showing a marked decrease in the crystallinity.}
+	\label{fig:polydistrib}
 \end{figure}
 
 \end{document}
