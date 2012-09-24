@@ -266,7 +266,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:polydistrib}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{f2decoupling}
 \begin{figure}
 	\begin{tikzpicture}[
@@ -283,10 +283,8 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 				group size=2 by 1,%
 				horizontal sep=0.075\textwidth,
 				},%
-			%anchor=below south west,%
 			width=0.525\columnwidth,%
 			height=0.525\columnwidth,
-			xtick scale label code/.code={},%
 			ylabel={$f_2$},%
 			ymin=0,ymax=25,%
 			enlargelimits=false,axis on top,
@@ -296,8 +294,6 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		\nextgroupplot[%
 			xlabel=$Q_6$,%
 			xmin=0,xmax=0.6,%
-			%xtick = {0,0.05,...,0.25},%
-			%xticklabel={$\pgfmathprintnumber[fixed,precision=2]{\tick}$}
 			]
 			\addplot graphics
 				[xmin=0,xmax=0.6,ymin=0,ymax=25]
@@ -332,6 +328,58 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\end{tikzpicture}
 	\caption{\textbf{Correlation between two-body and multi-body parameters.} Probability distribution functions in the $f_2$,$Q_6$-map (top) and in the $f_2$,$w_6$-map (bottom) for a metastable fluid with polydispersity $\delta=7\%$ and pressure $\beta p\sigma^3=23$. The parameters are not correlated, even in extreme values.}
 	\label{fig:f2decoupling}
+\end{figure}
+
+\tikzset{external/force remake}
+\tikzsetnextfilename{Cmaps}
+\begin{figure}
+	\begin{tikzpicture}
+	\begin{groupplot}[
+			group style={
+				group name=X,
+				group size=2 by 1,%
+				horizontal sep=0.075\textwidth,
+				},%
+			width=0.525\columnwidth,%
+			height=0.525\columnwidth,
+			xlabel=$q_4$,%
+			xmin=0,xmax=0.3,%
+			ylabel={$q_6$},%
+			ymin=0,ymax=0.7,%
+			enlargelimits=false,axis on top,
+			xlabel near ticks,
+			ylabel near ticks,
+			]
+		\nextgroupplot
+			\addplot graphics
+				[xmin=0,xmax=0.3,ymin=0,ymax=0.7]
+				{q4_q6_C_s07.png};
+		\nextgroupplot
+			\addplot graphics
+				[xmin=0,xmax=0.3,ymin=0,ymax=0.7]
+				{q4_q6_C_s15.png};
+	\end{groupplot}
+	\path (X c1r1.north east) -- (X c2r1.north west) node[midway] (T) {};
+	\begin{axis}[%
+		name=B,
+		anchor=below south, at=(T.north),
+		width = 0.5\columnwidth,
+		height= 1em,
+		xmin=-6, xmax=12, ymin=0, ymax=1,
+		xtick={-6,-3,...,12},
+		axis y line=none,
+		axis x line*=none,
+		scale only axis,
+		axis on top,
+		]
+		\addplot graphics
+			[xmin=-6,xmax=12, ymin=0, ymax=1]{colorscale.png};
+	\end{axis}
+	\node[left=0.5em of B] {$C(q_4,q_6)$};
+	%\node[above=0.5em of T] {\includegraphics{colorscale.png}};
+	\end{tikzpicture}
+	\caption{Average crystallinity order parameter projected in the $q_4$,$q_6$ space for the metastable fluid at $\beta p\sigma^3=23$ at $\delta=7\%$ (top) and $\delta=15\%$. Icosahedra appear in the top-left corner of each plot and perfect \textsc{fcc} crystals would be in the top-right corner.}
+	\label{fig:Cmaps}
 \end{figure}
 
 \end{document}
