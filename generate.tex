@@ -449,4 +449,31 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\caption{\textbf{Simulated state points.} The circles (blue curve) represent the equation of state for polydispersity $\delta=7\%$. The squares (red curve) instead are simulation points at the same pressure ($\beta p\sigma^3=23$) but at different polydispersities $\delta$: from low to high volume fraction they correspond to $\delta=7\%,9\%,11\%,13\%,15\%$ respectively.}
 	\label{fig:eos}
 \end{figure}
+
+\tikzset{external/force remake}
+\tikzsetnextfilename{stability_map}
+\begin{figure}
+	\begin{tikzpicture}
+	\begin{axis}[%
+		width=0.95\columnwidth,
+		height=0.5\columnwidth,
+		xlabel={$q_6$},
+		ylabel={$\phi$},
+		%ymax=0.62,
+		xmin=0.45, xmax=0.58,
+		no marks,
+		axis on top,
+		legend style={
+			legend pos=north west,
+		}
+		]
+		\addplot+[black, very thick] file{figures/fig7/crystalline.dat};
+		\addplot file{figures/fig7/d0.dat};
+		\addplot+[dashed, blue] file{figures/fig7/d4.dat};
+		\legend{crystalline,$\delta=0\%$,$\delta=4\%$};
+	\end{axis}
+	\end{tikzpicture}
+	 \caption{Average $\phi$ as a function of $q_6$ for particles identified as fluid and crystalline. The continuous red curve represents fluid particles in a system at $\beta p\sigma^3=17$ and $\delta=0\%$, while dashed blue curve represents fluid particles at the same pressure but at $\delta=4\%$. The thick black curve represents instead solid particles (this curve is less sensitive to polydispersity and it is reported once).}
+ \label{fig:stability_map}
+\end{figure}
 \end{document}
