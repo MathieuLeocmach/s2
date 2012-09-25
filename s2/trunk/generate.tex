@@ -401,7 +401,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:3D}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{lengthpoly}
 \begin{figure}
 	\begin{tikzpicture}
@@ -427,5 +427,26 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\end{tikzpicture}
 	\caption{\textbf{Polydispersity dependence of the bond-order lengths} at $\beta p\sigma^3=23$. The crystalline length decreases, the icosahedral length increases, however they plateau well before crossing.}
 	\label{fig:lengthpoly}
+\end{figure}
+
+\tikzset{external/force remake}
+\tikzsetnextfilename{eos}
+\begin{figure}
+	\begin{tikzpicture}
+	\begin{axis}[%
+		width=0.95\columnwidth,
+		height=0.5\columnwidth,
+		xlabel={$\phi$},
+		ylabel={$\beta p\sigma^3$},
+		%ytick={17,19,...,27},
+		]
+		\addplot file{figures/fig1/circles.dat};
+		\addplot+[every mark/.append style={scale=0.8}, mark=square
+] file{figures/fig1/squares.dat};
+		%\legend{$w_6$,$Q_6$};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{\textbf{Simulated state points.} The circles (blue curve) represent the equation of state for polydispersity $\delta=7\%$. The squares (red curve) instead are simulation points at the same pressure ($\beta p\sigma^3=23$) but at different polydispersities $\delta$: from low to high volume fraction they correspond to $\delta=7\%,9\%,11\%,13\%,15\%$ respectively.}
+	\label{fig:eos}
 \end{figure}
 \end{document}
