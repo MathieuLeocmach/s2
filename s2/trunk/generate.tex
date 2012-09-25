@@ -381,7 +381,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:Cmaps}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{3D}
 \begin{figure}
 	\begin{tikzpicture}
@@ -399,5 +399,33 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\end{tikzpicture}
 	\caption{\textbf{Visualisation of the ordered regions} defined by the various order parameters. All pictures correspond to the same configuration at $\beta p\sigma^3=23$ and $\delta=7\%$. Only $Q_6$, $C$ and (much smaller) $w_6$ show meaningful fluctuations.}
 	\label{fig:3D}
+\end{figure}
+
+\tikzset{external/force remake}
+\tikzsetnextfilename{lengthpoly}
+\begin{figure}
+	\begin{tikzpicture}
+	\begin{axis}[%
+		width=0.95\columnwidth,
+		height=0.5\columnwidth,
+		xlabel={Polydispersity (\%)},
+		ylabel={Correlation length},
+		xmin=6,
+		xtick={7,9,...,15},
+		ymode =log,
+		ytick={0.1,1,10},
+		reverse legend=true,
+		legend style={
+			legend pos=outer north east,
+			at={(0.1, 0.5 )}, anchor=west,
+			}
+		]
+		\addplot table[y index=2]{w6-std_P23.chixi};
+		\addplot table[y index=2]{Q6-std_P23.chixi};
+		\legend{$w_6$,$Q_6$};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{\textbf{Polydispersity dependence of the bond-order lengths} at $\beta p\sigma^3=23$. The crystalline length decreases, the icosahedral length increases, however they plateau well before crossing.}
+	\label{fig:lengthpoly}
 \end{figure}
 \end{document}
