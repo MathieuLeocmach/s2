@@ -401,35 +401,32 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:3D}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{lengthpoly}
 \begin{figure}
 	\begin{tikzpicture}
 	\begin{axis}[%
-		width=0.95\columnwidth,
 		height=0.5\columnwidth,
 		xlabel={Polydispersity (\%)},
 		ylabel={Correlation length},
-		xmin=6,
+		xmin=6,ymin=0,
 		xtick={7,9,...,15},
-		ymode =log,
-		ytick={0.1,1,10},
 		reverse legend=true,
 		legend style={
 			legend pos=outer north east,
-			at={(0.1, 0.5 )}, anchor=west,
 			}
 		]
-		\addplot table[y index=2]{w6-std_P23.chixi};
-		\addplot table[y index=2]{Q6-std_P23.chixi};
-		\legend{$w_6$,$Q_6$};
+		\addplot+[black] table[y index=2]{f2-std_P23.chixi};
+		\addplot+[blue, mark options={fill=blue}] table[y index=2]{w6-std_P23.chixi};
+		\addplot+[red] table[y index=2]{Q6-std_P23.chixi};
+		\legend{$f_2$,$w_6$,$Q_6$};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{\textbf{Polydispersity dependence of the bond-order lengths} at $\beta p\sigma^3=23$. The crystalline length decreases, the icosahedral length increases, however they plateau well before crossing.}
+	\caption{\textbf{Polydispersity dependence of the correlation lengths} at $\beta p\sigma^3=23$. The dominant crystalline length decreases, the icosahedral length increases, however they plateau well before crossing. The two-body length shows no indication of becoming dominant with increasing $\delta$, even decreasing slightly.}
 	\label{fig:lengthpoly}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{eos}
 \begin{figure}
 	\begin{tikzpicture}
@@ -450,7 +447,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:eos}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{stability_map}
 \begin{figure}
 	\begin{tikzpicture}
