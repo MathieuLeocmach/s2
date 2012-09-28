@@ -63,11 +63,14 @@ defined as
 \begin{equation}
 s_2=-\frac{\rho}{2}\int dr\left[g(r)\log(g(r))-g(r)+1\right]
 \end{equation}
-In principle, $s_2$ can be calculated separately for each particle $i$ in the system. In practice, this requires short time averages to compute the pair correlation function of each particle, $g_i(r)$\cite{tanaka}. We instead construct an approximate but instantaneous $s_2(i)$ using the global $g(r)$
+
+In principle, $s_2$ can be calculated separately for each particle $i$ in the system. In practice, this requires time averages to compute the pair correlation function of each particle, $g_i(r)$. In \cite{tanaka} we averaged on times comparable or longer than the $\alpha$ relaxation, leading to a quantity that was trivially a reflect of the dynamical heterogeneity. 
+
+Here we instead construct an approximate but instantaneous $s_2(i)$ using the global $g(r)$
 \begin{equation}
 s_2(i) = -\frac{\rho}{2}\sum_j \left[g(r_{ij})\log(g(r_{ij}))-g(r_{ij})+1\right].
 \end{equation}
-This quantity is in very good agreement with the short time average procedure when the averaging time is comparable to the $\beta$ relaxation ; however the results can be very different if the averaging time becomes comparable or longer than the $\alpha$ relaxation, like in Ref.~\cite{tanaka}.
+This quantity is in very good agreement with the time average procedure when the averaging time is comparable to the $\beta$ relaxation.
 
 Alternatively, one can compute directly the free-energy of each configuration by
 considering the free volume, defined as the volume ($v(i)$) in which each sphere can freely
@@ -229,7 +232,7 @@ where $\xi_x$ is the correlation length and $\chi_x$ the susceptibility. In gene
 
 The dependence on the pressure of the resulting correlation lengths is shown on Fig.~\ref{fig:Fourierlengths}. Most of the order parameters produce constant lengthscales, including the two-body quantities and $q_6$, $w_6$ that are sensible to icosahedral order. The only growing lengths are extracted from measures of local crystal-like order, i.e. $Q_6$ and $C$. This result is confirmed by visualizing (see Fig.~\ref{fig:3D}) the ordered particles defined by each order parameter. Only $Q_6$ and $C$ show clustering of the ordered particles on medium range.
 
-We checked that similar results are obtained in real space for scalar two-body and tensorial multi-body (sensible only to crystal-like structures) order parameters. We also checked that the constance of the length of two-body parameters was not affected by the definition of the threshold $x^*$, either smaller, larger or equal to the average value $\langle x\rangle$ (the absolute value of the length is affected by this definition, but not the pressure dependence).
+We checked that similar results are obtained in real space for scalar two-body and tensorial multi-body (sensible only to crystal-like structures) order parameters. We also checked that the constance of the length of two-body parameters was not affected by the definition of the threshold $x^*$, either smaller, larger or equal to the average value $\langle x\rangle$ (the absolute value of the length is marginally affected by this definition, but not the pressure dependence).
 
 The study of correlation lengths have shown that by increasing pressure, the range of
 crystal-like bond-orientational order increases, and as shown in Ref.~\cite{tanaka,mathieu_icosahedra}
