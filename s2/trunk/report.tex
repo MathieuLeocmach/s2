@@ -24,19 +24,16 @@
 \date{Received \today}
 
 \begin{abstract}
-Most of the liquid-state theories including glass-transition theories are constructed on the basis of two-body density correlation. 
-However, we recently showed the importance of many-body correlations, particularly, bond orientational correlations in glass transition 
-and crystallization. 
-Here we show with numerical simulations of supercooled polydisperse hard spheres systems that the lengthscale associated with any two-point spatial 
+Most of the liquid-state theories, including glass-transition theories, are constructed on the basis of two-body density correlations. 
+However, we have recently shown that many-body correlations, in particular bond orientational correlations, play a key role in
+both the glass transition and the crystallization transition.
+Here we show, with numerical simulations of supercooled polydisperse hard spheres systems, that the lengthscale associated with any two-point spatial 
 correlation function does not increase toward the glass transition. A growing lengthscale is instead revealed
-by considering many-body correlation functions, such as correlators of orientational order. 
-Together with our previous finding between structure-dynamics correlation, this indicates 
-many-body correlations are key to the understanding of slow dynamics associated with glass transition. 
-We also reveal that the stability against crystallization with increasing polydispersity
-is due to an increasing population of icosahedral arrangements of particles, competing with regions of high crystal-like bond orientational order 
-which instead promote crystallization. 
-Our results suggest an intimate link between glass transition and crystallization at least in this type of systems and 
-crucial roles of many-body correlations in these phenomena. 
+by considering many-body correlation functions, such as correlators of orientational order,
+which follows the lengthscale of the dynamic heterogeneities.
+Despite the growing of crystal-like bond orientational order, we reveal that the stability against crystallization with increasing polydispersity
+is due to an increasing population of icosahedral arrangements of particles. 
+Our results suggest that, for this type of systems, many-body correlations are the link between the vitrification and the crystallization phenomena.
 Whether a system is vitrified or crystallized can be controlled by the degree of frustration against crystallization, polydispersity 
 in this case.  
 \end{abstract}
@@ -49,23 +46,28 @@ Amorphous materials have been of prime importance in our technology for millenni
 
 When cooled below its freezing temperature while avoiding crystallization, a liquid becomes supercooled. Upon further cooling, the dynamics slows down by many orders of magnitude leading to a material that is mechanically a solid without long range positional order, thus called amorphous. It is now known that the dynamics inside a supercooled liquid is heterogeneous, with a length scale that grow when approaching the glass transitionn~\citep{yamamoto1998,Donati1999a} (see~\citep{BerthierR} for a review). The lengthscale defined by the dynamical heterogeneity is not static (one-time spatial correlation) but dynamic (two-time spatial correlation).
 
-The existence of a static (structural) length that would grow and accompany the dynamic heterogeneities is still not clear in the general case. However, in a class of system that includes polydisperse hard spheres, we have shown~\cite{tanaka} that some medium range bond orientational order reminiscent of the crystal exists in the supercooled liquid and grows toward the glass transition in the same way as the dynamical heterogeneity. 
-This suggests a deep link between vitrification and crystallization \cite{TanakaGJPCM}. 
-The presence in glassy materials of structures locally reminiscent of crystals has also been confirmed recently in amorphous silicon~\cite{Treacy2012} and in a metallic glass~\cite{Hwang2012}.
+The existence of a static (structural) length that would grow and accompany the dynamic heterogeneities is still not clear in the general case. However, in a class of system that includes polydisperse hard spheres, we have shown~\cite{tanaka} that some medium range bond orientational order reminiscent of the crystal exists in the supercooled liquid and grows toward the glass transition in the same way as the dynamical heterogeneity. The presence in glassy materials of structures locally reminiscent of crystals has been confirmed recently in amorphous silicon~\cite{Treacy2012} and in a metallic glass~\cite{Hwang2012}. While bond-orientational order is a member of the class of many-body
+correlations between neighbouring particles, it is yet unclear if a similar lengthscale can be extracted
+from two-body correlation functions. This question is particularly important considering that the only exact (in the mean-field, infinite dimension approximation) theory of the glass transition, the Mode-coupling theory (MCT), takes as input only two-body quantities. Modern spin-glass-type theories of the structural glass transition~\cite{lubchenko2007,Biroli2008,Parisi2010} are building on the MCT (considered as a mean-field limit), while not taking explicitly into account multi-body correlations.
+
 
 At polydispersities over $6-7\%$, the system need to fractionate to crystallize~\citep{Fasolo2003}. What is the bond order of the reference crystal is then unclear and may challenge our scenario. This is a situation reminiscent of binary hard sphere systems of size ratio close to one~\cite{Hopkins2011b,Hopkins2012} where growing bond order have not been reported~\cite{Charbonneau}. Although it is known that in binary systems locally favored structures play a role in the slowing down of the dynamics~\cite{Coslovich2011,Malins2012}.
 
-Bond order-related parameters and correlation lengths are intrinsically many-body quantities. However, the only exact (in the mean-field, infinite dimension approximation) theory of the glass transition, the Mode-coupling theory (MCT), takes as input only two-body quantities. Modern spin-glass-type theories of the structural glass transition~\cite{lubchenko2007,Biroli2008,Parisi2010} are building on the MCT (considered as a mean-field limit), while not taking explicitly into account many-body correlations.
+In the present study we will use the now well studied polydisperse hard sphere system where we know how to extract meaningful multi-body correlations and look for a two-body quantity that would show the same behaviour as the bond order. We will show that the two-body part of the free energy and the two-body part of the structural entropy are unable to capture medium range bond ordered regions or to yield length meaningful from the point of view of the glass transition. We thus confirm the medium range crystalline order scenario and test its robustness against increasing polydispersity.
+Since bond-orientational order is directly linked to the underlying crystalline structures, we will then address the important question
+of what it the mechanism responsible for the avoidance of crystallization. We will show that in the metastable fluid phase crystalline packings
+are in competition with icosahedral packings, and that polydispersity acts in favour of the latter ones.
 
-In the present paper, we will use the now well studied polydisperse hard sphere system where we know how to extract meaningful many-body correlations and look for a two-body quantity that would show the same behavior as the bond order. We will show that the two-body part of the free energy and the two-body part of the structural entropy are unable to capture medium range bond ordered regions or to yield length meaningful from the point of view of the glass transition. We thus confirm the medium range crystalline order scenario and test its robustness against increasing polydispersity.
+The paper is organized as follows. In Section~\ref{sec:methods} we present the details of the simulations and the order parameters considered in this work. In Section~\ref{sec:results} the results are organized into
+a study of the order parameters distribution (Section~\ref{sec:order_parameters}) and their static lengthscales (Section~\ref{sec:lengths}), and a novel method to determine the competition between crystalline structures
+and icosahedral packings (Section~\ref{sec:icosahedra}).
 
-
-\section{Methods}
+\section{Methods}\label{sec:methods}
 We run isothermal-isobaric NpT Monte Carlo simulations of $N=4000$ polydisperse hard spheres.
 The diameters ($\sigma$) follow a Gaussian distribution $P(\sigma)=\exp{\left[-(\sigma-\sigma_0)^2/2\,s^2\right]}/\sqrt{2\pi} s$,
 with polydispersity index $\delta=s/\sigma_0$. In the following we fix the unit of length as $\sigma_0=1$.
 
-Our aim is to compare the behavior of both two-point quantities and many-body quantities with increasing pressure.
+Our aim is to compare the behaviour of both two-point quantities and multi-body quantities with increasing pressure.
 Due to the hard-sphere interaction, entropy is the only contribution to the system free energy.
 All two-pair correlation quantities are thus derived from the two-body excess entropy~\cite{Nettleton1958,Mountain1971},
 defined as
@@ -73,7 +75,7 @@ defined as
 s_2=-\frac{\rho}{2}\int dr\left[g(r)\log(g(r))-g(r)+1\right]
 \end{equation}
 
-In principle, $s_2$ can be calculated separately for each particle $i$ in the system. In practice, this requires time averages to compute the pair correlation function of each particle, $g_i(r)$. In \cite{tanaka,watanabe_walls} we averaged on times comparable or longer than the $\alpha$ relaxation, leading to a quantity that was trivially a reflect of the dynamical heterogeneity. 
+In principle, $s_2$ can be calculated separately for each particle $i$ in the system. In practice, this requires time averages to compute the pair correlation function of each particle, $g_i(r)$. In \cite{tanaka} we averaged on times comparable or longer than the $\alpha$ relaxation, leading to a quantity that was trivially a reflection of the dynamical heterogeneity. 
 
 Here we instead construct an approximate but instantaneous $s_2(i)$ using the global $g(r)$
 \begin{equation}
@@ -97,8 +99,8 @@ for each particle and for each configuration.
 
 
 
-To study many-body correlations we use the local bond-order analysis introduced by
-\citet{steinhardt}, first applied to study crystal nucleation by
+To study multi-body correlations we use the local bond-order analysis introduced by
+Steinhardt~\cite{steinhardt}, first applied to study crystal nucleation by
 Frenkel and co-workers~\cite{auer}. 
 The $\ell$-fold symmetry of a neighbourhood around each particle $i$ is characterised by a $(2\ell+1)$ dimensional complex vector ($\mathbf{q}_l$) as $q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mathbf{\hat{r}_{ij}})$, where
 $\ell$ is a free integer parameter, and $m$ is an integer
@@ -108,7 +110,7 @@ The sum goes over all neighbouring particles $N_b(i)$ of particle $i$. Usually
 $N_b(i)$ is defined by all particles within a cutoff distance, but in an inhomogeneous system
 the cutoff distance would have to change according to the local density. Instead we 
 fix $N_b(i)=12$ which is the number of nearest neighbours in icosahedra and close packed crystals (like \textsc{hcp} and \textsc{fcc})
-which are known to be the only relevant structures for hard spheres.
+which are known to be the only relevant crystalline structures for hard spheres.
 
 In the analysis, one uses the rotational invariants defined as:
 \begin{align}
@@ -136,9 +138,9 @@ Alternatively, one can coarse-grain $\mathbf{q}_\ell$ over the neighbours~\cite{
 \end{equation}
 and use the resulting invariant $Q_6$ as an indication of crystallinity.
 
-We note that both $\text{C}$ and $Q_6$ are no direct indicator for the presence of crystals, but rather measures for a tendency to promote crystallization.
+We note that both $\text{C}$ and $Q_6$ are no direct indicator for the presence of crystals, but rather measures for a tendency to promote crystallisation.
 
-\section{Results}
+\section{Results}\label{sec:results}
 
 \begin{figure}
  \centering
@@ -157,7 +159,7 @@ with increasing polydispersity, $\delta=7\%,9\%,11\%,13\%,15\%$. These state poi
 the mechanism by which crystallization is suppressed upon increase of polydispersity, unveiling the
 role played by icosahedral arrangement of particles.
 
-\subsection{Order parameter distribution and mobility}
+\subsection{Order parameter distribution and mobility}\label{sec:order_parameters}
 
 \begin{figure}
 	\centering
@@ -166,9 +168,14 @@ role played by icosahedral arrangement of particles.
 	\label{fig:distrib}
 \end{figure}
 
-We study systematically two-body ($s_2$, $f_2$) and many-body ($q_6$, $w_6$, $Q_6$, $C$) scalar order parameter fields for our highest pressure ($\beta p\sigma^3=25$). Figure~\ref{fig:distrib} shows the probability distribution of these parameters, always skewed toward the ordered side (shaded in Fig.~\ref{fig:distrib}).
+We study systematically two-body ($s_2$, $f_2$) and multi-body ($q_6$, $w_6$, $Q_6$, $C$) scalar order parameter fields for our highest pressure ($\beta p\sigma^3=25$). Figure~\ref{fig:distrib} shows the probability distribution of these parameters, where the ordered side is depicted as a shaded area. Note that these order parameters are maximazed or
+minimazed by different local structures: while \emph{crystalline} order parameters ($Q_6$ and $C$) are maximazed
+by local crystalline environments (corresponding to the hcp or fcc crystal), the $w_6$ has its minimum for
+icosahedral packings, and $q_6$ grows continously from the fluid phase towards both the crystalline and icosahedral environments.
 
-By plotting the probability distribution function for the metastable fluid on the $f_2$, $Q_6$ and $w_6$ axis we note the absence of any linear correlation between $f_2$ and both $Q_6$ and $w_6$. Since $Q_6$ identifies crystal-like bond-orientationally ordered regions, and $w_6$ locates icosahedral arrangements of particles, it is clear that high $f_2$ regions are not associated with any of these structures. We checked in the same way that $s_2$ is not correlated with many-body parameters.
+We first note the absence of any linear coupling between two-body and multi-body order parameters.
+By plotting the probability distribution function for the metastable fluid on the $f_2$, $Q_6$ and $w_6$ axis, Figure~\ref{fig:f2decoupling} shows the absence of linear correlations between $f_2$ and both $Q_6$ and $w_6$. Since $Q_6$ identifies crystal-like bond-orientationally ordered regions, and $w_6$ locates icosahedral arrangements of particles, it is clear that high $f_2$ regions are not associated with any of these structures. We checked in the same way that $s_2$ is not correlated with multi-body parameters.
+
 
 \begin{figure}
  \centering
@@ -188,11 +195,11 @@ To study the correlation between any scalar order parameter $x$ and the displace
 	}\right\rangle,
 	\label{eq:mobility}
 \end{equation}
-shown in Fig.~\ref{fig:distrib} for a time difference corresponding to the $\alpha$-relaxation. Mobility always decreases with increasing order. The mobilities of bond-order quantities are flat in the disordered regions and decrease when approaching the perfect structure (i.e. icosahedron for $w_6$, crystal cell for $Q_6$ or $C$). By contrast, the mobility of two-body order parameters tends to decrease strongly in the disordered region and less in the ordered region (it is almost flat at high $f_2$). We conclude that two-body quantities describe well the faster dynamics of some disordered particles whereas many-body quantities describe better the slowing down accompanying good local ordering.
+shown in Fig.~\ref{fig:distrib} for a time difference corresponding to the $\alpha$-relaxation time. Mobility always decreases with increasing order. The mobilities of bond-order quantities are flat in the disordered regions and decrease when approaching the perfect structure (i.e. icosahedron for $w_6$, crystal cell for $Q_6$ or $C$). By contrast, the mobility of two-body order parameters tends to decrease strongly in the disordered region and less in the ordered region (it is almost flat at high $f_2$). We conclude that two-body quantities describe well the faster dynamics of some disordered particles whereas multi-body quantities describe better the slowing down accompanying good local ordering.
+Note that in Figure~\ref{fig:distrib} both icosahedral packings (low $w_6$ particles) and bond-ordered crystalline regions (high $Q_6$ and $C$) are associated with slow dynamics. As was shown from some of us~\cite{mathieu_icosahedra}, the structures primarily responsible for the slowing down of the dynamics are the crystalline particles, while icosahedral particles act to stop the crystallization process~\cite{russo_hs}.
 
-Both fast and sow particles are a priori important to describe dynamic heterogeneities, thus we cannot discard the relevance of either two-body or many-body parameters based on this analysis.
 
-\subsection{Length-scales}
+\subsection{Length-scales}\label{sec:lengths}
 \begin{figure}
 	\centering
 	\includegraphics{fig_structurefactor}
@@ -254,7 +261,7 @@ shown in Fig.~\ref{fig:f2decoupling}.
 
 
 
-\subsection{Competition between icosahedral arrangements and crystalline arrangements}
+\subsection{Competition between icosahedral arrangements and crystalline arrangements}\label{sec:icosahedra}
 
 \begin{figure}
  \centering
@@ -296,19 +303,18 @@ high polydispersity metastable states is the population of the crystal-like bond
 
 In the same way, the correlation length extracted from $Q_6$ decreases with increasing polydisersity, while the one extracted from $w_6$ increases (see Fig.~\ref{fig:lengthpoly}). However the two lengths are far from crossing and seem to saturate around $\delta=13-15\%$. The correlation length of $f_2$ is constant or even slightly decreasing with $\delta$, not at all taking over the many-body lengths. Thus, in the range of polydispersity that we studied crystal-like bond order fluctuations seem to rule the system static (and probably dynamic) properties.
 
-
-In the metastable fluid a competition between bond-ordered regions and icosahedral regions takes
-place, with polydispersity favoring the latter. The nature of the competition can be seen
-in two-dimensional maps of translational vs orientational order, i.e. $\phi,q_6$ maps.
-As was shown in Ref.~\cite{russo_hs}, this plot is very useful in determining the region
-of thermodynamic stability of each phase. The calculation is straightforward: for each
+In Ref.~\cite{russo_hs} we have shown that the competition between crystalline packings and
+isosahedral packings can be studied via two-dimensional maps of translational vs orientational order.
+Orientational order is captured by $q_6$, which is small for disordered arrangement of particles and
+increases for both crystalline and icosahedral particles. Translational order is instead measured with
+the local packing fraction, $\phi$, obtained by measuring the volume of the Voronoi diagram associated with
+each particle. The calculation is straightforward: for each
 configuration, particles are identified as ``fluid'' and ``crystalline'' according to
-the criteria described in the methods section. For each subset of particles, the
+the criteria described in the Methods section. For each subset of particles,
 the average value of the volume fraction
-$\phi$ is calculated as a function of the order parameter $q_6$. By looking at the
-relative position of the two curves (the one for the fluid particles and the other for the crystalline particles)
-the relative stability of the phases can be determined: at each volume fraction,
-the stable phase is the one with the higher value of $q_6$. 
+$\phi$ is calculated as a function of the order parameter $q_6$, and plotted in Figure~\ref{fig:stability_map}.
+For each value of $q_6$ the map captures the average volume fraction $\phi$ of both crystalline and non-crystalline
+environments.
 
 \begin{figure}
  \centering
@@ -316,19 +322,28 @@ the stable phase is the one with the higher value of $q_6$.
  \caption{Average $\phi$ as a function of $q_6$ for particles identified as fluid and crystalline. The continuous red curve represents fluid particles in a system at $\beta p\sigma^3=17$ and $\delta=0\%$, while dashed blue curve represents fluid particles at the same pressure but at $\delta=4\%$. The thick black curve represents instead solid particles (this curve is less sensitive to polydispersity and it is reported once).}
  \label{fig:stability_map}
 \end{figure}
-
 In Fig.~\ref{fig:stability_map}
 we compare the curves at $\beta p\sigma^3=17$ and at different polydispersities:
 at $0\%$ (monodisperse system, black circles) and at $4\%$ (red squares). The curve for the
 crystalline particles is similar at the two considered polydispersities and is reported once
-as the dashed line. First we consider he monodisperse case. As shown in the figure,
-at low volume fraction, the stable phase is the fluid phase. But at $\phi\cong 55.8\%$ a crossover
-occurs and the crystal phase gains stability. This stability is again lost at $\phi\cong 58\%$
-because at high $q_6$ values the liquid branch is composed entirely of icosahedral particles.
-At polydispersity $\delta=4\%$ the crystalline branch is always metastable to the fluid one.
-This is due to an increase in $q_6$ of the fluid branch at high $\phi$, which shifts ``below'' the
-crystalline curve. The behavior of the fluid curve is due to an increased population of
-icosahedral particles, which dominate the fluid branch for $q_6\gtrsim 0.5$. The fact that
+as the dashed line. First we consider the monodisperse case. As shown in the figure,
+at low volume fraction, a particle in the fluid phase has higher orientational order than in the crystalline phase.
+But at $\phi\cong 55.8\%$ a crossover
+occurs and the crystal phase gains microscopic stability: a particle in a crystalline environment will
+have higher orientational order than a particle in the fluid phase at the same volume fraction.
+This crossover marks the appearance in the fluid phase of the metastable crystals which continously
+appear, grow and shrink, until eventually a crystal droplet reaches the critical size and starts the
+crystallization process.
+This stability is again lost for volume fractions higher than $\phi\cong 58\%$,
+as crystalline environments become less ordered than non-crystalline particles at high $q_6$.
+These particles at high $q_6$ competing with the crystalline particles are particles in icosahedral packings.
+It is thus clear that icosahedral packings are competing with crystalline packings, eventually dominating
+at high $\phi$. This scenario is confirmed by looking at the polydisperse case (red squares in
+Figure~\ref{fig:stability_map}).
+At polydispersity $\delta=4\%$ the crystalline branch always lays above the fluid one, meaning that
+the orientational order in crystalline environments is always lower than random packings at low
+$\phi$ and icosahedral packing at high $\phi$.
+Microscopically the difference between the monodisperse case and the polydisperse case, is due to an increased population of icosahedral particles, which dominate the fluid branch for $q_6\gtrsim 0.5$. The fact that
 the crystalline phase loses its metastability window is immediately evident in simulations,
 as at this pressure it is not possible to crystallize simulations at $\delta=4\%$, while the
 monodisperse simulations have a small nucleation time.
@@ -336,9 +351,21 @@ monodisperse simulations have a small nucleation time.
 We have thus provided direct evidence that icosahedral particles are responsible for the suppression
 of crystallization in polydisperse hard spheres.
 
-\section{Discussion}
+\section{Discussion}\label{sec:discussion}
 
-We confirmed that in the glass transition of polydisperse hard spheres the relevant static length is the correlation length of the crystal-like bond orientational order. 
+In the present study we have compared the evolution of static length scales in polydisperse hard spheres
+for both two-body and multi-body correlation functions. While two body correlation functions do not
+show any sign of an increasing length scale with pressure, we have confirmed that in the glass transition of polydisperse hard spheres the relevant static length is the correlation length of the crystalline bond order.
+We have also determined the relevant microscopic structures that are associated with the increasing
+lengthscale: they correspond to crystalline environments of particles and are characterized by slow
+dynamics.
+We thus confirme that in the glass transition of polydisperse hard spheres the relevant static length is the correlation length of the crystal-like bond orientational order.
+
+The other relevant structure with slow dynamics are icosahedral packings of particles, but
+their lenghscale doesn't grow appreciably with increasing pressure. Icosahedral assemblies of particles
+are spatially uncorrelated. While not having a direct role in the slowing down of the dynamics, we
+have shown that icosahedral packings are responsible for the avoidance of the crystallization transition
+with increasing polydispersity.
 The increase in polydispersity reduces the degree of crystal-like bond orientational order whereas enhances the icosahedral order (see Fig. \ref{fig:Cmaps}). 
 The former reduces the probability for a system to reach a high enough crystal-like bond orientational order, which is crucial for triggering 
 crystal nucleation \cite{russo_hs}. 
@@ -370,6 +397,7 @@ Although we studied polydisperse hard spheres in this article, these mechanisms 
 glass-forming systems including metallic glass formers \cite{Jakse2008,Hwang2012}. 
 
 \section{Summary}
+
 
 In this article, we show firm evidence for the importance of many-body correlations in glass transition phenomena 
 for hard spheres liquids. This feature cannot be described by the standard liquid-state theories based on two-body correlation. 
