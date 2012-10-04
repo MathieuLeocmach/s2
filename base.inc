@@ -11,7 +11,7 @@ background { color rgb <1, 1, 1>}
 
 camera {
 	perspective
-	location <7.708160, 7.731938, 45.284942>
+	location <7.708160, 7.731938, 35.284942>
 	sky <0.000000, 1.000000, 0.000000>
 	right <-1, 0, 0>
 	angle 30.000000
