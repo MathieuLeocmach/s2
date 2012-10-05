@@ -125,7 +125,7 @@ where the term in brackets in Eq.~(\ref{eq:wl}) is the Wigner 3-j symbol.
 In particular both crystalline and icosahedral neighbourhood have high $q_6$ (strong 6-fold symmetry), with the highest values for the latter. To detect specifically icosahedral order one prefers $w_6$, whose minimum value is obtained only by a perfect icosahedron.
 
 The identification of crystalline particles follows the usual procedure~\cite{auer}. A particle is identified as crystal if
-its orientational order is coherent with that of its neighbours.
+its orientational order is coherent (in symmetry and in orientation) with that of its neighbours.
 The scalar product $(\mathbf{q}_6(i)/|\mathbf{q}_6(i)|)\cdot(\mathbf{q}_6(j)/|\mathbf{q}_6(j)|)$ quantifies this similarity. If it exceeds $0.7$ between
 two neighbours, they are deemed \emph{connected}. We then identify a particle as crystalline if it is connected with at least $7$ neighbours~\cite{auer}. In a more continuous way, summing the contribution of all the bonds of a given particle, we define the ``crystallinity''~\cite{russo_hs}
 \begin{equation}\label{eqn:crystallinity}
@@ -137,7 +137,7 @@ Alternatively, one can coarse-grain $\mathbf{q}_\ell$ over the neighbours~\cite{
 	Q_{\ell m}(i) = \frac{1}{N(i)+1}\left( q_{\ell m}(i) +  \sum_{j=0}^{N(i)} q_{\ell m}(j)\right), 
 	\label{eq:Qlm}
 \end{equation}
-and use the resulting invariant $Q_6$ as an indication of crystallinity.
+to kill locally incoherent orientations (icosahedral order)~\cite{mathieu_icosahedra} and use the resulting invariant $Q_6$ as an indication of crystallinity.
 
 We note that both $\text{C}$ and $Q_6$ are no direct indicator for the presence of crystals, but rather measures for a tendency to promote crystallization.
 
@@ -254,9 +254,9 @@ Fig.~\ref{fig:structurefactor} shows the small wave-vector increase of $S_x(q)$,
 \end{equation}
 where $\xi_x$ is the correlation length and $\chi_x$ the susceptibility. In general, an independent determination of $\chi_x$ is crucial for the fit~\cite{Flenner2011}. However here we deal with correlation lengths much smaller than the simulation box and both $\xi_x$ and $\chi_x$ can be reliably estimated from a two parameter fit of $S_x(q)$.
 
-The dependence on the pressure of the resulting correlation lengths is shown on Fig.~\ref{fig:Fourierlengths}. Most of the order parameters produce constant lengthscales, including the two-body quantities and $q_6$, $w_6$ that are sensible to icosahedral order. The only growing lengths are extracted from measures of local crystal-like order, i.e. $Q_6$ and $C$. We confirm that the same results are obtained from real-space correlation functions. The absence of correlations for two-body quantities is suggested in the first row of Fig.~\ref{fig:3D}. Only $Q_6$ and $C$ (last row in Fig.~\ref{fig:3D}) show clustering of the ordered particles on medium range.
+For overall coherency, we have used the above procedure not only for the two-body $s_2$ and $f_2$, but also for scalars derived from the multi-body bond orientational order, i.e. $q_6$, $w_6$, $Q_6$ and $C$. The dependence on the pressure of the resulting correlation lengths is shown on Fig.~\ref{fig:Fourierlengths}. Most of the order parameters produce constant lengthscales, including the two-body quantities and $q_6$, $w_6$ that are sensible to icosahedral order. The only growing lengths are extracted from measures of local crystal-like order, i.e. $Q_6$ and $C$. We confirm that the same results are obtained from real-space correlation functions. The absence of correlations for two-body quantities is suggested in the first row of Fig.~\ref{fig:3D}. Only $Q_6$ and $C$ (last row in Fig.~\ref{fig:3D}) show clustering of the ordered particles on medium range.
 
-We checked that similar results are obtained in real space for scalar two-body and tensorial many-body (sensible only to crystal-like structures) order parameters. We also checked that the constance of the length of two-body parameters was not affected by the definition of the threshold $x^*$, either smaller, larger or equal to the average value $\langle x\rangle$ (the absolute value of the length is marginally affected by this definition, but not the pressure dependence).
+The length scales obtained from $Q_6$, $C$ in Fourier space or from the tensorial $\mathbf{q}_6$ or $\mathbf{Q}_6$ (not shown) are similar increase monotonically with pressure. Note that the scalar $q_6$ (dominated by the icosahedral order) yields a very different correlation length. We checked that the constancy of the length of two-body parameters was not affected by the definition of the threshold $x^*$, either smaller, larger or equal to the average value $\langle x\rangle$ (the absolute value of the length is marginally affected by this definition, but not the pressure dependence). Coherently, real-space correlation function (not shown) of $f_2$ (respectively $s_2$) are perfectly identical at all pressures.
 
 The study of correlation lengths have shown that by increasing pressure, the range of
 crystal-like bond-orientational order increases, and as shown in Ref.~\cite{tanaka,mathieu_icosahedra}
