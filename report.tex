@@ -167,7 +167,7 @@ role played by icosahedral arrangement of particles.
 \begin{figure}
 	\centering
 	\includegraphics{fig_distrib}
-	\caption{Probability distribution (red dash) and mobility (blue continuous) function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation. Mobility is in unit of mean-square displacement. The limit of the shaded area is at one standard deviation from the mean value of the order parameter in the direction of ordering, $x^\ast$ (see below for its definition).}
+	\caption{Probability distribution (red dash) and mobility (blue continuous) function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation. Mobility is in unit of mean-square displacement. The shaded area sums the 10\% most ordered particles.}
 	\label{fig:distrib}
 \end{figure}
 
@@ -216,14 +216,14 @@ This will be shown in detail in Section~\ref{sec:icosahedra}.
 \begin{figure}
 	\centering
 	\includegraphics{fig_lengths}
-	\caption{Correlation length extracted for two-body and many-body scalar order parameters, function of the pressure. Only many-body correlation lengths are increasing (only slightly for $\xi_{w_6}$), while the lenghscale associated with the two-body quantities is almost constant.}
+	\caption{Correlation length and susceptibilities extracted for two-body and many-body scalar order parameters, function of the pressure. Only many-body correlation lengths are increasing (only slightly for $\xi_{w_6}$), while the lenghscale associated with the two-body quantities is almost constant.}
 	\label{fig:Fourierlengths}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics{fig_3D}
-	\caption{Visualisation of the ordered regions defined by the various order parameters. All pictures correspond to a thin slice ($5\sigma$) of the same configuration at $\beta p\sigma^3=23$ and $\Delta=7\%$. Only $Q_6$ and $C$ show meaningful fluctuations. We can also see anti-correlation between ($Q_6$,$C$) and ($q_6$,$w_6$). }
+	\caption{Visualisation of the 10\% most ordered particles defined by the various order parameters. All pictures correspond to a thin slice ($5\sigma$) of the same configuration at $\beta p\sigma^3=23$ and $\Delta=7\%$. Only $Q_6$ and $C$ show meaningful fluctuations. We can also see anti-correlation between ($Q_6$,$C$) and ($q_6$,$w_6$). }
 	\label{fig:3D}
 \end{figure}
 
@@ -233,12 +233,7 @@ correlation functions, being $f_2$ and $s_2$ both scalars, is more difficult to 
 where long averages are required to overcome the statistical noise. A more reliable procedure to extract correlation length can
 be obtained by measuring correlation lengths in Fourier space.
 The procedure is the following.
-For any scalar order parameter field $x$ increasing with order, we define the threshold 
-\begin{equation}
-x^* \equiv \langle x\rangle + \sqrt{\langle x^2\rangle - \langle x\rangle^2},
-\label{eq:xstar}
-\end{equation}
-at one standard deviation above the average value. We then compute a four-point structure factor keeping only the ordered particles ($x>x^*$). The thresholds are indicated on Fig.~\ref{fig:distrib}. Formally we define a function $\omega(i) = \Theta [x(i) - x^*]$, where $\Theta(x)$ is the Heaviside’s step function, and a four-point structure factor
+At a given time step, for any scalar order parameter field $x$ increasing with order, we compute a four-point structure factor keeping only the 10\% most ordered particles. This condition defines a threshold $x^*$. The ensemble average of the thresholds $\langle x^*\rangle$ are indicated on Fig.~\ref{fig:distrib}. Formally we define a function $\omega(i) = \Theta [x(i) - x^*]$, where $\Theta(x)$ is the Heaviside’s step function, and a four-point structure factor
 \begin{equation}
 	S_x(q) = N^{-1}(\left\langle \Omega(\mathbf{q}) \Omega(-\mathbf{q}) \right\rangle - | \left\langle \Omega(\mathbf{q}) \right\rangle^2 |),   
 	\label{eq:StrutureFactor}
@@ -247,7 +242,7 @@ where $\Omega(\mathbf{q})$ is the Fourier transform of $\omega(i)$:
 \begin{equation}
 	\Omega(\mathbf{q}) = \sum_i \omega(i)\exp(-\imath \mathbf{q}\cdot\mathbf{r}_i).  
 \end{equation}
-The case of order parameters decreasing toward ordering (i.e. $s_2$, $w_6$) is trivially obtained by changing the sign.
+This structure factor is then ensemble averaged (still noted $S_x(q)$ for concision). The case of order parameters decreasing toward ordering (i.e. $s_2$, $w_6$) is trivially obtained by changing the sign.
 
 Figure~\ref{fig:structurefactor} shows the small wave-number increase of $S_x(q)$, which is well described by the asymptotic Ornstein-Zernike function in Fourier space:
 \begin{equation}
