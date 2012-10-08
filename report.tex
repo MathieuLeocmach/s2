@@ -67,7 +67,7 @@ and icosahedral packings (Section~\ref{sec:icosahedra}).
 \section{Methods}\label{sec:methods}
 We run isothermal-isobaric NpT Monte Carlo simulations of $N=4000$ polydisperse hard spheres.
 The diameters ($\sigma$) follow a Gaussian distribution $P(\sigma)=\exp{\left[-(\sigma-\sigma_0)^2/2\,s^2\right]}/\sqrt{2\pi} s$,
-with polydispersity index $\delta=s/\sigma_0$. In the following we fix the unit of length as $\sigma_0=1$.
+with polydispersity index $\Delta=s/\sigma_0$. In the following we fix the unit of length as $\sigma_0=1$.
 
 Our aim is to compare the behavior of both two-point quantities and many-body quantities with increasing pressure.
 Due to the hard-sphere interaction, entropy is the only contribution to the system free energy.
@@ -148,14 +148,14 @@ We note that both $\text{C}$ and $Q_6$ are no direct indicator for the presence 
 \begin{figure}
  \centering
  \includegraphics{fig_eos}
- \caption{\textbf{Simulated state points.} The circles (blue curve) represent the equation of state for polydispersity $\delta=7\%$. The squares (red curve) instead are simulation points at the same pressure ($\beta p\sigma^3=23$) but at different polydispersities $\delta$: from low to high volume fraction they correspond to $\delta=7\%,9\%,11\%,13\%,15\%$ respectively.}
+ \caption{\textbf{Simulated state points.} The circles (blue curve) represent the equation of state for polydispersity $\Delta=7\%$. The squares (red curve) instead are simulation points at the same pressure ($\beta p\sigma^3=23$) but at different polydispersities $\Delta$: from low to high volume fraction they correspond to $\Delta=7\%,9\%,11\%,13\%,15\%$ respectively.}
  \label{fig:eos}
 \end{figure}
 
 
 Figure~\ref{fig:eos} shows the equation of state for the simulated state points. In particular
 we consider two data-sets. The first one (black circles in the figure) corresponds to
-simulations at a constant polydispersity of $\delta=7\%$. For each state point we run $8$ independent
+simulations at a constant polydispersity of $\Delta=7\%$. For each state point we run $8$ independent
 simulation runs and extract configurations for the calculation of correlation lengths.
 The second data set (red squares in the figure) are instead isobaric simulation (at $\beta p\sigma^3=23$)
 with increasing polydispersity, $\Delta=7\%,9\%,11\%,13\%,15\%$. These state points are used to study
@@ -182,7 +182,7 @@ By plotting the probability distribution function for the metastable fluid on th
 \begin{figure}
  \centering
  \includegraphics{fig_f2decoupling}
- \caption{Correlation between two-body and many-body parameters. Probability distribution functions in the $f_2$-$Q_6$ map (top) and in the $f_2$-$w_6$ map (bottom) for a metastable fluid with polydispersity $\delta=7\%$ and pressure $\beta p\sigma^3=23$. The parameters are not correlated, even in extreme values.}
+ \caption{Correlation between two-body and many-body parameters. Probability distribution functions in the $f_2$-$Q_6$ map (top) and in the $f_2$-$w_6$ map (bottom) for a metastable fluid with polydispersity $\Delta=7\%$ and pressure $\beta p\sigma^3=23$. The parameters are not correlated, even in extreme values.}
  \label{fig:f2decoupling}
 \end{figure}
 
@@ -192,10 +192,10 @@ To study the correlation between any scalar order parameter $x$ and the displace
 \begin{equation}
 	\Delta r^2(x=x_0, t) \equiv \left\langle \frac{
 		\sum\limits_i{
-			\left\|\mathbf{r}_i(t)-\mathbf{r}_i(0)\right\|^2 \delta(x(i)-x_0)
+			\left\|\mathbf{r}_i(t)-\mathbf{r}_i(0)\right\|^2 \Delta(x(i)-x_0)
 			}
 	}{
-		\sum\limits_i{\delta(x(i)-x_0)}
+		\sum\limits_i{\Delta(x(i)-x_0)}
 	}\right\rangle,
 	\label{eq:mobility}
 \end{equation}
@@ -223,7 +223,7 @@ This will be shown in detail in Section~\ref{sec:icosahedra}.
 \begin{figure}
 	\centering
 	\includegraphics{fig_3D}
-	\caption{Visualisation of the ordered regions defined by the various order parameters. All pictures correspond to a thin slice ($5\sigma$) of the same configuration at $\beta p\sigma^3=23$ and $\delta=7\%$. Only $Q_6$ and $C$ show meaningful fluctuations. We can also see anti-correlation between ($Q_6$,$C$) and ($q_6$,$w_6$). }
+	\caption{Visualisation of the ordered regions defined by the various order parameters. All pictures correspond to a thin slice ($5\sigma$) of the same configuration at $\beta p\sigma^3=23$ and $\Delta=7\%$. Only $Q_6$ and $C$ show meaningful fluctuations. We can also see anti-correlation between ($Q_6$,$C$) and ($q_6$,$w_6$). }
 	\label{fig:3D}
 \end{figure}
 
@@ -286,12 +286,12 @@ parameters $Q_6$ and $w_6$ at different polydispersities. It is immediately
 evident that, while bond-orientational order is rapidly suppressed with increasing
 polydispersity (as shown in the suppressed signal at high $Q_6$), particles in icosahedral
 environments are not disfavored by polydispersity. On the contrary the fraction of
-icosahedral particles increases with polydispersity, and saturates at around $\delta=10\%$.
+icosahedral particles increases with polydispersity, and saturates at around $\Delta=10\%$.
 
 \begin{figure}
  \centering
  \includegraphics{fig_Cmaps}
- \caption{Average crystallinity order parameter projected in the $q_4$,$q_6$ space for the metastable fluid at $\beta p\sigma^3=23$ at $\delta=7\%$ (top) and $\delta=15\%$. Icosahedra appear in the top-left corner of each plot and perfect \textsc{fcc} crystals would be in the top-right corner.}
+ \caption{Average crystallinity order parameter projected in the $q_4$,$q_6$ space for the metastable fluid at $\beta p\sigma^3=23$ at $\Delta=7\%$ (top) and $\Delta=15\%$. Icosahedra appear in the top-left corner of each plot and perfect \textsc{fcc} crystals would be in the top-right corner.}
  \label{fig:Cmaps}
 \end{figure}
 
@@ -305,11 +305,11 @@ high polydispersity metastable states is the population of the crystal-like bond
 \begin{figure}
  \centering
  \includegraphics{fig_lengthpoly}
-	\caption{\textbf{Polydispersity dependence of the correlation lengths} at $\beta p\sigma^3=23$. The dominant crystalline length decreases, the icosahedral length increases, however they plateau well before crossing. The two-body length shows no indication of becoming dominant with increasing $\delta$, even decreasing slightly.}
+	\caption{\textbf{Polydispersity dependence of the correlation lengths} at $\beta p\sigma^3=23$. The dominant crystalline length decreases, the icosahedral length increases, however they plateau well before crossing. The two-body length shows no indication of becoming dominant with increasing $\Delta$, even decreasing slightly.}
 	\label{fig:lengthpoly}
 \end{figure}
 
-In the same way, the correlation length extracted from $Q_6$ decreases with increasing polydisersity, while the one extracted from $w_6$ increases (see Fig.~\ref{fig:lengthpoly}). However the two lengths are far from crossing and seem to saturate around $\delta=13-15\%$. The correlation length of $f_2$ is constant or even slightly decreasing with $\delta$, not at all taking over the many-body lengths. Thus, in the present range of polydispersity, crystal-like bond order fluctuations is still dominating the system static (and dynamic~\cite{mathieu_icosahedra}) properties.
+In the same way, the correlation length extracted from $Q_6$ decreases with increasing polydisersity, while the one extracted from $w_6$ increases (see Fig.~\ref{fig:lengthpoly}). However the two lengths are far from crossing and seem to saturate around $\Delta=13-15\%$. The correlation length of $f_2$ is constant or even slightly decreasing with $\Delta$, not at all taking over the many-body lengths. Thus, in the present range of polydispersity, crystal-like bond order fluctuations is still dominating the system static (and dynamic~\cite{mathieu_icosahedra}) properties.
 
 In Ref.~\cite{russo_hs} we have shown that the competition between crystalline packings and
 isosahedral packings can be studied via two-dimensional maps of translational vs orientational order.
@@ -324,7 +324,7 @@ environments.
 \begin{figure}
  \centering
  \includegraphics{fig_stability_map}
- \caption{Average $\phi$ as a function of $q_6$ for particles identified as fluid and crystalline. The continuous red curve represents fluid particles in a system at $\beta p\sigma^3=17$ and $\delta=0\%$, while dashed blue curve represents fluid particles at the same pressure but at $\delta=4\%$. The thick black curve represents instead solid particles (this curve is less sensitive to polydispersity and it is reported once).}
+ \caption{Average $\phi$ as a function of $q_6$ for particles identified as fluid and crystalline. The continuous red curve represents fluid particles in a system at $\beta p\sigma^3=17$ and $\Delta=0\%$, while dashed blue curve represents fluid particles at the same pressure but at $\Delta=4\%$. The thick black curve represents instead solid particles (this curve is less sensitive to polydispersity and it is reported once).}
  \label{fig:stability_map}
 \end{figure}
 In Fig.~\ref{fig:stability_map}
@@ -346,14 +346,14 @@ a low value of $w_6$).
 It is thus clear that icosahedral packings are competing with crystalline packings, eventually dominating
 at high $\phi$. This scenario is confirmed by looking at the polydisperse case (red squares in
 Figure~\ref{fig:stability_map}).
-At polydispersity $\delta=4\%$ the crystalline branch always lays above the fluid one, meaning that
+At polydispersity $\Delta=4\%$ the crystalline branch always lays above the fluid one, meaning that
 crystalline environments, at any fixed $\phi$, are not able to attain higher volume orientational order than other configurations.
 Microscopically the difference between the monodisperse case and the polydisperse case, is due to an increased population of icosahedral particles, which dominate the fluid branch for $q_6\gtrsim 0.5$.
 We have shown that, while for the monodisperse case there is a range of volume fractions where crystalline particles
 attain higher orientational order than icosahedral arrangements, for the polydisperse case icosahedral
 particles always attain higher orientational order.
 This is immediately reflected in direct simulations,
-as at this pressure it is not possible to crystallize simulations at $\delta=4\%$, while the
+as at this pressure it is not possible to crystallize simulations at $\Delta=4\%$, while the
 monodisperse simulations are easily crystallized.
 
 We have thus provided direct evidence that icosahedral particles are responsible for the suppression
