@@ -31,7 +31,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 
 \begin{document}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{distrib}
 \begin{figure}
 	\centering
@@ -56,27 +56,27 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		every axis plot post/.append style={red, dashed},
 		]
 		\nextgroupplot[xlabel=$s_2$, xmin=-70,xmax=0]
-		\fill[gray!20] (axis cs:-70,1e-7) rectangle (axis cs:-31,1);
+		\fill[gray!20] (axis cs:-70,1e-7) rectangle (axis cs:-29.34,1);
 		\addplot file{s2_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$f_2$, xmin=0,xmax=25]
-		\fill[gray!20] (axis cs:11.6,1e-7) rectangle (axis cs:25,1);
+		\fill[gray!20] (axis cs:11.98,1e-7) rectangle (axis cs:25,1);
 		\addplot file{f2_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8, ylabel={Probability}]
-		\fill[gray!20] (axis cs:0.478,1e-7) rectangle (axis cs:0.8,1);
+		\fill[gray!20] (axis cs:0.495,1e-7) rectangle (axis cs:0.8,1);
 		\addplot file{q6_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$100w_6$, xmin=-5.2,xmax=1]
-		\fill[gray!20] (axis cs:-5.2,1e-7) rectangle (axis cs:-1.4,1);
+		\fill[gray!20] (axis cs:-5.2,1e-7) rectangle (axis cs:-1.44,1);
 		\addplot table[x expr=\thisrowno{0}*100]{w6_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.6]
-		\fill[gray!20] (axis cs:0.22,1e-7) rectangle (axis cs:0.6,1);
+		\fill[gray!20] (axis cs:0.234,1e-7) rectangle (axis cs:0.6,1);
 		\addplot file{Q6_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$C$, xmin=-6,xmax=12]
-		\fill[gray!20] (axis cs:4.45,1e-7) rectangle (axis cs:12,1);
+		\fill[gray!20] (axis cs:5.11,1e-7) rectangle (axis cs:12,1);
 		\addplot file{C_distrib_mobility};
 	\end{groupplot}
 	\begin{groupplot}[%
@@ -174,20 +174,26 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:structurefactor}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{lengths}
 \begin{figure}
 	\centering
 	\begin{tikzpicture}
-	\begin{axis}[%
+	\pgfplotsset{every axis/.append style={
+		height=0.6\columnwidth,%
+		width=0.95\columnwidth,
 		cycle list name=exotic,
 		xlabel={Pressure},
-		ylabel={Correlation length},
+		ymin=0,
 		xmin=16,
 		xtick={17,19,...,25},
-		legend style={
-			legend pos=outer north east,
-			}
+	}}
+	\begin{axis}[%
+		name=len,
+		ylabel={Correlation length},
+		ymax=1.6,
+		legend style={at={(1,1.03)}, anchor=south east},
+		legend columns=10,
 		]
 	\pgfplotstableread{lengths}\lengths
 	 \foreach \y in {1, 2, ..., 6} {
@@ -195,15 +201,25 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
           \pgfplotstablegetcolumnnamebyindex{\y}\of{\lengths}\to{\colname}
           \addlegendentryexpanded{$\colname$}
           }
-          %\addplot file{figures/fig3/q6.dat};
-          %\addlegendentry{$\mathbf{q}_6$}
+	\end{axis}
+	\begin{axis}[%
+		at={(len.below south west)},
+		anchor=above north west,
+		ylabel={Susceptibility},
+		ymax=2,
+		]
+	\pgfplotstableread{susceptibilities}\sus
+	 \foreach \y in {1, 2, ..., 6} {
+          \addplot table[x index=0, y index=\y]{\sus};
+          \pgfplotstablegetcolumnnamebyindex{\y}\of{\sus}\to{\colname}
+          }
 	\end{axis}
 	\end{tikzpicture}
 	\caption{\textbf{Correlation length} extracted for two-body and multi-body scalar order parameters, function of the pressure.}
 	\label{fig:lengths}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{polydistrib}
 \begin{figure}
 	\centering
@@ -381,7 +397,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:Cmaps}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{3D}
 \begin{figure}
 	\begin{tikzpicture}
@@ -401,7 +417,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:3D}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{lengthpoly}
 \begin{figure}
 	\begin{tikzpicture}
@@ -447,7 +463,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:eos}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{stability_map}
 \begin{figure}
 	\begin{tikzpicture}
