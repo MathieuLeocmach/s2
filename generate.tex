@@ -118,7 +118,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:distrib}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{structurefactor}
 \begin{figure}
 	\centering
@@ -136,6 +136,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		ylabel near ticks,
 		xmode=log,
 		ymode=log,%
+		ytickten={-1,0,1}, yticklabels={0.1,~~1,10},
 		cycle list name=grade5,%
 		legend style={at={(0.5,1.03)}, anchor=south},
 		legend columns=10,
@@ -143,7 +144,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		\nextgroupplot[%
 			xlabel={$q\xi_{f_2}$}, ylabel={$S_{f_2}(q)/\chi_{f_2}$},
 			xmin=0.05,xmax=2,%
-			ymin=0.5, ymax=1.5, ytick={0.1,1,10},
+			ymin=0.5, ymax=1.5, 
 			]
 			\addlegendimage{empty legend}
 			%\addlegendimage{legend image code/.code={\node[right] {$P=$};}};
@@ -174,7 +175,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:structurefactor}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{lengths}
 \begin{figure}
 	\centering
@@ -442,7 +443,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:lengthpoly}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{eos}
 \begin{figure}
 	\begin{tikzpicture}
