@@ -31,7 +31,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 
 \begin{document}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{distrib}
 \begin{figure}
 	\centering
@@ -183,14 +183,14 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		height=0.6\columnwidth,%
 		width=0.95\columnwidth,
 		cycle list name=exotic,
-		xlabel={Pressure},
+		xlabel={$\beta p\sigma^3$},
 		ymin=0,
 		xmin=16,
 		xtick={17,19,...,25},
 	}}
 	\begin{axis}[%
 		name=len,
-		ylabel={Correlation length},
+		ylabel={$\xi_x$},
 		ymax=1.6,
 		legend style={at={(1,1.03)}, anchor=south east},
 		legend columns=10,
@@ -205,7 +205,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\begin{axis}[%
 		at={(len.below south west)},
 		anchor=above north west,
-		ylabel={Susceptibility},
+		ylabel={$\chi_x$},
 		ymax=2,
 		]
 	\pgfplotstableread{susceptibilities}\sus
@@ -397,7 +397,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:Cmaps}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{3D}
 \begin{figure}
 	\begin{tikzpicture}
@@ -423,8 +423,8 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\begin{tikzpicture}
 	\begin{axis}[%
 		height=0.5\columnwidth,
-		xlabel={Polydispersity (\%)},
-		ylabel={Correlation length},
+		xlabel={$\Delta$ (\%)},
+		ylabel={$\xi_x$},
 		xmin=6,ymin=0,
 		xtick={7,9,...,15},
 		reverse legend=true,
@@ -442,7 +442,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:lengthpoly}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{eos}
 \begin{figure}
 	\begin{tikzpicture}
@@ -451,12 +451,13 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		height=0.5\columnwidth,
 		xlabel={$\phi$},
 		ylabel={$\beta p\sigma^3$},
+		xmin=0.45, xmax=0.59,
 		%ytick={17,19,...,27},
 		]
 		\addplot file{figures/fig1/circles.dat};
 		\addplot+[every mark/.append style={scale=0.8}, mark=square
 ] file{figures/fig1/squares.dat};
-		%\legend{$w_6$,$Q_6$};
+		%\addplot[domain=0.45:0.59, dashed] {(1+x+x^2-x^3)/(1-x)^3};
 	\end{axis}
 	\end{tikzpicture}
 	\caption{\textbf{Simulated state points.} The circles (blue curve) represent the equation of state for polydispersity $\Delta=7\%$. The squares (red curve) instead are simulation points at the same pressure ($\beta p\sigma^3=23$) but at different polydispersities $\Delta$: from low to high volume fraction they correspond to $\Delta=7\%,9\%,11\%,13\%,15\%$ respectively.}
