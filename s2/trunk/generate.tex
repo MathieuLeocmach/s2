@@ -185,8 +185,8 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		cycle list name=exotic,
 		xlabel={$\beta p\sigma^3$},
 		ymin=0,
-		xmin=16,
-		xtick={17,19,...,25},
+		xmin=8,
+		xtick={9,13,...,25},
 	}}
 	\begin{axis}[%
 		name=len,
@@ -417,7 +417,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:3D}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{lengthpoly}
 \begin{figure}
 	\begin{tikzpicture}
@@ -452,7 +452,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		xlabel={$\phi$},
 		ylabel={$\beta p\sigma^3$},
 		xmin=0.45, xmax=0.59,
-		%ytick={17,19,...,27},
+		ytick={9,11,...,27},
 		]
 		\addplot file{figures/fig1/circles.dat};
 		\addplot+[every mark/.append style={scale=0.8}, mark=square
