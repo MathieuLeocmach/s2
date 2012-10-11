@@ -346,7 +346,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:f2decoupling}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{Cmaps}
 \begin{figure}
 	\begin{tikzpicture}
@@ -443,7 +443,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:lengthpoly}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{eos}
 \begin{figure}
 	\begin{tikzpicture}
@@ -458,10 +458,11 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		\addplot file{figures/fig1/circles.dat};
 		\addplot+[every mark/.append style={scale=0.8}, mark=square
 ] file{figures/fig1/squares.dat};
+		\addplot[mark=diamond] coordinates {(0.5347,17) (0.5358, 17) (0.537528, 17)};
 		%\addplot[domain=0.45:0.59, dashed] {(1+x+x^2-x^3)/(1-x)^3};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{\textbf{Simulated state points.} The circles (blue curve) represent the equation of state for polydispersity $\Delta=7\%$. The squares (red curve) instead are simulation points at the same pressure ($\beta p\sigma^3=23$) but at different polydispersities $\Delta$: from low to high volume fraction they correspond to $\Delta=7\%,9\%,11\%,13\%,15\%$ respectively.}
+	\caption{Simulated state points. The circles (blue curve) represent the equation of state for polydispersity $\Delta=7\%$. The squares (red curve) instead are simulation points at the same pressure ($\beta p\sigma^3=23$) but at different polydispersities $\Delta$: from low to high volume fraction they correspond to $\Delta=7\%,9\%,11\%,13\%,15\%$ respectively. Similarly the diamonds (black curve) are at $\beta p\sigma^3=17$ and $\Delta=0\%,4\%,7\%$.}
 	\label{fig:eos}
 \end{figure}
 
