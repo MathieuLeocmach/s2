@@ -57,11 +57,21 @@ Section A
 Fig. 2 is not very intuitive. There is a lot of information which is not clear. For example, systematically the more ordered configurations are not the most probable. But the text reads ``the order parameters are maximized or minimized by different local structures'': superficially one would go to look at the maxima or minima in the figure, while instead it is the value of the observable (not its probability) to be maximized or minimized. Perhaps, it would help to add some cartoons or labels to associate each observable with what it measures. The mobilities are also difficult to understand. I suggest that the authors to try to improve the figure, also because this is an early figure and it is propedeutic for the rest of the paper.
 \end{quotationi}
 
+We tried to improve the description of the figure to lift the ambiguity between a structure maximizing the parameter and a structure with maximum probability.
+
 \begin{quotationi}
 Section B
 
 It is not clear to me why the calculation of $S_x$ has been limited to a 10\% subset of particles. The authors claim that there is no significant dependence on this, since they have changed the threshold value. What whould happen if $S_x$ is calculated for all particles? How many configurations (with 10\% particles) roughly do they need to average in order to obtain the curves of Fig.4?
 \end{quotationi}
+
+What we meant is that changing the threshold to include only 5\% or 25\% did not change qualitatively the results. The more we include particles, the closer we get to the trivial density structure factor $S(q)$, and the more difficult it will be to extract a length scale. A low threshold do not discriminate between ordered and unordered particles. Indeed, around 30\% direct visualization of the patterns like in our Fig. 6 becomes difficult and over 50\% $S_x$ is basically flat at low $q$. 
+
+At the other end of the spectrum, including too few particles decreases the number of pairs very quickly ($N_\text{pairs}\sim N^2$) and thus the signal to noise ratio become very poor. Indeed at 0\% their is no signal anymore.
+
+The good threshold is a balance between these two extremes, and we found that between 5\% and 25\% the numerical results were consistent, with an easier direct visualization around 10\%.
+
+For each pressure, we ran 8 seeds for a few $\tau_\alpha$ (after equilibration) summing up to approximately $10^4$ configurations. The correlation lengths are already tractable although noisy with 10 times less configurations.
 
 \begin{quotationi}
 Section C
