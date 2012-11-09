@@ -31,7 +31,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 
 \begin{document}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{parameters}
 \begin{figure}
 	\centering
@@ -51,7 +51,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:parameters}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{distrib}
 \begin{figure}
 	\centering
@@ -388,7 +388,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:f2decoupling}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{Cmaps}
 \begin{figure}
 	\begin{tikzpicture}
@@ -431,7 +431,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		axis on top,
 		]
 		\addplot graphics
-			[xmin=-4,xmax=12, ymin=0, ymax=1]{colorscale.png};
+			[xmin=-12,xmax=12, ymin=0, ymax=1]{colorscale.png};
 	\end{axis}
 	\node[left=0.5em of B] {$C(q_4,q_6)$};
 	%\node[above=0.5em of T] {\includegraphics{colorscale.png}};
