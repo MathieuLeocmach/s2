@@ -388,7 +388,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:f2decoupling}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{Cmaps}
 \begin{figure}
 	\begin{tikzpicture}
@@ -508,7 +508,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:eos}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{stability_map}
 \begin{figure}
 	\begin{tikzpicture}
@@ -528,7 +528,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		\addplot+[black, very thick] file{figures/fig7/crystalline.dat};
 		\addplot file{figures/fig7/d0.dat};
 		\addplot+[dashed, blue] file{figures/fig7/d4.dat};
-		\legend{crystalline,$\Delta=0\%$,$\Delta=4\%$};
+		\legend{crystalline, fluid $\Delta=0\%$, fluid $\Delta=4\%$};
 	\end{axis}
 	\end{tikzpicture}
 	 \caption{Average $\phi$ as a function of $q_6$ for particles identified as fluid and crystalline. The continuous red curve represents fluid particles in a system at $\beta p\sigma^3=17$ and $\Delta=0\%$, while dashed blue curve represents fluid particles at the same pressure but at $\Delta=4\%$. The thick black curve represents instead solid particles (this curve is less sensitive to polydispersity and it is reported once).}
