@@ -250,10 +250,9 @@ This will be shown in detail in Section~\ref{sec:icosahedra}.
 The correlation lengths of crystal-like bond orientational order can be easily measured in real space due to the tensorial nature
 of these order parameters, as was shown in previous studies~\cite{tanaka,kawasaki,mathieu_icosahedra,russo_gcm,russo_hs}. Two-body
 correlation functions, both $f_2$ and $s_2$ being scalars, is more difficult to extract in real-space, especially at long distances,
-where long averages are required to overcome the statistical noise. A more reliable procedure to extract correlation lengths can
-be obtained by measuring correlation lengths in Fourier space.
-The procedure is the following.
-At a given time step, for any scalar order parameter field $x$ increasing with order, we compute a four-point structure factor keeping only the 10\% most ordered particles (more on this choice below). This condition defines a threshold $x^*$. The ensemble average of the thresholds $\langle x^*\rangle$ are indicated on Fig.~\ref{fig:distrib}. Formally we define a function $\omega(i) = \Theta [x(i) - x^*]$, where $\Theta(x)$ is the Heaviside’s step function, and a four-point structure factor
+where long averages are required to overcome the statistical noise. Theoretically real and Fourier space contain the same information, however real space correlation functions oscillate at large $r$ where their Fourier counterparts are not oscillatory at small $q$. To extract length scale from the former, one should fit the envelope of an oscillatory, rapidly decaying to noise level function, which is a difficult procedure. We explain in the following a straightforward procedure to extracting correlation length from Fourier space.
+
+At a given time step, for any scalar order parameter field $x$ increasing with order, we compute a structure factor keeping only the 10\% most ordered particles (more on this choice below). This condition defines a threshold $x^*$. The ensemble average of the thresholds $\langle x^*\rangle$ are indicated on Fig.~\ref{fig:distrib}. Formally we define a function $\omega(i) = \Theta [x(i) - x^*]$, where $\Theta(x)$ is the Heaviside’s step function, and a four-point structure factor
 \begin{equation}
 	S_x(q) = N^{-1}(\left\langle \Omega(\mathbf{q}) \Omega(-\mathbf{q}) \right\rangle - | \left\langle \Omega(\mathbf{q}) \right\rangle^2 |),   
 	\label{eq:StrutureFactor}
