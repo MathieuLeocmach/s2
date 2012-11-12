@@ -1,4 +1,4 @@
-\documentclass[a4paper, rebuttal, parskip=true, firsthead=false, fromemail=true, foldmarks=false]{scrlttr2}
+\documentclass[a4paper, rebuttal, parskip=true, firsthead=false, fromemail=false, foldmarks=false]{scrlttr2}
 \usepackage{amsmath}
 %\usepackage{amsfonts}
 %\usepackage{amssymb}
@@ -6,37 +6,48 @@
 \usepackage{hyperref}
 \usepackage[binary]{SIunits}
 \begin{document} 
-\begin{letter}{Dr. James Skinner, Associate Editor
+\begin{letter}{Dr. James Skinner,\\Associate Editor
 The Journal of Chemical Physics
-University of Wisconsin
+University of Wisconsin\\
 editor-jcp@chem.upenn.edu }
-\opening{\bf Dear James,}
+\opening{Dear Editor,}
 
-Thank you very much for your e-mail concerning our manuscript (GLATRA12.10.0133) together with the comments of the Reviewers.
+Thank you for sending us two Referee reports for our manuscript GLATRA12.10.0133 entitled
+\emph{Importance of many-body correlations in glass transition: an example from polydisperse hard spheres}.
 
-Following the constructive comments and suggestions of the Reviewers, we have revised our manuscript. 
-We believe that we have been able to answer the comments of both reviewers on a satisfactory level. We note that the parts revised to answer the Reviewers have been highlighted with blue characters in the revised manuscript. 
+We were very pleased to read that both Referees have appreciated our work and provided constructive comments to
+improve its clarity and impact. Following these suggestions we have thus revised our manuscript, and all the changes
+are detailed in the following response to the Referees.
 
+We hope that you will find the revised manuscript suitable for publication in the Journal of Chemical Physics. 
 
-We hope that you and your reviewers would find that the revised manuscript is now suitable for publication in the Journal of Chemical Physics. 
+Sincerely yours,
 
-\closing{\bf Sincerely yours,} 
+\emph{Mathieu~Leocmach, John Russo  and Hajime~Tanaka}
+
 \clearpage
+
 
 \textsf{\textbf{Replies to the comments of Referee 1}}
 
-First, we thank the Reviewer for having carefully read our revised manuscript and provided useful comments to improve our manuscript. 
-Hereafter we reply to the comments one by one.
+We thank the Referee for appreciating our work and for providing useful comments to improve its clarity and impact.
+To improve readability, we attach the original questions of the Referee and respond to them one by one.
 
 \begin{quotationi}
-The manuscript by Leocmach, Russo and Tanaka is very interesting, well-conceived, with a large amount of original and novel ideas and concepts. Moreover, it fits extremely well to a special Issue for the Glass Transition, because it studies in detail the crystal/glass interplay in polydisperse hard spheres. While hard spheres are one of the most studied models for glass transition in colloidal experiments, most simulations deal with either monodisperse hard spheres or with binary systems, while real systems are always polydisperse. Therefore, the present work helps to elucidate several concepts also based on the microscopic understanding of the role of polydispersity, an issue that has often been overlooked. The results are sound and challenging, as they call for the importance of many-body correlations to describe the occurrence of the glass transition, while most theories rely on pair correlation functions. Therefore, I strongly recommend that the paper is published in J. Chem.
-Phys, after the authors address the following (minor) points.
-
-
+[...] I strongly recommend that the paper is published in J. Chem. Phys, after the authors address the following (minor) points.
+\newline\newline
 Page 1
-
 To state that MCT is the only exact theory of the glass transition (in the mean-field, infinite dimension approximation) is not correct. There is an ongoing debate whether this is true or not, and the fact that the infinite-d limit of MCT does not coincide with that of RFOT and replica theory makes the case quite controversial. I would remove the word ``exact''.
 \end{quotationi}
+
+We thank the Referee for pointing out that indeed the debate over which is the exact mean-field theory of the glass transition is still a matter of intense research.
+To avoid confusion we decided to fully follow the Referee suggestion and rewrite the previous sentence in the following form.
+
+{\it Page 1, second column, end of first paragraph:\\
+This question is particularly important considering that the Mode-Coupling Theory (MCT) of the glass transition takes as input only two-body quantities, and
+similarly modern spin-glass-type theories of the structural glass transition~[10-12] are not taking explicitly into account many-body correlations.
+}
+
 
 \begin{quotationi}
 Page 2
@@ -45,11 +56,62 @@ A clarification concerning the calculation of the particle free volume: what doe
 Please explain the choice Nb(i)=12. Are these the 12 closest neighbours?
 \end{quotationi}
 
+The calculation of the free volume for each particle is a two-step procedure. First the system volume $V$ is univocally partitioned between all particles,
+such that each particle $i$ is assigned a volume $V_i$, and $\sum_i V_i=V$. The free volume $v(i)$ is the subset of $V_i$ in which the excluded volume of
+the particle can move without leaving $V_i$. The most popular way of dividing space into non-overlapping regions is the Voronoi decomposition, which assigns to each
+particle a polyhedron whose faces lie normally to vectors connecting the center of the particle with that of its neighbours. The free volume $v_i$ is
+then the volume of the polyhedron obtained by radially shifting all faces of the Voronoi polyhedron $V_i$ of the quantity $d_i/2$, where $d_i$ is the diameter of particle $i$. In this way the volume $v(i)$ represents the volume in which the particle can move without leaving $V_i$.
+
+The choice $N_b$ indeed corresponds to the $12$ closest neighbours. Neighbours identification is usually done by considering all particles within
+a certain distance from the central one. This has two main disadvantages: 1) the distance between particles fluctuates and with a fixed cutoff the
+identity of neighbours is strongly affected by these fluctuations 2) the cutoff distance should be tailored for each pressure.
+When looking for crystalline particles, we instead choose to focus on the $12$ closest neighbours, because all the relevant crystal structures for
+hard-spheres have $12$ nearest neighbours. This criteria is indepentent of pressure and we have shown (Ref.~[28] and [30] in the manuscript) that it considerably
+improves the strength of the crystal identification procedure.
+
+To clarify these points in the manuscript we have made the following changes
+
+{\it Page 2, second column, first paragraph:\\
+To compute the free volume $v(i)$ we follow previous
+studies: first the Voronoi-diagram for each configuration is computed, and the polyhedron
+surrounding each particle is determined. To account for polydispersity we employ the radical Voronoi tessellation.
+The free volume of particle $i$ is then
+computed by shifting normally all the faces of the corresponding polyhedron by $\sigma(i)/2$
+towards particle $i$, and computing the new volume. In this way
+the volume $v(i)$ represents the volume in which the excluded volume of particle $i$ can move without leaving its Voronoi cell.
+This procedure is conducted independently
+for each particle and for each configuration.
+}
+
+{\it Page 2, second column, second paragraph:\\
+Instead we
+sort neighbours according to their distance from particle $i$, and
+fix $N_b(i)=12$ which is the number of nearest neighbors in icosahedra and close packed crystals (like \textsc{hcp} and \textsc{fcc})
+which are known to be the only relevant crystalline structures for hard spheres.
+}
+
+
 \begin{quotationi}
 Page 3
 
 A few more words to explain the two crucial observables $C$ and $Q_6$ should be added, to avoid that the reader has to understand their meaning (compared to other observables) without having to read References 28 and 29.
 \end{quotationi}
+
+We agree with the Referee that the role of the order parameters $\text{C}$ and $Q_6$ should be better explained in the manuscript. To do so we added the following
+paragraph
+
+{\it Page 3, first column, paragraph before Results:\\
+The crystallization transition is characterized by
+the symmetry breaking of both orientational and translational order.
+We note that while both $\text{C}$ and $Q_6$ are good measures of bond-orientational order, the density or other two-body
+quantities are measures of translational order.  It was shown~[28] that in hard spheres crystallization is
+driven by fluctuations in bond-orientational order and not by density fluctuations. Crystals continously form, grow and melt
+in regions of high bond-orientational order, which then effectively act as precursors for the crystallization transition.
+So $\text{C}$ and $Q_6$, while not
+being direct indicators for the presence of crystals, rather measure the tendency to promote crystallization. In Section~IIIB we are going to show
+that indeed the lengthscale associated with bond-orientational order fluctuations increases with supercooling. Then in Section~IIIC we are going to study
+the mechanism by which the crystallization transition is avoided.
+}
 
 \begin{quotationi}
 Section A
@@ -81,13 +143,52 @@ A couple of curiosities on the role of polydispersity.
 1) Can the authors associate anything special happening at Delta $\sim6-7\%$ where (one-phase) crystallization according to Fasolo and Sollich is suppressed? For example, repeating the plot in Fig.10 at higher pressures, could reproduce (and provide a microscopic insight) these results?
 \end{quotationi}
 
+The loss of microscopic stability of the crystalline branch (i.e. the subset of particles which are identified as crystalline in the metastable melt)
+is shown in Fig.10 as the fluid and crystalline branch loose their intersection. When the two branches don't cross anymore, orientational order
+stabilizes icosahedral environments, and trajectories are not seen to crystallize. As pointed out by the Referee,
+the loss of this crossover should occurr at higher values of polydispersity with
+increasing pressure. We can confirm that at polydispersity $\Delta=7\%$ the two branches don't cross at any value of the pressure we examined, suggesting
+that indeed one-phase crytallization is suppressed. But, differently from the low pressure, at high pressure we cannot examine
+what happens at polydispersities below $\sim 6\%$, as the crystallization is not an activated process anymore
+(this nucleation has been called spinodal-like, e.g. Valeriani et al., Soft Matter 8, 4960 (2012)), and trajectories crystallize
+before entering any metastable supercooled state.
+
+We have added the following sentence to the manuscript.
+
+{\it Page 8, first column, before Discussion:\\
+We also confirm that at polydispersity $\Delta=7\%$ icosahedral particles are favoured over crystalline ones for
+all the pressures studied, in line with the observation of Fasolo and Sollich~[39], that
+one-phase crystallization is suppressed at high polydispersity.
+}
+
+
+
 \begin{quotationi}
 2) How does the results presented here connect to those of MD simulations of polydisperse hard spheres by Zaccarelli et al (PRL 2009) that the dynamics is not much affected by changing Delta (for small values of the polydispersity)?
 \end{quotationi}
 
+The results by Zaccarelli et al that the dynamics is not much affected by changing polydispersity are important since they tell
+us that the differences between the results at different polydispersity are only due to structural properties, and not by
+dynamic effects. For example, in Fig. 10 we compare results at different values of $\Delta$, but the results of Zaccarelli et al.
+assure us that the differences between the trajectories (the monodispersed one crystallizing and the other not) is entirely due
+to some structural mechanism, which is indeed what we propose.
+
+We thank the Referee for bringing this point to the attention, and we have added the following sentence to the manuscript
+
+{\it Page 8, first column, before Discussion:\\
+Since the dynamics of the
+system is approximetely the same at different values of $\Delta$~[37], this difference in the crystallization behaviour has to come from
+some structural difference introduced by polydispersity, i.e. an increased population of icosahedral particles.}
+
+
 \begin{quotationi}
 3) Any ideas on why the correlation length seems to saturate at Delta~13-15\%?
 \end{quotationi}
+
+We believe that there will always be some degree of static correlation in a supercooled state, which
+survives at the highest polydispersities we have studied. At even higher polydispersities, the system
+will probably phase separate to counter-act the loss of structural order.
+
 
 \begin{quotationi}
 Fig.8 : The colors should be adjusted, as when printed in black and white nothing can be distinguished.
@@ -101,29 +202,14 @@ We changed the figure according to your recommendation.
 
 We hope that the Reviewer would think that the revised manuscript is now suitable for publication in the Journal of Chemical Physics. 
 
+\clearpage
 
 \textsf{\textbf{Replies to the comments of Referee 2}}
 
-First, we thank the Reviewer for having carefully read our revised manuscript and provided useful comments to improve our manuscript. 
+First, we thank the Reviewer for carefully reading our manuscript and providing useful comments for its improvement. 
 Hereafter we reply to the comments one by one.
 
 \begin{quotationi}
-This papers reports on new computer simulations for the glass transition
-in polydisperse hard sphere systems. A particular focus is on a growing
-length scale during glass formation. It is shown that many-body
-correlations exhibit such a growing length scale while such a length scale
-is absent for pair
-correlations, one of the key figures in Figure 5.
-This is of basic consequence as in standard mode
-coupling theories only pair correlations enter.
-By bond orientation
-order parameters which are sensible for icosaedral ordering the competiion
-between amorpjization and crystallization is highlighted.
-
-The paper contains many novel results and shows interesting plots of
-distributions and correlations which shed new light on the nature of
-the glass transition itself. The paper is clearly written
-and can make a large impact on future studies.
 
 I recommend publication in JCP but the authors should amend the paper
 according to the following points:
@@ -133,11 +219,58 @@ were criticized, see Kapfer et al, PRE 85, 030301 (2012). Can the authors
 comment on the validity of their criteria in the light of this recent paper?
 \end{quotationi}
 
+We thank the Referee for bringing to our attention a relevant work in the identification of
+local crystallinity. In the work of Kapfer et al., the identification of crystalline
+particles based uniquely on $q_6$ is criticized, as affected by spurious noncrystalline cells.
+We also stand with the claim that $q_6$ alone cannot be used to distiguish crystalline particles. In the
+paper by Kapfer et al., the proposed solution is the use of rank-four Minkowski tensors. In our work
+we instead followed a more conventional approach, which is to get rid of the fluctuations which
+cause the artifacts by spatially coarse-graining $q_6$ to form $Q_6$. The procedure was first
+described in the Ref.~29 of our manuscript, and it has been confirmed to drastically improve the
+quality of crystalline identification. Note also that the criteria adopted by Frenkel and co-workers
+is also based on spatial coarse-graining, as it involves scalar products between $q_6$ tensors of
+neighbouring particles.
+
+In the paper we added the reference suggested by the Referee to this new method, and the following sentence:
+
+{\it Page 3, first column, end of first paragraph:\\
+Alternatively, we note that the shortcomings of
+non coarse-grained order parameters in the identification of crystallinity can be addressed by Minkowki tensors~\cite{kapfer2012jammed}
+}
+
+
 \begin{quotationi}
 2) paper 2, chapter II: a) if equation (1) is an entropy, it needs unit kT.
 b) "The pair correlation function of each particle": can the authors
 define precisely what they mean by this strange object?
 \end{quotationi}
+
+In the previous version of the manuscript we forgot to write that the unit of energy is
+fixed so that the Boltzmann constant is $k_B=1$. In these units, equation 1 is correct, but now we include
+$k_B$ to avoid confusion.
+
+The pair correlation function $g_i(r)$ is defined as
+$$
+\rho g_i(r)=\langle \sum_{j\neq i}\delta(\mathbf{r}-\mathbf{r}_i+\mathbf{r}_j)\rangle
+$$
+where the average is not an ensamble average, but a temporal average over timescales much shorter
+of the $\alpha$ relaxation time (for averages over long time scales we recover the usual definition
+of the pair correlation function). This quantity is introduced to characterize the local environment
+of each particle, and the short time average is done to get rid of high-frequency fluctuations ($\beta$ processes).
+The calculation of $ g_i(r)$ is computationally expensive as it requires the calculation to be done at short
+time intervals.
+
+We have added the following sentence to clarify these points
+
+{\it Page 2, first column, first paragraph of Methods section:\\
+In the following we fix the unit of length as $\sigma_0=1$ and the unit
+of energy so that the Boltzmann constant is unity, $k_B=1$.
+}
+
+{\it Page 2, first column, third paragraph of Methods section:\\
+In practice, this requires time averages to compute the pair correlation function of each particle, $g_i(r)$,
+where the particle distribution around a particle $i$ is averaged over short-time scales ($\beta$ processes).
+}
 
 \begin{quotationi}
 3) page 4: it is stated that a more reliable procedure to obtain the
