@@ -1,10 +1,10 @@
 \documentclass[a4paper, rebuttal, parskip=true, firsthead=false, fromemail=false, foldmarks=false]{scrlttr2}
 \usepackage{amsmath}
 %\usepackage{amsfonts}
-%\usepackage{amssymb}
+\usepackage{amssymb}
 \usepackage[british]{babel}
 \usepackage{hyperref}
-\usepackage[binary]{SIunits}
+\usepackage[binary,squaren]{SIunits}
 \begin{document} 
 \begin{letter}{Dr. James Skinner,\\Associate Editor
 The Journal of Chemical Physics
@@ -277,6 +277,12 @@ where the particle distribution around a particle $i$ is averaged over short-tim
 length scale is in Fourier space. This sounds odd to me, as position and
 Fourier space provide in principal the same information.
 \end{quotationi}
+
+Real space and Fourier space do carry the same information, however it is practically easier to extract long distance information from $S(q)$ than from $g(r)$ (conversely, short distance information is easier to extract from $g(r)$). The Referee may compare the Fourier space correlation function of our Figure 4 to the real space correlation function of the Figure 3d of Tanaka \emph{et al.} Nature materials 9, 324–31 (2010).
+
+Real space correlation function is oscillatory when $r$ is larger than the diameter $\sigma$. Thus the correlation length is obtained by fitting the \emph{envelope} of the real space function. Since the function is rapidly decaying, noise becomes dominant for $r\gtrsim L/4$, which makes localization and amplitude of the peaks subject to interpretation. Since the Ornstein-Zernike expression is only asymptotic, the two first peaks should not be fitted. At the end of the day, with our size of simulation it leaves only about 3-4 peaks, i.e. 3-4 points, to fit. For a fair comparison of the figures suggested above, the Referee has to imagine 7 times more noise in the real space correlation function of scalar order parameters like $Q_6$, $f_2$, etc. Indeed the Nature Material paper uses uses a tensorial order parameter $Q_{6m}$, effectively correlating 7 scalar fields and thus reducing the noise sevenfold ; allowing the fit of 5-6 peaks.
+
+On the other hand, the Ornstein-Zernike form manifests itself in Fourier space at small $q$, were the Fourier correlation function is not oscillatory and thus much easier to fit unambiguously. We can use 9 points for our fit.
 
 We hope that the Reviewer would think that the revised manuscript is now suitable for publication in the Journal of Chemical Physics.
 
