@@ -15,6 +15,8 @@
 \usetikzlibrary{plotmarks}
 \usetikzlibrary{patterns}
 \usetikzlibrary{matrix}
+\usetikzlibrary{shapes.arrows}
+
 \tikzexternalize
 \tikzsetexternalprefix{fig_}
 \tikzset{external/force remake=false}
@@ -51,15 +53,17 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:parameters}
 \end{figure}
 
-\tikzset{external/force remake=false}
+\tikzset{external/force remake}
 \tikzsetnextfilename{distrib}
 \begin{figure}
 	\centering
 	\begin{tikzpicture}
 	\begin{groupplot}[%
 		group style={
+			group name=dis,
 			group size=2 by 3,
 			horizontal sep=0.02\textwidth,
+			vertical sep = 4em,
 			y descriptions at=edge left,
 			},%
 		width=0.335\columnwidth,%
@@ -81,7 +85,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		y tick label style={red},%
 		]
 		\nextgroupplot[xlabel=$s_2$, xmin=-70,xmax=0]
-		\fill[gray!20] (axis cs:-70,1e-7) rectangle (axis cs:-29.34,1);
+		\fill[gray!20] (axis cs:-70,1) rectangle (axis cs:-29.34,1e-7) node (s2) {};
 		\addplot file{s2_distrib_mobility};
 		
 		\nextgroupplot[xlabel=$f_2$, xmin=0,xmax=25]
@@ -108,6 +112,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		group style={
 			group size=2 by 3,
 			horizontal sep=0.02\textwidth,
+			vertical sep = 4em,
 			y descriptions at=edge right,
 			},%
 		width=0.335\columnwidth,%
@@ -127,34 +132,40 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 		]
 		\nextgroupplot[xlabel=$s_2$, xmin=-70,xmax=0]
 		\addplot table[x index=0, y index=2]{s2_distrib_mobility};
-		%\node[below right, align=left] at (rel axis cs:0,1) {Low\\ entropy};
-		\node[anchor=north east, align=left, rotate=90] at (rel axis cs:0,1) {Pair entropy min.};
+		%\node[below right, align=left, text width=0.1\textwidth] at (rel axis cs:0,1) {low pair entropy};
+		%\node[anchor=north east, align=left, rotate=90] at (rel axis cs:0,1) {Pair entropy min.};
 		
 		\nextgroupplot[xlabel=$f_2$, xmin=0,xmax=25]
 		\addplot table[x index=0, y index=2]{f2_distrib_mobility};
-		%\node[below left, align=right] at (rel axis cs:1,1) {High free\\ volume};
-		\node[anchor=south east, align=left, rotate=90] at (rel axis cs:1,1) {Free volume min.};
+		%\node[below left, align=right, text width=0.1\textwidth] at (rel axis cs:1,1) {low free volume};
+		%\node[anchor=south east, align=left, rotate=90] at (rel axis cs:1,1) {Free volume min.};
 		
 		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8]
 		\addplot table[x index=0, y index=2]{q6_distrib_mobility};
 		%\node[below left, align=right, text width=0.1\textwidth] at (rel axis cs:1,1) {$6$-fold};
-		\node[anchor=south east, align=left, rotate=90] at (rel axis cs:1,1) {$6$-fold};
+		%\node[anchor=south east, align=left, rotate=90] at (rel axis cs:1,1) {$6$-fold};
 		
 		\nextgroupplot[xlabel=$w_6$, xmin=-5.2,xmax=1, ylabel={Mobility}]
 		\addplot table[x expr=\thisrowno{0}*100, y index=2]{w6_distrib_mobility};
-		%\node[below right, align=left] at (rel axis cs:0,1) {Icosahedral};
-		\node[anchor=north east, align=left, rotate=90] at (rel axis cs:0,1) {Icosahedon};
+		%\node[below right, align=left] at (rel axis cs:0,1) {icosahedron};
+		%\node[anchor=north east, align=left, rotate=90] at (rel axis cs:0,1) {Icosahedon};
 		
 		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.6]
 		\addplot table[x index=0, y index=2]{Q6_distrib_mobility};
-		%\node[below left, align=right] at (rel axis cs:1,1) {Crystalline};
-		\node[anchor=south east, align=left, rotate=90] at (rel axis cs:1,1) {Crystal};
+		%\node[below left, align=right] at (rel axis cs:1,1) {crystal};
+		%\node[anchor=south east, align=left, rotate=90] at (rel axis cs:1,1) {Crystal};
 		
 		\nextgroupplot[xlabel=$C$, xmin=-6,xmax=12, xtick={0,5,10}]
 		\addplot table[x index=0, y index=2]{C_distrib_mobility};
-		%\node[below left, align=right] at (rel axis cs:1,1) {Crys-\\ talline};
-		\node[anchor=south east, align=left, rotate=90] at (rel axis cs:1,1) {Crystal};
+		%\node[below left, align=right] at (rel axis cs:1,1) {crystal};
+		%\node[anchor=south east, align=left, rotate=90] at (rel axis cs:1,1) {Crystal};
 	\end{groupplot}
+	\draw[<-] (dis c1r1.north west)++(0,1em) -- ++(1em,0) node[right] {low pair entropy};
+	\draw[<-] (dis c2r1.north east)++(0,1em) -- ++(-1em,0) node[left] {low free volume};
+	\draw[<-] (dis c1r2.north east)++(0,1em) -- ++(-1em,0) node[left] {$6$-fold symmetry};
+	\draw[<-] (dis c2r2.north west)++(0,1em) -- ++(1em,0) node[right] {icosahedral order};
+	\draw[<-] (dis c1r3.north east)++(0,1em) -- ++(-1em,0) node[left] {crystal-like order};
+	\draw[<-] (dis c2r3.north east)++(0,1em) -- ++(-1em,0) node[left] {crystal-like order};
 	\end{tikzpicture}
 	\caption{Probability distributions (red dashed line) and mobility (blue continuous line) function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation. Top row: two-body excess entropy $s_2$ (left) and pair free energy $f_2$ (right). Central row: local six-fold orientational orders $q_6$ (left) and $w_6$ (right). Bottom row: coarse grained $Q_6$ (left) and crystallinity $C$ (right). Mobility is in unit of mean-square displacement. The shaded area shows the contribution from $10\%$ of the particles having highest (for $f_2$, $q_6$, $Q_6$ and $C$) or lowest (for $s_2$, $w_6$) value of the order parameter.}
 	\label{fig:distrib}
@@ -388,7 +399,7 @@ red, every mark/.append style={fill=red},mark=diamond*\\%
 	\label{fig:f2decoupling}
 \end{figure}
 
-\tikzset{external/force remake}
+\tikzset{external/force remake=false}
 \tikzsetnextfilename{Cmaps}
 \begin{figure}
 	\begin{tikzpicture}
