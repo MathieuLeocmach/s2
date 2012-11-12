@@ -48,7 +48,10 @@ When cooled below its freezing temperature while avoiding crystallization, a liq
 
 The existence of a static (structural) length that would grow and accompany the dynamic heterogeneities is still not clear in the general case. However, in a class of system that includes polydisperse hard spheres, we have shown~\cite{tanaka} that some medium range bond orientational order reminiscent of the crystal exists in the supercooled liquid and grows toward the glass transition in the same way as the dynamical heterogeneity. The presence in glassy materials of structures locally reminiscent of crystals has been confirmed recently in amorphous silicon~\cite{Treacy2012} and in a metallic glass~\cite{Hwang2012}. While bond-orientational order is a member of the class of many-body
 correlations between neighboring particles, it is yet unclear if a similar lengthscale can be extracted
-from two-body correlation functions. This question is particularly important considering that the only exact (in the mean-field, infinite dimension approximation) theory of the glass transition, the Mode-Coupling Theory (MCT), takes as input only two-body quantities. Modern spin-glass-type theories of the structural glass transition~\cite{lubchenko2007,Biroli2008,Parisi2010} are building on the MCT (considered as a mean-field limit), while not taking explicitly into account many-body correlations.
+from two-body correlation functions.
+This question is particularly important considering that the Mode-Coupling Theory (MCT) of the glass transition takes as input only two-body quantities, and
+similarly modern spin-glass-type theories of the structural glass transition~\cite{lubchenko2007,Biroli2008,Parisi2010} are not taking explicitly into account many-body correlations.
+%This question is particularly important considering that the only exact (in the mean-field, infinite dimension approximation) theory of the glass transition, the Mode-Coupling Theory (MCT), takes as input only two-body quantities. Modern spin-glass-type theories of the structural glass transition~\cite{lubchenko2007,Biroli2008,Parisi2010} are building on the MCT (considered as a mean-field limit), while not taking explicitly into account many-body correlations.
 
 
 At polydispersities over $6-7\%$, the system needs to fractionate to crystallize~\citep{Fasolo2003}. What is the bond order of the reference crystal is then unclear and may challenge our scenario. This is a situation reminiscent of binary hard sphere systems of size ratio close to one~\cite{Hopkins2011b,Hopkins2012} where growing bond order have not been reported~\cite{Charbonneau}. However, it is known that even in binary systems locally favored structures play a role in the slowing down of the dynamics~\cite{Coslovich2011,Malins2012}. Interestingly, recent studies by Mosayebi et al. \cite{mosayebi2010,mosayebi2012} demonstrate that there are static growing lengths 
@@ -67,21 +70,22 @@ and icosahedral packings (Section~\ref{sec:icosahedra}).
 \section{Methods}\label{sec:methods}
 We run isothermal-isobaric NpT Monte Carlo simulations of $N=4000$ polydisperse hard spheres.
 The diameters ($\sigma$) follow a Gaussian distribution $P(\sigma)=\exp{\left[-(\sigma-\sigma_0)^2/2\,s^2\right]}/\sqrt{2\pi} s$,
-with polydispersity index $\Delta=s/\sigma_0$. In the following we fix the unit of length as $\sigma_0=1$.
+with polydispersity index $\Delta=s/\sigma_0$. In the following we fix the unit of length as $\sigma_0=1$ and the unit
+of energy so that the Boltzmann constant is unity, $k_B=1$.
 
 Our aim is to compare the behavior of both two-point quantities and many-body quantities with increasing pressure.
 Due to the hard-sphere interaction, entropy is the only contribution to the system free energy.
 All two-pair correlation quantities are thus derived from the two-body excess entropy~\cite{Nettleton1958,Mountain1971},
 defined as
 \begin{equation}
-s_2=-\frac{\rho}{2}\int dr\left[g(r)\log(g(r))-g(r)+1\right]. 
+s_2=-\frac{\rho k_B}{2}\int dr\left[g(r)\log(g(r))-g(r)+1\right]. 
 \end{equation}
 
-In principle, $s_2$ can be calculated separately for each particle $i$ in the system. In practice, this requires time averages to compute the pair correlation function of each particle, $g_i(r)$. In Refs. \cite{tanaka,watanabe_walls,KawasakiJPCM} we averaged on times comparable or longer than the $\alpha$ relaxation, leading to a quantity that was trivially a reflection of the dynamical heterogeneity. 
+In principle, $s_2$ can be calculated separately for each particle $i$ in the system. In practice, this requires time averages to compute the pair correlation function of each particle, $g_i(r)$, where the particle distribution around a particle $i$ is averaged over short-time scales ($\beta$ processes). In Refs. \cite{tanaka,watanabe_walls,KawasakiJPCM} we averaged on times comparable or longer than the $\alpha$ relaxation, leading to a quantity that was trivially a reflection of the dynamical heterogeneity. 
 
 Here we instead construct an approximate but instantaneous $s_2(i)$ using the pair correlation function $g(r)$
 \begin{equation}
-s_2(i) = -\frac{\rho}{2}\sum_j \left[g(r_{ij})\log(g(r_{ij}))-g(r_{ij})+1\right].
+s_2(i) = -\frac{\rho k_B}{2}\sum_j \left[g(r_{ij})\log(g(r_{ij}))-g(r_{ij})+1\right].
 \end{equation}
 This quantity is in very good agreement with the one obtained by calculating the radial distribution function for each
 particle, $g_i(r)$, averaged over times comparable to the $\beta$ relaxation time.
@@ -93,11 +97,14 @@ volume is simply related to the pair free-energy ($f_2$) by the following relati
 \begin{equation}
 f_2=\sum_i f_2(i)=-k_BT\sum_i \log(v(i)/\lambda),
 \end{equation}
-where $\lambda$ is the thermal wavelength. To compute the free volume we follow previous
-studies: first the Voronoi-diagram for each configuration is computed, and the polyhedron
-surrounding each particle is determined. The free volume of particle $i$ is then
+where $\lambda$ is the thermal wavelength. To compute the free volume $v(i)$ we follow previous
+studies~\cite{Aste2004}: first the Voronoi-diagram for each configuration is computed, and the polyhedron
+surrounding each particle is determined. To account for polydispersity we employ the radical Voronoi tessellation.
+The free volume of particle $i$ is then
 computed by shifting normally all the faces of the corresponding polyhedron by $\sigma(i)/2$
-towards particle $i$, and computing the new volume. This procedure is conducted independently
+towards particle $i$, and computing the new volume. In this way
+the volume $v(i)$ represents the volume in which the excluded volume of particle $i$ can move without leaving its Voronoi cell.
+This procedure is conducted independently
 for each particle and for each configuration.
 
 To study many-body correlations we use the local bond-order analysis introduced by
@@ -109,7 +116,8 @@ that runs from $m=-\ell$ to $m=\ell$. The functions $Y_{\ell m}$ are the spheric
 and $\mathbf{\hat{r}_{ij}}$ is the vector from particle $i$ to particle $j$.
 The sum goes over all neighboring particles $N_b(i)$ of particle $i$. Usually 
 $N_b(i)$ is defined by all particles within a cutoff distance, but in an inhomogeneous system
-the cutoff distance would have to change according to the local density. Instead we 
+the cutoff distance would have to change according to the local density. Instead we
+sort neighbours according to their distance from particle $i$, and
 fix $N_b(i)=12$ which is the number of nearest neighbors in icosahedra and close packed crystals (like \textsc{hcp} and \textsc{fcc})
 which are known to be the only relevant crystalline structures for hard spheres.
 
@@ -139,9 +147,19 @@ Alternatively, one can coarse-grain $\mathbf{q}_\ell$ over the neighbors~\cite{l
 	Q_{\ell m}(i) = \frac{1}{N(i)+1}\left( q_{\ell m}(i) +  \sum_{j=0}^{N(i)} q_{\ell m}(j)\right), 
 	\label{eq:Qlm}
 \end{equation}
-to suppress the signal from locally incoherent orientations (icosahedral order)~\cite{mathieu_icosahedra} and use the resulting invariant $Q_6$ as an indication of crystallinity, more precisely, the degree of crystal-like rotational symmetry.
+to suppress the signal from locally incoherent orientations (icosahedral order)~\cite{mathieu_icosahedra} and use the resulting invariant $Q_6$ as an indication of crystallinity, more precisely, the degree of crystal-like rotational symmetry. Alternatively, we note that the shortcomings of
+non coarse-grained order parameters in the identification of crystallinity can be addressed by Minkowki tensors~\cite{kapfer2012jammed}.
 
-We note that both $\text{C}$ and $Q_6$ are no direct indicator for the presence of crystals, but rather measures for a tendency to promote crystallization.
+The crystallization transition is characterized by
+the symmetry breaking of both orientational and translational order.
+We note that while both $\text{C}$ and $Q_6$ are good measures of bond-orientational order, the density or other two-body
+quantities are measures of translational order.  It was shown~\cite{russo_hs} that in hard spheres crystallization is
+driven by fluctuations in bond-orientational order and not by density fluctuations. Crystals continously form, grow and melt
+in regions of high bond-orientational order, which then effectively act as precursors for the crystallization transition.
+So $\text{C}$ and $Q_6$, while not
+being direct indicators for the presence of crystals, rather measure the tendency to promote crystallization. In Section~\ref{sec:lengths} we are going to show
+that indeed the lengthscale associated with bond-orientational order fluctuations increases with supercooling. Then in Section~\ref{sec:icosahedra} we are going to study
+the mechanism by which the crystallization transition is avoided.
 
 \section{Results}\label{sec:results}
 
@@ -254,7 +272,8 @@ Figure~\ref{fig:structurefactor} shows the small wave-number increase of $S_x(q)
 where $\xi_x$ is the correlation length and $\chi_x$ the susceptibility. In general, an independent determination of $\chi_x$ is crucial for the fit~\cite{Flenner2011}. However here we deal with correlation lengths much smaller than the simulation box and both $\xi_x$ and $\chi_x$ can be reliably estimated from a two parameter fit of $S_x(q)$. 
 We note that the absence of the finite-size effects was confirmed for this situation \cite{tanaka}.  
 
-For overall coherency, we have used the above procedure not only for the two-body $s_2$ and $f_2$, but also for scalars derived from the multi-body bond orientational order, i.e. $q_6$, $w_6$, $Q_6$ and $C$. The dependence on the pressure of the resulting correlation lengths is shown on Fig.~\ref{fig:Fourierlengths}. Most of the order parameters produce constant lengthscales, including the two-body quantities and $q_6$, $w_6$ that are sensible to icosahedral order. The only growing lengths are extracted from measures of local crystal-like order, i.e. $Q_6$ and $C$. We confirm that the same results are obtained from real-space correlation functions.
+For overall coherency, we have used the above procedure not only for the two-body $s_2$ and $f_2$, but also for scalars derived from the multi-body bond orientational order, i.e. $q_6$, $w_6$, $Q_6$ and $C$. The dependence on the pressure of the resulting correlation lengths is shown on Fig.~\ref{fig:Fourierlengths}. Most of the order parameters produce constant lengthscales, including the two-body quantities and $q_6$, $w_6$ that are sensible to icosahedral order. The only growing lengths are extracted from measures of local crystal-like order, i.e. $Q_6$ and $C$. We confirm that the same results are obtained from real-space correlation functions (but in
+real space is possible to detect the growth also in $q_6$, see~\cite{nota_q6}).
 
 The absence of correlations for two-body quantities and a growing lengthscale for $Q_6$ and $C$ is evident also by direct inspection of the particle configurations.
 Fig.~\ref{fig:3D} plots the $10\%$ most ordered particles for the different order parameters at $\beta p\sigma^3=23$ and $\Delta=7\%$. The first row of Fig.~\ref{fig:3D} shows the absence of any
@@ -371,7 +390,12 @@ attain higher orientational order than icosahedral arrangements, for the polydis
 particles always attain higher orientational order.
 This is immediately reflected in direct simulations,
 as at this pressure it is not possible to crystallize simulations at $\Delta=4\%$, while the
-monodisperse simulations are easily crystallized.
+monodisperse simulations are easily crystallized~\cite{zaccarelli,pusey2009hard}. Since the dynamics of the
+system is approximetely the same at different values of $\Delta$~\cite{zaccarelli}, this difference in the crystallization behaviour has to come from
+some structural difference introduced by polydispersity, i.e. an increased population of icosahedral particles.
+We also confirm that at polydispersity $\Delta=7\%$ icosahedral particles are favoured over crystalline ones for
+all the pressures studied, in line with the observation of Fasolo and Sollich~\cite{fasolo2004fractionation}, that
+one-phase crystallization is suppressed at high polydispersity.
 
 We have thus provided direct evidence that icosahedral particles are responsible for the suppression
 of crystallization in polydisperse hard spheres.
