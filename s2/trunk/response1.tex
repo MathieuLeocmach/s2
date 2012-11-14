@@ -104,7 +104,7 @@ paragraph
 The crystallization transition is characterized by
 the symmetry breaking of both orientational and translational order.
 We note that while both $\text{C}$ and $Q_6$ are good measures of bond-orientational order, the density or other two-body
-quantities are measures of translational order.  It was shown~[28] that in hard spheres crystallization is
+quantities are measures of translational order.  It was shown~[28] that hard spheres crystallization is
 driven by fluctuations in bond-orientational order and not by density fluctuations. Crystals continously form, grow and melt
 in regions of high bond-orientational order, which then effectively act as precursors for the crystallization transition.
 So $\text{C}$ and $Q_6$, while not
@@ -142,6 +142,12 @@ At the other end of the spectrum, including too few particles decreases the numb
 The good threshold is a balance between these two extremes, and we found that between 5\% and 40\% the numerical results were consistent, with an easier direct visualization around 10\%.
 
 For each pressure, we ran 8 seeds for a few $\tau_\alpha$ (after equilibration) summing up to approximately $10^4$ configurations. The correlation lengths are already tractable although noisy with 10 times less configurations.
+
+We have added the following paragraph to the manuscript.
+
+{\it Page 6, first column, 4th paragraph:\\
+The choice of the threshold $x^*$ is a balance between taking in too many particles or too few. If too few (below $5\%$) $S_x$ is too noisy. If too many, the threshold does not discriminate between ordered and disordered particles and $S_x$ tends to the trivial density $S(q)$. We found that between $5\%$ and $40\%$ the absolute value of the length is marginally affected but not the pressure dependence. We chose to use $10\%$ across this paper because this value allows the easiest direct visualization on a single frame (Fig.~[6]). We checked the pressure independence of the two-body parameter's length with thresholds up to $90\%$.
+} 
 
 \begin{quotationi}
 Section C
@@ -243,7 +249,7 @@ In the paper we added the reference suggested by the Referee to this new method,
 
 {\it Page 3, first column, end of first paragraph:\\
 Alternatively, we note that the shortcomings of
-non coarse-grained order parameters in the identification of crystallinity can be addressed by Minkowki tensors~\cite{kapfer2012jammed}
+non coarse-grained order parameters in the identification of crystallinity can be addressed by Minkowski tensors~\cite{kapfer2012jammed}
 }
 
 
@@ -292,6 +298,14 @@ Real space correlation function is oscillatory when $r$ is larger than the diame
 correlation functions consistent, we plot only these correlations in Fourier space, where
 the Ornstein-Zernike form at small $q$ is not oscillatory, and thus much easier to fit unambiguously (we can use 9 points for our fit).
 
+We have added the following sentences to clarify this point:
+
+{\it Pages 4-5, the paragraph in between:\\
+The correlation lengths of crystal-like bond orientational order can be easily measured in real space due to the tensorial nature
+of these order parameters, as was shown in previous studies~\cite{tanaka,kawasaki,mathieu_icosahedra,russo_gcm,russo_hs}. Two-body
+correlation functions, both $f_2$ and $s_2$ being scalars, is more difficult to extract in real-space, especially at long distances,
+where long averages are required to overcome the statistical noise. Theoretically real and Fourier space contain the same information, however real space correlation functions oscillate at large $r$ where their Fourier counterparts are not oscillatory at small $q$. To extract length scale from the former, one should fit the envelope of an oscillatory, rapidly decaying to noise level function, which is a difficult procedure. We explain in the following a straightforward procedure to extracting correlation length from Fourier space.
+}
 
 
 
