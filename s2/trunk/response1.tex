@@ -119,7 +119,15 @@ Section A
 Fig. 2 is not very intuitive. There is a lot of information which is not clear. For example, systematically the more ordered configurations are not the most probable. But the text reads ``the order parameters are maximized or minimized by different local structures'': superficially one would go to look at the maxima or minima in the figure, while instead it is the value of the observable (not its probability) to be maximized or minimized. Perhaps, it would help to add some cartoons or labels to associate each observable with what it measures. The mobilities are also difficult to understand. I suggest that the authors to try to improve the figure, also because this is an early figure and it is propedeutic for the rest of the paper.
 \end{quotationi}
 
-We tried to improve the description of the figure to lift the ambiguity between a structure maximizing the parameter and a structure with maximum probability. We also added on each subfigure the nature of the most ordered state. We hope this helps to make the figure more propedeutic.
+Following the Referee's suggestions we improved the readability of the Figure. To avoid the ambiguity between a structure maximizing the parameter and a structure with maximum probability, we have placed labels on the $x$-axis which indicate the structure which is targeted by a particular order parameter.
+We also employed color on the $y$-axis to make visually very clear which curve refers to the probability distribution and which to the mobility.
+
+We also changed the caption to make it more clear
+
+{\it Caption of Figure 2:\\
+Probability distributions (red dashed line) and mobility (blue continuous line) function of various order parameter at $\beta p\sigma^3=25$ and for a time difference corresponding to the $\alpha$-relaxation. Top row: two-body excess entropy $s_2$ (left) and pair free energy $f_2$ (right). Central row: local six-fold orientational orders $q_6$ (left) and $w_6$ (right). Bottom row: coarse grained $Q_6$ (left) and crystallinity $C$ (right). Mobility is in unit of mean-square displacement. The shaded area shows the contribution from $10\%$ of the particles having highest (for $f_2$, $q_6$, $Q_6$ and $C$) or lowest (for $s_2$, $w_6$) value of the order parameter.
+}
+
 
 \begin{quotationi}
 Section B
@@ -198,9 +206,9 @@ We changed the figure to gray scale to allow black and white printing.
 \begin{quotationi}
 In the text description and in the labels of Fig. 10 add the word ``fluid'' associated to the data of Delta=0 and 4\% in order to facilitate the reader.
 \end{quotationi}
-We changed the figure according to your recommendation.
+We changed the figure according to the Referee's recommendation.
 
-We hope that the Reviewer would think that the revised manuscript is now suitable for publication in the Journal of Chemical Physics. 
+We hope that the Referee would think that the revised manuscript is now suitable for publication in the Journal of Chemical Physics. 
 
 \clearpage
 
@@ -278,13 +286,16 @@ length scale is in Fourier space. This sounds odd to me, as position and
 Fourier space provide in principal the same information.
 \end{quotationi}
 
-Real space and Fourier space do carry the same information, however it is practically easier to extract long distance information from $S(q)$ than from $g(r)$ (conversely, short distance information is easier to extract from $g(r)$). The Referee may compare the Fourier space correlation function of our Figure 4 to the real space correlation function of the Figure 3d of Tanaka \emph{et al.} Nature materials 9, 324–31 (2010).
+As the Referee points out, real space and Fourier space do carry the same information, however it is practically easier to extract long distance information from $S(q)$ than from $g(r)$ (conversely, short distance information is easier to extract from $g(r)$). The Referee may compare the Fourier space correlation function of our Figure 4 to the real space correlation function of the Figure 3d of Tanaka \emph{et al.} Nature materials 9, 324–31 (2010).
 
-Real space correlation function is oscillatory when $r$ is larger than the diameter $\sigma$. Thus the correlation length is obtained by fitting the \emph{envelope} of the real space function. Since the function is rapidly decaying, noise becomes dominant for $r\gtrsim L/4$, which makes localization and amplitude of the peaks subject to interpretation. Since the Ornstein-Zernike expression is only asymptotic, the two first peaks should not be fitted. At the end of the day, with our size of simulation it leaves only about 3-4 peaks, i.e. 3-4 points, to fit. For a fair comparison of the figures suggested above, the Referee has to imagine 7 times more noise in the real space correlation function of scalar order parameters like $Q_6$, $f_2$, etc. Indeed the Nature Material paper uses uses a tensorial order parameter $Q_{6m}$, effectively correlating 7 scalar fields and thus reducing the noise sevenfold ; allowing the fit of 5-6 peaks.
+Real space correlation function is oscillatory when $r$ is larger than the diameter $\sigma$. Thus the correlation length is obtained by fitting the \emph{envelope} of the real space function. Since the function is rapidly decaying, noise becomes dominant for $r\gtrsim L/4$, which makes localization and amplitude of the peaks subject to interpretation. Since the Ornstein-Zernike expression is only asymptotic, the two first peaks should not be fitted. With our system size, this leaves only about 3-4 peaks, i.e. 3-4 points, to fit. To correct for the high noise levels of scalar order parameters, like $Q_6$, one can introduce tensorial order parameters. Indeed the Nature Material paper uses a tensorial order parameter $Q_{6m}$, effectively correlating 7 scalar fields, reducing the noise sevenfold, and thus allowing the fit of 5-6 peaks. But this procedure cannot be adopted for two-body quantities, like $f_2$, which have a purely scalar nature. So, to keep both two-body and many-body
+correlation functions consistent, we plot only these correlations in Fourier space, where
+the Ornstein-Zernike form at small $q$ is not oscillatory, and thus much easier to fit unambiguously (we can use 9 points for our fit).
 
-On the other hand, the Ornstein-Zernike form manifests itself in Fourier space at small $q$, were the Fourier correlation function is not oscillatory and thus much easier to fit unambiguously. We can use 9 points for our fit.
 
-We hope that the Reviewer would think that the revised manuscript is now suitable for publication in the Journal of Chemical Physics.
+
+
+We hope that the Referee would think that the revised manuscript is now suitable for publication in the Journal of Chemical Physics.
 
 
 
