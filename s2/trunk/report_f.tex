@@ -170,20 +170,21 @@ that indeed the lengthscale associated with bond orientational order fluctuation
 the mechanism by which the crystallization transition is avoided.
 
 \subsection{Estimation of the correlation lengths of various quantities} \label{sec:methods_length}
-Finally we explain how we evaluate the correlation length of various order parameters. 
-The correlation lengths of crystal-like bond orientational order can be easily measured in real space due to the tensorial nature
-of these order parameters, as was shown in previous studies~\cite{tanaka,kawasaki,mathieu_icosahedra,russo_gcm,russo_hs}. Two-body
-correlation functions, both $f_2$ and $s_2$ being scalars, is more difficult to extract in real-space, especially at long distances,
-where long averages are required to overcome the statistical noise. 
-Theoretically real and Fourier space contain the same information, however real space correlation functions oscillate at large $r$ where their Fourier counterparts are not oscillatory at small $q$. 
-Thus the correlation length is obtained by fitting the \emph{envelope} of the real space function. Since the function is rapidly decaying, noise becomes dominant 
-for large $r$. Since the Ornstein-Zernike expression is only asymptotic, the two first peaks should not be fitted. With our system size, this leaves only about 3-4 peaks 
-to fit. To correct for the high noise levels of scalar order parameters, like $Q_6$, one can introduce tensorial order parameters. 
-For example, tensorial order parameter $Q_{6m}$, effectively correlating 7 scalar fields, the noise can be reduced sevenfold. 
-But this procedure cannot be adopted for two-body quantities, like $f_2$, which have a purely scalar nature. So, to keep both two-body and many-body
-correlation functions consistent, we calculate only these correlations in Fourier space, where
-the Ornstein-Zernike form at small $q$ is not oscillatory, and thus much easier to fit unambiguously.
-We explain in the following a straightforward procedure to extracting correlation length from Fourier space.
+Finally we explain how to evaluate the correlation length of various order parameters. The calculation can be carried out both
+in real space and in Fourier space. While formally containing the same information, the Fourier analysis has some practical advantages over
+the real space analysis.
+In real space, the correlation function of any order parameter is a oscillating and rapidly decaying function of $r$. The
+correlation length is obtained by fitting the \emph{envelope} of the correlation function with a Ornstein-Zernike expression.
+This expresion is only asymptotic, so the two first peaks at short $r$ should be omitted, and it is also rapidly decaying, so that
+the statistical noise strongly affects the quality of the fit at long $r$. The problem is less severe for order parameters
+having a tensorial nature, and correlation lengths of crystal-like bond orientational order have been easily measured in real space in previous studies~\cite{tanaka,kawasaki,mathieu_icosahedra,russo_gcm,russo_hs}. For example, the tensorial order parameter $Q_{6m}$ effectively
+correlates 7 scalar fields, allowing a sevenfold reduction of the noise. But the real space analysis requires much longer
+time averages for two-body correlation functions, both $f_2$ and $s_2$, which have a purely scalar nature.
+This problem can be overcome by calculating the correlation functions in Fourier space, where the Ornstein-Zernike form at small $q$ is not oscillatory,
+and thus much easier to fit unambiguously.
+So, to keep both two-body and many-body
+correlation functions consistent, we calculate all correlations in Fourier space.
+We explain in the following a straightforward procedure to extract correlation length from Fourier space analysis.
 
 At a given time step, for any scalar order parameter field $x$ increasing with order, we compute a structure factor keeping only the 10\% most ordered particles (more on this choice below). This condition defines a threshold $x^*$. The ensemble average of the thresholds $\langle x^*\rangle$ are indicated on Fig.~\ref{fig:distrib}. Formally we define a function $\omega(i) = \Theta [x(i) - x^*]$, where $\Theta(x)$ is the Heaviside’s step function, and a four-point structure factor
 \begin{equation}
@@ -289,7 +290,7 @@ plotted as a function of the pressure. Only many-body correlation lengths are in
 As explained in Sec.~\ref{sec:methods_length}, we estimate the correlation lengths of various quantities $x$ in Fourier space 
 not only for the two-body $s_2$ and $f_2$, but also for scalars derived from the multi-body bond orientational order, i.e. $q_6$, $w_6$, $Q_6$ and $C$, which allows us to have overall coherency of the length-scale analysis of all the parameters. 
 
-Figure~\ref{fig:structurefactor} shows the increase of $S_x(q)$ toward small wavenumbers, which is well described by the asymptotic Ornstein-Zernike function in Fourier space:
+Figure~\ref{fig:structurefactor} shows the increase of $S_x(q)$ toward small wavenumbers ($x=f_2$ upper panel; $x=Q_6$ lower panel), which is well described by the asymptotic Ornstein-Zernike function in Fourier space:
 \begin{equation}
 	S_x(q\rightarrow 0) \approx \frac{\chi_x}{1+\xi_x^2 q^2},
 	\label{eq:OZ_Fourier}
@@ -476,9 +477,9 @@ In this article, we show firm evidence for the importance of many-body correlati
 for hard spheres liquids. This feature cannot be described by the standard liquid-state theories based on two-body correlation. 
 This implies that, at high density, liquid state packing effects inevitably lead to many-body correlations, which play 
 key roles in phenomena like the glass transition and crystallization. 
-A physically natural order parameter to pick up these many-body correlations is \emph{bond order parameter}, whose importance 
+A physically natural order parameter to pick up these many-body correlations is the \emph{bond order parameter}, whose importance 
 has been well recognized and established for ordering transitions of hard disks in 2D \cite{NelsonB}. 
-We believe the importance of incorporating many-body correlations into theories to describe
+We believe in the importance of incorporating many-body correlations into theories to describe
 both the glass transition and crystallization phenomena properly~\cite{TanakaJSP,TanakaR}.
 
 Our study also indicates that there is an intrinsic link between crystallization and vitrification. 
@@ -733,9 +734,9 @@ role played by icosahedral arrangement of particles.
 	\label{fig:distrib}
 \end{figure}
 
-We study systematically two-body ($s_2$, $f_2$) and many-body ($q_6$, $w_6$, $Q_6$, $C$) scalar order parameter fields for our highest pressure ($\beta p\sigma^3=25$). For each of these parameters one can defines if a particle is ``ordered'' or not. Very negative value of $s_2$ indicates low two-body configurational entropy and thus \emph{a priori} some kind of ordering or stability. Similarly, high values of $f_2$ indicates high two-body free energy (low free volume). High values of $Q_6$ or $C$ indicate locally crystalline environment (locally similar to \textsc{hcp} or \textsc{fcc} crystal), whereas very negative values of $w_6$ corresponds to icosahedral packings. High values of $q_6$ can indicate ambiguously either crystalline or icosahedral environments.
+We study systematically two-body ($s_2$, $f_2$) and many-body ($q_6$, $w_6$, $Q_6$, $C$) scalar order parameter fields for our highest pressure ($\beta p\sigma^3=25$). For each of these parameters one can define if a particle is ``ordered'' or not. Very negative value of $s_2$ indicates low two-body configurational entropy and thus \emph{a priori} some kind of ordering or stability. Similarly, high values of $f_2$ indicates high two-body free energy (low free volume). High values of $Q_6$ or $C$ indicate locally crystalline environment (locally similar to \textsc{hcp} or \textsc{fcc} crystal), whereas very negative values of $w_6$ corresponds to icosahedral packings. High values of $q_6$ can indicate ambiguously either crystalline or icosahedral environments.
 
-In Fig.~\ref{fig:distrib} we show the ``ordered'' side of each parameter as a shaded area, and the probability distribution of this parameter as a red dashed line. Note that for any parameter, the maximum probability do not correspond to the ordered side. However the probability distribution decays more slowly on the ordered side, indicating rare but very ordered particles.
+In Fig.~\ref{fig:distrib} we show the ``ordered'' side of each parameter as a shaded area, and the probability distribution of this parameter as a red dashed line. Note that for any parameter, the maximum probability does not correspond to the ordered side. The probability distribution decays more slowly on the ordered side, indicating rare but very ordered particles.
 
 By plotting the probability distribution function of the metastable fluid in the $(Q_6, f_2)$ and $(w_6, f_2)$ planes, Fig.~\ref{fig:f2decoupling} shows the absence of linear correlations between $f_2$ and both $Q_6$ and $w_6$. Since $Q_6$ identifies regions of high crystal-like bond orientational order, and $w_6$ locates icosahedral arrangements of particles, it is clear that high $f_2$ regions are not associated with any of these structures. We checked in the same way that $s_2$ is not correlated with many-body parameters.
 
