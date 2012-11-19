@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (Web2C 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: report_f.aux
+The style file: apsrev.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: biblio.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6800 items from 3400.
+You've used 50 entries,
+            3411 wiz_defined-function locations,
+            1491 strings with 19155 characters,
+and the built_in function-call counts, 34870 in all, are:
+= -- 2049
+> -- 1113
+< -- 167
++ -- 892
+- -- 270
+* -- 4803
+:= -- 3755
+add.period$ -- 50
+call.type$ -- 50
+change.case$ -- 201
+chr.to.int$ -- 48
+cite$ -- 52
+duplicate$ -- 3122
+empty$ -- 2945
+format.name$ -- 717
+if$ -- 6636
+int.to.chr$ -- 3
+int.to.str$ -- 51
+missing$ -- 478
+newline$ -- 165
+num.names$ -- 147
+pop$ -- 771
+preamble$ -- 1
+purify$ -- 200
+quote$ -- 0
+skip$ -- 1295
+stack$ -- 0
+substring$ -- 1239
+swap$ -- 2524
+text.length$ -- 136
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 298
+warning$ -- 0
+while$ -- 146
+width$ -- 0
+write$ -- 546
