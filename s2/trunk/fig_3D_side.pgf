@@ -1,0 +1,17 @@
+\begin{figure}
+	\begin{tikzpicture}
+	\matrix[matrix of nodes, inner xsep=0, column sep=0.05\columnwidth] (m){
+		$s_2$ & $w_6$ & $Q_6$\\
+		\includegraphics[width=0.3\columnwidth]{s2_slice_3D} & 
+		\includegraphics[width=0.3\columnwidth]{w6_slice_3D} &
+		\includegraphics[width=0.3\columnwidth]{Q6_slice_3D} \\
+		$f_2$ & $q_6$ &  $C$ \\
+		\includegraphics[width=0.3\columnwidth]{f2_slice_3D} &
+		\includegraphics[width=0.3\columnwidth]{q6_slice_3D} & 
+		\includegraphics[width=0.3\columnwidth]{C_slice_3D} \\
+	};
+	%\draw (m.north west) rectangle +(\columnwidth, -\textheight);
+	\end{tikzpicture}
+	\caption{\textbf{Visualisation of the ordered regions} defined by the various order parameters. All pictures correspond to a thin slice ($5\sigma$) of the same configuration at $\beta p\sigma^3=23$ and $\Delta=7\%$. Only $Q_6$ and $C$ show meaningful fluctuations.}
+	\label{fig:3D}
+\end{figure}
