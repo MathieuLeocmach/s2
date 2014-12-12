@@ -1,0 +1,61 @@
+\documentclass{vl4}
+
+\begin{document}
+
+\title{Importance of many-body correlations in glass transition:\\an example from polydisperse hard spheres} 
+
+\author{Mathieu Leocmach}
+\correspondingauthor{mathieu.leocmach@polytechnique.org}
+\affiliation{Laboratoire de Physique, CNRS UMR 5672, Ecole Normale Supérieure de Lyon, 46 allée d'Italie 69364 Lyon cedex 07, France.}
+\author{John Russo}
+\author{Hajime Tanaka}
+\affiliation{ {Institute of Industrial Science, University of Tokyo, 4-6-1 Komaba, Meguro-ku, Tokyo 153-8505, Japan} }
+
+\maketitle
+
+Most of the liquid-state theories, including glass-transition theories, are constructed on the basis of two-body density correlations~\cite{lubchenko2007,Biroli2008,Parisi2010}. 
+However, we have recently shown~\cite{tanaka,watanabe_walls,KawasakiJPCM} that many-body correlations, in particular bond orientational correlations, play a key role in both the glass transition and the crystallization transition.
+
+Here we show, with numerical simulations of supercooled polydisperse hard spheres systems, that the lengthscale associated with any two-point spatial correlation function does not increase toward the glass transition. A growing lengthscale is instead revealed by considering many-body correlation functions, such as correlators of orientational order, which follows the lengthscale of the dynamic heterogeneities.
+Despite the growing of crystal-like bond orientational order, we reveal that the stability against crystallization with increasing polydispersity is due to an increasing population of icosahedral arrangements of particles. 
+Our results suggest that, for this type of systems, many-body correlations are a manifestation of the link between the vitrification and the crystallization phenomena.
+Whether a system is vitrified or crystallized can be controlled by the degree of frustration against crystallization, polydispersity in this case.  
+
+\begin{figure}
+	\centering
+	\includegraphics{fig_parameters}
+	\caption{Schematic order parameter space considered: $f_2$ and $s_2$ are two-body, $Q_6$ and $C$ are many-body sensitive to crystal-like order, $w_6$ is many-body sensitive to icosahedral order and $q_6$ is many-boy sensible to both crystal-like and icosahedral orders.}
+	\label{fig:parameters}
+\end{figure}
+
+\begin{figure}[b]
+	\centering
+	\includegraphics{fig_3D_side}
+	\caption{Visualization of the 10\% most ordered particles defined by the various order parameters. All pictures correspond to a thin slice ($5\sigma$) of the same configuration at $\beta p\sigma^3=23$ and $\Delta=7\%$. Only $Q_6$ and $C$ show meaningful spatial fluctuations.}
+	\label{fig:3D}
+\end{figure}
+
+
+
+\begin{acknowledgments}
+This study was partly supported by Grants-in-Aid for Scientific Research (S) and Specially Promoted Research from the Japan Society for the Promotion of
+Science (JSPS) through its ``Funding Program for World-Leading
+Innovative R\&D on Science and Technology (FIRST Program)'' and a JSPS Postdoctoral Fellowship.
+ML thank the Region Rhône Alpes and the Programme d'avenir Lyon - Saint Etienne (PALSE NoGELPo) for postoctoral grant.
+\end{acknowledgments}
+
+
+\bibliography{biblio}
+%\begin{thebibliography}{9}
+%\bibitem{article}
+%  J. Filser and L. Thoma, Z.~Phys \textbf{193}, 384 (1966).
+%\bibitem{book}
+%  M.~D. Rich, \textit{A Million Random Digits} (RAND Corporation,
+%  Santa Monica, CA, USA, 2001).
+%\bibitem{inproceedings}
+%  A.~First, B.~Second, and C.~Third, in: \textit{Proceedings of Some
+%  Important Conference}, edited by E.~Editor (Publisher, Address, 2009),
+%  pp.~666--999.
+%\end{thebibliography}
+
+\end{document}
