@@ -250,7 +250,7 @@ $\displaystyle q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mat
 	\Subhead{Crystallinity} \hfill $\displaystyle \text{C}(i)=\sum_{j=0}^{N_b(i)}\frac{\mathbf{q}_6(i)\cdot\mathbf{q}_6(j)}{|\mathbf{q}_6(i)|\,|\mathbf{q}_6(j)|}.$ \hfill $Q_6$ and $C$ are specifically sensitive to crystal-like order.
 \end{minipage}
 
-\begin{minipage}[t][12.5\TPVertModule]{15\TPHorizModule}
+%\begin{minipage}[t][12.5\TPVertModule]{15\TPHorizModule}
 	\hfill\begin{tikzpicture}
 		\begin{groupplot}[%
 		group style={
@@ -349,6 +349,102 @@ $\displaystyle q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mat
 	\includegraphics[width=0.14\columnwidth]{Q6_slice_3D} &
 	\includegraphics[width=0.14\columnwidth]{C_slice_3D}\\
 	\end{tabu}
+%\end{minipage}
+
+\begin{minipage}[t][4\TPVertModule]{3\TPHorizModule}
+\Subhead{Structure factors}
+
+\begin{tikzpicture}
+	\pgfplotsset{fitc/.style={solid, no markers, forget plot, domain=0.05:5}}
+	\begin{groupplot}[%
+		group style={
+			group size=1 by 2,
+			vertical sep=3em,
+			},%
+		width=0.9\columnwidth,
+		height=6\baselineskip,%
+		xlabel near ticks,
+		xlabel shift=-0.5em,
+		ylabel near ticks,
+		xmode=log,
+		ymode=log,%
+		ytickten={-1,0,1}, yticklabels={0.1,~~1,10},
+		cycle list name=earthy,%
+		legend style={at={(0.5,1.03)}, anchor=south},
+		legend columns=10,
+		]
+		\nextgroupplot[%
+			xlabel={$q\xi_{f_2}$}, ylabel={$S_{f_2}(q)/\chi_{f_2}$},
+			xmin=0.05,xmax=2,%
+			ymin=0.5, ymax=1.5, 
+			]
+			\addlegendimage{empty legend}
+			%\addlegendimage{legend image code/.code={\node[right] {$P=$};}};
+			%\addlegendentry{};
+			\addplot+[only marks] table[x expr={0.076*\coordindex}, y expr={\thisrowno{0}/0.186}] {Sf2-std_P17.txt};
+			\addplot+[only marks] table[x expr={0.0764*\coordindex}, y expr={\thisrowno{0}/0.176}] {Sf2-std_P19.txt};
+			\addplot+[only marks] table[x expr={0.0742*\coordindex}, y expr={\thisrowno{0}/0.178}] {Sf2-std_P21.txt};
+			\addplot+[only marks] table[x expr={0.0751*\coordindex}, y expr={\thisrowno{0}/0.178}] {Sf2-std_P23.txt};
+			\addplot+[only marks] table[x expr={0.0731*\coordindex}, y expr={\thisrowno{0}/0.173}] {Sf2-std_P25.txt};
+			\addplot+[black, fitc] {1/(1+x^2)};
+			\legend{Pressures, $17$, $19$, $21$, $23$, $25$};
+		
+		\nextgroupplot[
+			xlabel={$q\xi_{Q_6}$}, ylabel={$S_{Q_6}(q)/\chi_{Q_6}$},%
+			xmin=0.1,xmax=10,%
+			ymin=0.02, ymax=2,%
+			]
+			\addplot+[only marks] table[x expr={0.338*\coordindex}, y expr={\thisrowno{0}/0.937}] {SC-std_P17.txt};
+			\addplot+[only marks] table[x expr={0.373*\coordindex}, y expr={\thisrowno{0}/1.22}] {SC-std_P19.txt};
+			\addplot+[only marks] table[x expr={0.412*\coordindex}, y expr={\thisrowno{0}/1.32}] {SC-std_P21.txt};
+			\addplot+[only marks] table[x expr={0.471*\coordindex}, y expr={\thisrowno{0}/1.61}] {SC-std_P23.txt};
+			\addplot+[only marks] table[x expr={0.533*\coordindex}, y expr={\thisrowno{0}/2.23}] {SC-std_P25.txt};
+			\addplot+[black, fitc] {1/(1+x^2)};
+			
+	\end{groupplot}
+	\end{tikzpicture}
+\end{minipage}
+\hspace{\TPHorizModule}
+\begin{minipage}[t][4\TPVertModule]{3\TPHorizModule}
+\Subhead{Correlation lengths}
+
+\begin{tikzpicture}
+	\pgfplotsset{every axis/.append style={
+		height=0.6\columnwidth,%
+		width=0.95\columnwidth,
+		cycle list name=exotic,
+		xlabel={$\beta p\sigma^3$},
+		ymin=0,
+		xmin=8,
+		xtick={9,13,...,25},
+	}}
+	\begin{axis}[%
+		name=len,
+		ylabel={$\xi_x$},
+		ymax=1.6,
+		legend style={at={(1,1.03)}, anchor=south east},
+		legend columns=10,
+		]
+	\pgfplotstableread{lengths.txt}\lengths
+	 \foreach \y in {1, 2, ..., 6} {
+          \addplot table[x index=0, y index=\y]{\lengths};
+          \pgfplotstablegetcolumnnamebyindex{\y}\of{\lengths}\to{\colname}
+          \addlegendentryexpanded{$\colname$}
+          }
+	\end{axis}
+% 	\begin{axis}[%
+% 		at={(len.below south west)},
+% 		anchor=above north west,
+% 		ylabel={$\chi_x$},
+% 		ymax=2,
+% 		]
+% 	\pgfplotstableread{susceptibilities.txt}\sus
+% 	 \foreach \y in {1, 2, ..., 6} {
+%           \addplot table[x index=0, y index=\y]{\sus};
+%           \pgfplotstablegetcolumnnamebyindex{\y}\of{\sus}\to{\colname}
+%           }
+% 	\end{axis}
+	\end{tikzpicture}
 \end{minipage}
 %\hfill
 %\begin{minipage}[b][21.5\TPVertModule]{3\TPHorizModule}
