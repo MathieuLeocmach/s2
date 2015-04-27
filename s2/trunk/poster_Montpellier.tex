@@ -176,7 +176,7 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 
 
 \vfill
-\begin{minipage}[t][21.5\TPVertModule]{11\TPHorizModule}
+\begin{minipage}[t][3\TPVertModule]{6\TPHorizModule}
 	\Head{Structure behind dynamic heterogeneities?}
 	\begin{tikzpicture}
 		\begin{scope}[every node/.style={rectangle split},every text node part/.style={font=\large\sffamily\scshape,Accent1}]
@@ -187,69 +187,144 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 		
 		\draw[->, dashed, thick] (twobody) -- (struct) node[midway, above] {?};
 		\draw[->, thick] (struct) -- (dyn)  node[midway, above, font=\footnotesize\itshape] {Tanaka 2010} node[midway, below, font=\footnotesize\itshape] {Leocmach 2012};
-		\draw[->, thick] (twobody.base west) ..controls ($(struct.north)+(0,\baselineskip)$) .. (dyn.base east)  node[midway, above] {MCT, RFTO}; 
+		\draw[->, thick] (twobody.base west) ..controls ($(struct.north)+(0,2\baselineskip)$) .. (dyn.base east)  node[midway, above] {MCT, RFTO}; 
 	\end{tikzpicture}
-%	
-%	Milk protein solution (4\%w sodium caseinate) acidified by the slow hydrolysis of glucono-$\delta$-lactone (\textsc{gdl})\\ \textit{Bremer et al., Colloids Surf. (1990); van Vliet \& Walstra, Faraday Discuss. (1995); Lucey \& Singh, Food Res. Int. (1997); Leocmach et al. PRL (2014)}
-%	
-%	\smallskip
-%	\tikzsetnextfilename{prise_cas4}
-%	\input{fig_poster_palavas/prise_cas4.pgf}
-%	\begin{tabu}{X[5]XX[5]}
-%	Caseins regain solubility below isoelectric $\Rightarrow$ overshoot in $G^\prime$&&
-%	Single time scale $(t_m-t_i)$ governs gelation and softening.\\
-%	How does it translate in term of microstructure?&&Diverge when $pH_\infty\rightarrow pI$
-%	\end{tabu}
-%	
-%	\vfill
-%	\Head{Linear rheology, from power-law to soft glassy}
-%	\tikzsetnextfilename{sweep_cas4}
-%	\input{fig_poster_palavas/sweep_cas4.pgf}
-%	\begin{tabu}{X[4]X[2]X[5]}
-%	Near isoeletric, power law rheology typical of gels.&&
-%	Minimum in loss modulus appear with over-acidification.\\
-%	Flatter with over-acidification.&%&
-%	\multicolumn{2}{l}{\textcolor{Accent1}{$\blacktriangleright$} Over-acidified behaviour typical of soft glassy materials}\\
-%	&\textit{Sollich, PRE (1998)}&\textit{Mason, Curr. Opin. Colloid Interface Sci. (1999)}\\
-%	\end{tabu}
-%	
-%	\vfill
-%	\Head{Evolution of the microscructure: preserved network, swelling aggregates}
-%	\tikzsetnextfilename{structure_confocal}
-%	\input{fig_poster_palavas/structure_confocal.pgf}
-%	\begin{tabu}{X[5]XX[5]}
-%	Maximum $G^\prime$ corresponds to maximum contrast between phases $\chi$&&
-%	\textcolor{Accent1}{$\blacktriangleright$} Strongest gel when attraction is strongest\\
-%	Characteristic size $\xi$ increases during over-acidification&&
-%	\textcolor{Accent1}{$\blacktriangleright$} Casein aggregates swell $\sim$ over compressed gel $\Rightarrow$ soft glassy\\
-%	\end{tabu}
-%	
-%	\vfill
-%	\Head{Three creep regimes: much more erratic when over-acidified}
-%	\tikzsetnextfilename{creep_cas4_gdl4}
-%	\input{fig_poster_palavas/creep_cas4_gdl4.pgf}
-%	\begin{tabu}{X[4]X[3]X[3]}
-%	$\tau_f$: divergence of the strain $\gamma$, failure time&
-%	\multicolumn{2}{l}{Robust Andrade creep, compatible with power-law rheology \hfill\textit{Leocmach et. al, PRL (2014)}}\\
-%	$\tau_\text{min}$: minimum of shear rate $\dot{\gamma}$, fracture nucleation&
-%	Robust finite time divergence&
-%	\textcolor{Accent1}{$\blacktriangleright$}Possible to reform bonds? Glassy?
-%	\end{tabu}
-%	
-%	
-%	\vfill
-%	\Head{Predict fracture nucleation time: Basquin law rescaling}
-%	\begin{tabu}{XX}
-%	\hspace{\TPHorizModule}\Subhead{Composition} rescaled by elastic modulus&
-%	\hspace{\TPHorizModule}\Subhead{Geometry} rescaled as a fracture nucleation rate
-%	\end{tabu}	
-%	
-%	\tikzsetnextfilename{basquin}
-%	\input{fig_poster_palavas/basquin.pgf}
-%	\begin{tabu}{X[5]XX[5]}
-%	Robust Basquin law despite glassy behaviour&&\textcolor{Accent1}{$\blacktriangleright$} Failure determined by network breaking \& fracture nucleation
-%	\end{tabu}
-%	
+\end{minipage}
+\hfill
+\begin{minipage}[t][3\TPVertModule]{3\TPHorizModule}
+	\Head{State points}
+\begin{tikzpicture}
+	\begin{axis}[%
+		width=\columnwidth-2em,
+		height=2\TPVertModule,
+		xlabel={$\phi$},
+		ylabel={$\beta p\sigma^3$},
+		xmin=0.45, xmax=0.59,
+		ytick={9,11,...,27},
+		]
+		\addplot+[Accent1,every mark/.append style={fill=Accent1}] file{figures/fig1/circles.dat};
+		\addplot+[Accent2, every mark/.append style={scale=0.8}, mark=square
+] file{figures/fig1/squares.dat};
+		\addplot[mark=diamond] coordinates {(0.5347,17) (0.5358, 17) (0.537528, 17)};
+		%\addplot[domain=0.45:0.59, dashed] {(1+x+x^2-x^3)/(1-x)^3};
+	\end{axis}
+	\end{tikzpicture}
+\end{minipage}
+\hfill
+\colorbox{lightgray}{\begin{minipage}[t][3\TPVertModule]{3\TPHorizModule}
+	\Head{Take home}
+
+\end{minipage}}
+
+\vfill
+\begin{minipage}[t][1\TPVertModule]{5.4\TPHorizModule}
+	\Head{Two-body order parameters}
+	\Subhead{Configurational entropy\hfill Pair free energy}
+\end{minipage}
+\hfill
+\begin{minipage}[t][1\TPVertModule]{9.25\TPHorizModule}
+	\Head{Many-body order parameters}
+\end{minipage}
+
+\begin{minipage}[t][17.5\TPVertModule]{15\TPHorizModule}
+	\hfill\begin{tikzpicture}
+		\begin{groupplot}[%
+		group style={
+			group name=dis,
+			group size=6 by 1,
+			horizontal sep=0.02\textwidth,
+			vertical sep = 4em,
+			y descriptions at=edge left,
+			},%
+		width=0.14\columnwidth,%
+		height=8\baselineskip,%
+		scale only axis,
+		axis on top,
+		ymax=2,
+		ymin=0,
+		extra y ticks={1}, extra y tick labels={}, extra tick style={grid=major},%
+		no markers,%
+		every axis plot post/.append style={Accent1, thick},
+		ylabel={Mobility},
+		ylabel absolute, every axis y label/.append style={anchor=base, yshift=1.5em},
+		]
+		\nextgroupplot[xlabel=$s_2$, xmin=-70,xmax=0,xtick={-70,-50,...,0}]
+		\addplot table[x index=0, y index=2]{s2_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$f_2$, xmin=0,xmax=25,xtick={0,5,...,20}]
+		\addplot table[x index=0, y index=2]{f2_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8,xtick={0,0.2,...,0.8}]
+		\addplot table[x index=0, y index=2]{q6_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$100w_6$, xmin=-5.2,xmax=1]
+		\addplot table[x expr=\thisrowno{0}*100, y index=2]{w6_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.6]
+		\addplot table[x index=0, y index=2]{Q6_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$C$, xmin=-6,xmax=12, xtick={-5,0,5,10}]
+		\addplot table[x index=0, y index=2]{C_distrib_mobility.txt};
+	\end{groupplot}
+	\end{tikzpicture}
+
+	\hfill\begin{tikzpicture}
+		\begin{groupplot}[%
+		group style={
+			group name=dis,
+			group size=6 by 1,
+			horizontal sep=0.02\textwidth,
+			vertical sep = 4em,
+			y descriptions at=edge left,
+			},%
+		width=0.14\columnwidth,%
+		height=8\baselineskip,%
+		scale only axis,
+		axis on top,
+		ymode=log,%
+		ymax=2e-1,
+		ymin=1e-6,
+		no markers,%
+		every axis plot post/.append style={Accent1, thick},
+		ylabel={Probability},
+		ylabel absolute, every axis y label/.append style={anchor=base, yshift=1.5em},
+		]
+		\nextgroupplot[xlabel=$s_2$, xmin=-70,xmax=0,xtick={-70,-50,...,0}]
+		\fill[gray!20] (axis cs:-70,1) rectangle (axis cs:-29.34,1e-7) node (s2) {};
+		\addplot file{s2_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$f_2$, xmin=0,xmax=25,xtick={0,5,...,20}]
+		\fill[gray!20] (axis cs:11.98,1e-7) rectangle (axis cs:25,1);
+		\addplot file{f2_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$q_6$, xmin=0,xmax=0.8,xtick={0,0.2,...,0.8}]
+		\fill[gray!20] (axis cs:0.495,1e-7) rectangle (axis cs:0.8,1);
+		\addplot file{q6_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$100w_6$, xmin=-5.2,xmax=1]
+		\fill[gray!20] (axis cs:-5.2,1e-7) rectangle (axis cs:-1.44,1);
+		\addplot table[x expr=\thisrowno{0}*100]{w6_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$Q_6$, xmin=0,xmax=0.6]
+		\fill[gray!20] (axis cs:0.234,1e-7) rectangle (axis cs:0.6,1);
+		\addplot file{Q6_distrib_mobility.txt};
+		
+		\nextgroupplot[xlabel=$C$, xmin=-6,xmax=12, xtick={-5,0,5,10}]
+		\fill[gray!20] (axis cs:5.11,1e-7) rectangle (axis cs:12,1);
+		\addplot file{C_distrib_mobility.txt};
+	\end{groupplot}
+	\end{tikzpicture}
+
+
+
+	\hfill\begin{tabu} to 0.94\textwidth {XXXXXX@{}}
+	\includegraphics[width=0.14\columnwidth]{s2_slice_3D} &
+	\includegraphics[width=0.14\columnwidth]{f2_slice_3D} &
+	\includegraphics[width=0.14\columnwidth]{q6_slice_3D} &
+	\includegraphics[width=0.14\columnwidth]{w6_slice_3D} &
+	\includegraphics[width=0.14\columnwidth]{Q6_slice_3D} &
+	\includegraphics[width=0.14\columnwidth]{C_slice_3D}\\
+	\end{tabu}
 \end{minipage}
 %\hfill
 %\begin{minipage}[b][21.5\TPVertModule]{3\TPHorizModule}
