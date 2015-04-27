@@ -4,6 +4,8 @@
 % lots of graphics, because they can take some time to process and
 % display. (\documentclass[a0,draft]{a0poster})
 
+\usepackage[margin=40mm]{geometry}
+
 %\usepackage[utf8]{inputenc}
 
 % Switch off page numbers on a poster, obviously, and section numbers too.
@@ -27,7 +29,7 @@
 
 \usepackage{hyperref}
 \hypersetup{%
-	pdftitle={Wrinkling and nested buckling in a confined protein gel},%the title
+	pdftitle={Importance of many-body correlations in glass transition: an example from polydisperse hard spheres},%the title
 	pdfauthor={Mathieu Leocmach},%your name
 	hidelinks=true,
 }
@@ -38,6 +40,7 @@
 
 \usepackage{siunitx}
 
+\usepackage{tabu}
 \usepackage{multirow}
 
 % Allow the usage of graphics (.jpg, .png, etc.) in the document
@@ -53,8 +56,12 @@
 \pgfplotsset{every axis/.append style={xlabel near ticks,ylabel near ticks,mark size={0.2em}}}
 \pgfplotsset{every axis plot post/.append style={very thick}}
 
+
 \usepackage{ragged2e}
 \RaggedRight
+
+\usepackage{framed}
+\colorlet{shadecolor}{lightgray!50!white}
 
 \definecolor{Main}{rgb}{1, 0.57, 0}
 \definecolor{Accent1}{rgb}{1,0.28,0}
@@ -106,9 +113,9 @@
 \newlength{\mylength}
 
 %\includeonly{}
-\usepackage[active,pdftex,tightpage]{preview}
-\PreviewEnvironment[]{tikzpicture}
-\PreviewEnvironment[]{pgfpicture}
+%\usepackage[active,tightpage]{preview}
+%\PreviewEnvironment[]{tikzpicture}
+%\PreviewEnvironment[]{pgfpicture}
 \begin{document}
 \pgfplotscreateplotcyclelist{earthy}{%
 red!40!black,
@@ -140,7 +147,8 @@ red!40!yellow,
 % This gives good title positioning for a portrait poster.
 % Watch out for hyphenation in titles - LaTeX will do it
 % but it looks awful.
-%\begin{textblock}{15}(0,0)
+
+
 \begin{center}
 \Title{
 IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from polydisperse hard spheres}
@@ -164,10 +172,7 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 
 
 
-%\end{textblock}
-
 <>
-
 
 
 \end{document}
