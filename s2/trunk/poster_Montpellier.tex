@@ -218,16 +218,25 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 \end{minipage}}
 
 \vfill
-\begin{minipage}[t][1\TPVertModule]{5.4\TPHorizModule}
+\begin{minipage}[t][4\TPVertModule]{5.4\TPHorizModule}
 	\Head{Two-body order parameters}
-	\Subhead{Configurational entropy\hfill Pair free energy}
+	\Subhead{Two-body excess entropy}
+	\[
+		s_2(i) = -\frac{\rho k_B}{2}\sum_j \left[g(r_{ij})\log(g(r_{ij}))-g(r_{ij})+1\right]
+	\]
+	\Subhead{Pair free energy}
+	\[
+		f_2=\sum_i f_2(i)=-k_BT\sum_i \log(v(i)/\lambda),
+	\]
+	Free volume $v(i)$ by shifting the faces of the Voronoi polyhedron by $\sigma(i)/2$. 
+	$\lambda$ is the thermal de Broglie wavelength. \textit{\footnotesize Aste \& Coniglio, EPL (2004)}
 \end{minipage}
 \hfill
 \begin{minipage}[t][1\TPVertModule]{9.25\TPHorizModule}
 	\Head{Many-body order parameters}
 \end{minipage}
 
-\begin{minipage}[t][17.5\TPVertModule]{15\TPHorizModule}
+\begin{minipage}[t][12.5\TPVertModule]{15\TPHorizModule}
 	\hfill\begin{tikzpicture}
 		\begin{groupplot}[%
 		group style={
