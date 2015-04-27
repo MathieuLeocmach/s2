@@ -232,8 +232,22 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 	$\lambda$ is the thermal de Broglie wavelength. \textit{\footnotesize Aste \& Coniglio, EPL (2004)}
 \end{minipage}
 \hfill
-\begin{minipage}[t][1\TPVertModule]{9.25\TPHorizModule}
+\begin{minipage}[t][4\TPVertModule]{9.25\TPHorizModule}
 	\Head{Many-body order parameters}
+	Steinhardt (1984) bond orientational order from spherical harmonics $Y_{\ell m}$:\hfill
+$\displaystyle q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mathbf{\hat{r}_{ij}})$
+	
+	\Subhead{6-fold symmetry} \hfill $\displaystyle q_6 = \sqrt{\frac{4\pi}{13} \sum_{m=-6}^{6} |q_{6 m}|^2 }$ \hfill 
+	\Subhead{Icosahedral symmetry} \hfill $\displaystyle w_6 = \sum_{m_1+m_2+m_3=0} 
+			\left( \begin{array}{ccc}
+				6 & 6 & 6 \\
+				m_1 & m_2 & m_3 
+			\end{array} \right)
+			q_{6 m_1} q_{6 m_2} q_{6 m_3}$
+
+	\Subhead{6-fold symmetry of the second shell} \hfill $q_{6m}\xrightarrow{\text{coarse-grain}} Q_{6m}  \rightarrow Q_6(i)$. \textit{\footnotesize Lechner \& Dellago J. Chem. Phys. (2008)}
+
+	\Subhead{Crystallinity} \hfill $\displaystyle \text{C}(i)=\sum_{j=0}^{N_b(i)}\frac{\mathbf{q}_6(i)\cdot\mathbf{q}_6(j)}{|\mathbf{q}_6(i)|\,|\mathbf{q}_6(j)|}.$ \hfill $Q_6$ and $C$ are specifically sensitive to crystal-like order.
 \end{minipage}
 
 \begin{minipage}[t][12.5\TPVertModule]{15\TPHorizModule}
@@ -325,7 +339,7 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 	\end{groupplot}
 	\end{tikzpicture}
 
-
+	\Head{Spatial correlation of the 50\% ``More ordered'' particles}
 
 	\hfill\begin{tabu} to 0.94\textwidth {XXXXXX@{}}
 	\includegraphics[width=0.14\columnwidth]{s2_slice_3D} &
