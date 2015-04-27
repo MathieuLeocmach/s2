@@ -57,7 +57,7 @@
 \pgfplotsset{every axis plot post/.append style={very thick}}
 
 \usepgfplotslibrary{external}
-\tikzexternalize
+%\tikzexternalize
 \tikzsetexternalprefix{fig_poster_palavas/}
 \tikzset{external/system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"}}
 
@@ -176,8 +176,18 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 
 
 \vfill
-%\begin{minipage}[b][21.5\TPVertModule]{11\TPHorizModule}
-%	\Head{Over-acidified protein gels: beyond isoelectric pH}
+\begin{minipage}[t][21.5\TPVertModule]{11\TPHorizModule}
+	\Head{Structure behind dynamic heterogeneities?}
+	\begin{tikzpicture}
+		\begin{scope}[every node/.style={rectangle split},every text node part/.style={font=\normalsize\sffamily\scshape,Accent1}]
+			\node (dyn) {Dynamics\nodepart{two}heterogeneities\nodepart{three}arrest};
+			\node[anchor=base east] (twobody) at ($(dyn.base west) + (\textwidth,0)$) {Two-body\nodepart{two}$g(r), S(q)$};
+			\node[anchor=base] (struct) at ($(dyn.base east)!0.5!(twobody.base west)$){Many-body\nodepart{two} crystal-like\nodepart{three}icosahedral};
+		\end{scope}
+		
+		\draw[->, dashed, thick] (twobody) -- (struct.east|-twobody) node[midway, above] {?};
+		\draw[->, thick] (struct) -- (dyn.east|-struct)  node[midway, above, font=\footnotesize\itshape] {Tanaka 2010} node[midway, below, font=\footnotesize\itshape] {Leocmach 2012};
+	\end{tikzpicture}
 %	
 %	Milk protein solution (4\%w sodium caseinate) acidified by the slow hydrolysis of glucono-$\delta$-lactone (\textsc{gdl})\\ \textit{Bremer et al., Colloids Surf. (1990); van Vliet \& Walstra, Faraday Discuss. (1995); Lucey \& Singh, Food Res. Int. (1997); Leocmach et al. PRL (2014)}
 %	
@@ -239,7 +249,7 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 %	Robust Basquin law despite glassy behaviour&&\textcolor{Accent1}{$\blacktriangleright$} Failure determined by network breaking \& fracture nucleation
 %	\end{tabu}
 %	
-%\end{minipage}
+\end{minipage}
 %\hfill
 %\begin{minipage}[b][21.5\TPVertModule]{3\TPHorizModule}
 %\begin{shaded*}
