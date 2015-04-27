@@ -189,6 +189,7 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 		\draw[->, thick] (struct) -- (dyn)  node[midway, above, font=\footnotesize\itshape] {Tanaka 2010} node[midway, below, font=\footnotesize\itshape] {Leocmach 2012};
 		\draw[->, thick] (twobody.base west) ..controls ($(struct.north)+(0,2\baselineskip)$) .. (dyn.base east)  node[midway, above] {MCT, RFTO}; 
 	\end{tikzpicture}
+	Monte Carlo simulations, N=4000, polydisperse hard spheres
 \end{minipage}
 \hfill
 \begin{minipage}[t][3\TPVertModule]{3\TPHorizModule}
@@ -199,13 +200,13 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 		height=2\TPVertModule,
 		xlabel={$\phi$},
 		ylabel={$\beta p\sigma^3$},
-		xmin=0.45, xmax=0.59,
+		xmin=0.45, xmax=0.59, xtick={0.46, 0.49, ..., 0.59},
 		ytick={9,11,...,27},
 		]
-		\addplot+[Accent1,every mark/.append style={fill=Accent1}] file{figures/fig1/circles.dat};
+		\addplot+[Accent1,every mark/.append style={fill=Accent1}] file{figures/fig1/circles.dat} node[pos=0, right=1em] {$\Delta=7\%$};
 		\addplot+[Accent2, every mark/.append style={scale=0.8}, mark=square
-] file{figures/fig1/squares.dat};
-		\addplot[mark=diamond] coordinates {(0.5347,17) (0.5358, 17) (0.537528, 17)};
+] file{figures/fig1/squares.dat} node[pos=0, left] {$\Delta\nearrow 15\%$};
+		\addplot[mark=diamond] coordinates {(0.5347,17) (0.5358, 17) (0.537528, 17)} node[pos=0, left] {$\Delta\searrow 0\%$};;
 		%\addplot[domain=0.45:0.59, dashed] {(1+x+x^2-x^3)/(1-x)^3};
 	\end{axis}
 	\end{tikzpicture}
