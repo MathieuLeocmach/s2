@@ -179,14 +179,15 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 \begin{minipage}[t][21.5\TPVertModule]{11\TPHorizModule}
 	\Head{Structure behind dynamic heterogeneities?}
 	\begin{tikzpicture}
-		\begin{scope}[every node/.style={rectangle split},every text node part/.style={font=\normalsize\sffamily\scshape,Accent1}]
+		\begin{scope}[every node/.style={rectangle split},every text node part/.style={font=\large\sffamily\scshape,Accent1}]
 			\node (dyn) {Dynamics\nodepart{two}heterogeneities\nodepart{three}arrest};
 			\node[anchor=base east] (twobody) at ($(dyn.base west) + (\textwidth,0)$) {Two-body\nodepart{two}$g(r), S(q)$};
-			\node[anchor=base] (struct) at ($(dyn.base east)!0.5!(twobody.base west)$){Many-body\nodepart{two} crystal-like\nodepart{three}icosahedral};
+			\node[anchor=north] (struct) at ($(dyn.base east)!0.5!(twobody.base west)$){Many-body\nodepart{two} crystal-like\nodepart{three}icosahedral};
 		\end{scope}
 		
-		\draw[->, dashed, thick] (twobody) -- (struct.east|-twobody) node[midway, above] {?};
-		\draw[->, thick] (struct) -- (dyn.east|-struct)  node[midway, above, font=\footnotesize\itshape] {Tanaka 2010} node[midway, below, font=\footnotesize\itshape] {Leocmach 2012};
+		\draw[->, dashed, thick] (twobody) -- (struct) node[midway, above] {?};
+		\draw[->, thick] (struct) -- (dyn)  node[midway, above, font=\footnotesize\itshape] {Tanaka 2010} node[midway, below, font=\footnotesize\itshape] {Leocmach 2012};
+		\draw[->, thick] (twobody.base west) ..controls ($(struct.north)+(0,\baselineskip)$) .. (dyn.base east)  node[midway, above] {MCT, RFTO}; 
 	\end{tikzpicture}
 %	
 %	Milk protein solution (4\%w sodium caseinate) acidified by the slow hydrolysis of glucono-$\delta$-lactone (\textsc{gdl})\\ \textit{Bremer et al., Colloids Surf. (1990); van Vliet \& Walstra, Faraday Discuss. (1995); Lucey \& Singh, Food Res. Int. (1997); Leocmach et al. PRL (2014)}
