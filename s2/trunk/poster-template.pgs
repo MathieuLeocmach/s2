@@ -20,7 +20,7 @@
 %\usepackage[oldstylenums, largesmallcaps]{kpfonts}
 %\setmainfont[Numbers=OldStyle]{Tex Gyre Pagella}
 \setmainfont{Tex Gyre Pagella}
-\setsansfont[BoldFont=infini_bold,ItalicFont=infini_ital]{infini_romain}
+\setsansfont[BoldFont=infini_bold,ItalicFont=infini_ital,Ligatures=TeX]{infini_romain}
 %\setsansfont[BoldFont=Lovelo-LineBold]{Lovelo-LineBold}
 %\setsansfont{Choplin-Medium-DEMO}
 %\setsansfont{RobotoSlab-Bold}
