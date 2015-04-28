@@ -171,7 +171,7 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 %	\includegraphics[height=2\baselineskip]{CRPP}\;
 %	\includegraphics[height=2\baselineskip]{logo_ens-lyon}
 %}
-}\\
+}\hfill\textit{J. Chem. Phys. 138, 12A536 (2013)}\\
 
 
 
@@ -189,7 +189,7 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 		\draw[->, thick] (struct) -- (dyn)  node[midway, above, font=\footnotesize\itshape] {Tanaka 2010} node[midway, below, font=\footnotesize\itshape] {Leocmach 2012};
 		\draw[->, thick] (twobody.base west) ..controls ($(struct.north)+(0,2\baselineskip)$) .. (dyn.base east)  node[midway, above] {MCT, RFTO}; 
 	\end{tikzpicture}
-	Monte Carlo simulations, N=4000, polydisperse hard spheres
+	Monte Carlo simulations, N=4000 hard spheres of polydispersity $\Delta$
 \end{minipage}
 \hfill
 \begin{minipage}[t][3\TPVertModule]{3\TPHorizModule}
@@ -198,8 +198,8 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 	\begin{axis}[%
 		width=\columnwidth-2em,
 		height=2\TPVertModule,
-		xlabel={$\phi$},
-		ylabel={$\beta p\sigma^3$},
+		xlabel={Volume fraction $\phi$},
+		ylabel={Pressure $\beta p\sigma^3$},
 		xmin=0.45, xmax=0.59, xtick={0.46, 0.49, ..., 0.59},
 		ytick={9,11,...,27},
 		]
@@ -245,6 +245,7 @@ IMPORTANCE of MANY-BODY CORRELATIONS in GLASS TRANSITION: {\Huge an example from
 	\]
 	Free volume $v(i)$ by shifting the faces of the Voronoi polyhedron by $\sigma(i)/2$. 
 	$\lambda$ is the thermal de Broglie wavelength. \textit{\footnotesize Aste \& Coniglio, EPL (2004)}
+	\textcolor{Main}{\hrule}
 \end{minipage}
 \hfill
 \begin{minipage}[t][3.5\TPVertModule]{9.25\TPHorizModule}
@@ -266,6 +267,7 @@ $\displaystyle q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mat
 
 	\vfill
 	\Subhead{Crystallinity} \hfill $\displaystyle \text{C}(i)=\sum_{j=0}^{N_b(i)}\frac{\mathbf{q}_6(i)\cdot\mathbf{q}_6(j)}{|\mathbf{q}_6(i)|\,|\mathbf{q}_6(j)|}.$ \hfill $Q_6$ and C are specifically sensitive to crystal-like order.
+	\textcolor{Main}{\hrule}
 \end{minipage}
 
 \vfill
@@ -363,18 +365,16 @@ $\displaystyle q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mat
 		\fill[gray!20] (axis cs:5.11,1e-7) rectangle (axis cs:12,1);
 		\addplot file{C_distrib_mobility.txt};
 	\end{groupplot}
+	\node[below left=0 of dis c6r1.outer south east, inner xsep=0, text width=\textwidth] (tenper){\Head{Spatial correlation of the 10\% ``most ordered'' particles}};
+	\begin{scope}[every node/.style={inner sep=1pt, draw=gray!20, thick, anchor=north west}]
+		\node at (dis c1r1.south west|-tenper.south) {\includegraphics[width=0.14\columnwidth]{s2_slice_3D}};
+		\node at (dis c2r1.south west|-tenper.south) {\includegraphics[width=0.14\columnwidth]{f2_slice_3D}};
+		\node at (dis c3r1.south west|-tenper.south) {\includegraphics[width=0.14\columnwidth]{q6_slice_3D}};
+		\node at (dis c4r1.south west|-tenper.south) {\includegraphics[width=0.14\columnwidth]{w6_slice_3D}};
+		\node at (dis c5r1.south west|-tenper.south) {\includegraphics[width=0.14\columnwidth]{Q6_slice_3D}};
+		\node at (dis c6r1.south west|-tenper.south) {\includegraphics[width=0.14\columnwidth]{C_slice_3D}};
+	\end{scope}
 	\end{tikzpicture}
-
-\Head{Spatial correlation of the 10\% ``most ordered'' particles}
-
-	\hfill\begin{tabu} to 0.94\textwidth {XXXXXX@{}}
-	\includegraphics[width=0.14\columnwidth]{s2_slice_3D} &
-	\includegraphics[width=0.14\columnwidth]{f2_slice_3D} &
-	\includegraphics[width=0.14\columnwidth]{q6_slice_3D} &
-	\includegraphics[width=0.14\columnwidth]{w6_slice_3D} &
-	\includegraphics[width=0.14\columnwidth]{Q6_slice_3D} &
-	\includegraphics[width=0.14\columnwidth]{C_slice_3D}\\
-	\end{tabu}
 %\end{minipage}
 
 \begin{minipage}[b][5\TPVertModule]{7\TPHorizModule}
