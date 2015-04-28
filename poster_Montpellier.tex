@@ -364,7 +364,7 @@ $\displaystyle q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mat
 	\end{tabu}
 %\end{minipage}
 
-\begin{minipage}[t][4\TPVertModule]{7\TPHorizModule}
+\begin{minipage}[b][5\TPVertModule]{7\TPHorizModule}
 \begin{tikzpicture}
 	\pgfplotsset{fitc/.style={solid, no markers, forget plot, domain=0.05:5}}
 	\begin{groupplot}[%
@@ -470,6 +470,71 @@ $\displaystyle q_{\ell m}(i)=\frac{1}{N_b(i)}\sum_{j=1}^{N_b(i)} Y_{\ell m}(\mat
 	\end{axis}
 	\node[above right=0 of Sq c1r1.outer north west, inner xsep=0] (SqHead){\Subhead{Structure factors}};
 	\node[anchor=base west, inner xsep=0] at (SqHead.base -| len.outer west){\Subhead{Correlation lengths}};
+	\end{tikzpicture}
+\end{minipage}
+\hspace{\TPHorizModule}
+\begin{minipage}[b][5\TPVertModule]{7\TPHorizModule}
+\Head{No correlation between two-body and many-body}
+\begin{tikzpicture}[
+		lab/.append style={below right}%,
+		]%
+		\pgfplotsset{
+			extra tick style={grid=major, major grid style={
+				copy shadow={very thick, shadow xshift=0, shadow yshift=0, white, semitransparent}, 
+				black}},%
+		}
+		\begin{groupplot}[
+			group style={
+				group name=X,
+				group size=2 by 1,%
+				horizontal sep=4em,
+				y descriptions at=edge left,
+				},%
+			width=3\TPHorizModule-2em,%
+			height=3\TPHorizModule-2em,
+			ylabel=$f_2$,%
+			ymin=0,ymax=25, ytick={0,5,...,25},%
+			enlargelimits=false,axis on top,
+			xlabel near ticks,
+			ylabel near ticks,
+			]
+		\nextgroupplot[%
+			xlabel=$Q_6$,%
+			xmin=0,xmax=0.6, xtick={0,0.2,...,0.6},%
+			]
+			\addplot graphics
+				[xmin=0,xmax=0.6,ymin=0,ymax=25]
+				{f2_Q6_hist.png};
+		
+		\nextgroupplot[%
+			xlabel=$100w_6$,%
+			xmin=-5.2,xmax=1, xtick={-5,-4,...,1},%
+			]
+			\addplot graphics
+				[xmin=-5.2,xmax=5.2,ymin=0,ymax=25]
+				{f2_w6_hist.png};		
+		\end{groupplot}
+		\path (X c1r1.north east) -- (X c2r1.north west) node[midway] (T) {};
+		\node[single arrow, draw, rotate=90] at ($(X c1r1)!0.5!(X c2r1)$) {low free volume};
+		\node[above=of X c1r1, single arrow, draw, anchor=base] {crystal-like order};
+		\node[above=of X c2r1, single arrow, draw, shape border rotate=180, anchor=base] {icosahedral order};
+		
+%		%%color scales by hand
+		\matrix (l1) [matrix anchor=east, matrix of nodes, minimum width=1em, minimum height=2em, inner sep=0, draw=black, xshift=-1em] at (X c1r1.left of west)
+		{
+			|[fill=black]| \\ 
+			|[fill=black!80!white]| \\
+			|[fill=black!60!white]| \\
+			|[fill=black!40!white]| \\
+			|[fill=black!20!white]| \\
+			|[fill=white]| \\
+		};
+		\node[left, at=(l1-1-1.south west)] {$10^5$};
+		\node[left, at=(l1-2-1.south west)] {$10^4$};
+		\node[left, at=(l1-3-1.south west)] {$10^3$};
+		\node[left, at=(l1-4-1.south west)] {$10^2$};
+		\node[left, at=(l1-5-1.south west)] {$10^1$};
+		\node[above, at=(l1-1-1.north)] {probability};
 	\end{tikzpicture}
 \end{minipage}
 %\hfill
